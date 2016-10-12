@@ -3,15 +3,17 @@ import AVFoundation
 
 //録音できたものを次の画面に移す　録音中にマイクの音を拾って波をつける
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,AVAudioRecorderDelegate {
     
     
     let fileManager = NSFileManager()//録音もできないしそれを再生もできない
     var audioRecorder: AVAudioRecorder!
     let fileName = "sample.caf"
     var timer: NSTimer!
+    var timeCountTimer: NSTimer!
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
+    var timeCount = 1
     
     
     
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nami2: UIProgressView!
     @IBOutlet weak var nami3: UIProgressView!
     @IBOutlet weak var byou: UILabel!
-    @IBOutlet weak var byou2: UILabel!
+ 
     
     
     
@@ -33,10 +35,15 @@ class ViewController: UIViewController {
     
     //カウントダウンしてレコード開始しボタンのUIも変更 //countでif文で処理ればいいかも
     @IBAction func recordStart(sender: UIButton) {
+        if count == 1{
         recordImage!.enabled = false
         let image:UIImage! = UIImage(named: photos[0])
         imageView.image = image
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
+        }else if count == 5{
+            self.timeCountTimer.invalidate()
+            audioRecorder.stop()
+    }
         
     }
     
@@ -45,7 +52,6 @@ class ViewController: UIViewController {
         
         var image:UIImage! = UIImage(named: photos[1])
         if count == 1{
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             imageView.image = image;
             count += 1
         }else if count == 2{
@@ -65,6 +71,8 @@ class ViewController: UIViewController {
             imageView.image = image
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
+            self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             audioRecorder.meteringEnabled = true
             sender.invalidate()
             recordImage!.setImage(UIImage(named: "Kiki11"), forState: UIControlState.Normal)
@@ -111,26 +119,26 @@ class ViewController: UIViewController {
         nami1.progress = atai
         nami2.progress = atai
         nami3.progress = atai
-        let userTimer = 6
-        var count = userTimer * 60
-        if  count >= 60 {
-            let minuteCount = count / 60
-            byou.text = String(minuteCount)
-            byou2.text = "分"
-            count += 1
+    }
+    
+    func recordLimits(){
+        let minuteCount = timeCount / 60
+        let secondCount = timeCount % 60
+        if secondCount <= 9 {
+        byou.text = String(format: "%d:0%d", minuteCount, secondCount)
+        }else if secondCount >= 10 {
+        byou.text = String(format: "%d:%d", minuteCount, secondCount)
         }
-            else if count < 60{
-            byou.text = String(count)
-            byou2.text = "秒"
-            if count == 360{
+        if timeCount == 360{
             audioRecorder.stop()
-                
+        }else{
+            timeCount += 1
         }
     }
 
-        
+    
   }
-}
+
 
 
 
