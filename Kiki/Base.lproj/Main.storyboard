@@ -17,24 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2836" translatesAutoresizingMaskIntoConstraints="NO" id="LJH-Ns-bn6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun_Studios_Memphis" translatesAutoresizingMaskIntoConstraints="NO" id="2Ed-Ph-wf2">
+                                <rect key="frame" x="0.0" y="49" width="375" height="531"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5w4-B8-mMo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBJ-16-cwb">
                                 <rect key="frame" x="-8" y="579" width="383" height="88"/>
                                 <subviews>
+                                    <progressView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ieW-3C-xPd">
+                                        <rect key="frame" x="113" y="33" width="262" height="2"/>
+                                        <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-uR-7ti">
+                                        <rect key="frame" x="113" y="43" width="262" height="2"/>
+                                        <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-Wh-ykg">
+                                        <rect key="frame" x="113" y="53" width="262" height="2"/>
+                                        <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5H-rz-lF5">
-                                        <rect key="frame" x="21" y="3" width="79" height="85"/>
+                                        <rect key="frame" x="17" y="5" width="79" height="77"/>
                                         <state key="normal" title="Button" image="kiki"/>
                                         <connections>
                                             <action selector="recordStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VtQ-eH-abY"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.13463559250000001" green="0.36426292539999999" blue="0.1059140024" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-kF-0cf">
-                                <rect key="frame" x="0.0" y="50" width="375" height="531"/>
+                                <rect key="frame" x="0.0" y="49" width="375" height="531"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -52,7 +68,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_2836" width="750" height="1334"/>
+        <image name="Sun_Studios_Memphis" width="638" height="850"/>
         <image name="kiki" width="181" height="177"/>
     </resources>
 </document>

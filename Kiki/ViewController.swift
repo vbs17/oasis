@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     var audioRecorder: AVAudioRecorder!
     let fileName = "sample.caf"
     var timer: NSTimer!
-    let photos = ["Kiki10", "Kiki7", "Kiki8","IMG_1718"]
+    let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     
     
@@ -26,7 +26,9 @@ class ViewController: UIViewController {
     
     //カウントダウンしてレコード開始しボタンのUIも変更
     @IBAction func recordStart(sender: UIButton) {
-        sender.setImage(UIImage(named: "Kiki11"), forState: UIControlState.Normal)
+        recordImage!.enabled = false
+        let image:UIImage! = UIImage(named: photos[0])
+        imageView.image = image
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
         
     }
@@ -34,28 +36,33 @@ class ViewController: UIViewController {
     
     func nextPage (sender:NSTimer){
         
-        var image:UIImage! = UIImage(named: photos[0])
+        var image:UIImage! = UIImage(named: photos[1])
         if count == 1{
             imageView.image = image;
             count += 1
-            
         }else if count == 2{
-            image = UIImage(named: photos[1])
-            imageView.image = image
-            count += 1
-            
-            
-        }else if count == 3{
             image = UIImage(named: photos[2])
             imageView.image = image
             count += 1
-        }else if count == 4{
+        }else if count == 3{
             image = UIImage(named: photos[3])
+            imageView.image = image
+            count += 1
+        }else if count == 4{
+            image = UIImage(named: photos[4])
+            imageView.image = image
+            count += 1
+        }else if count == 5{
+            image = UIImage(named: photos[5])
             imageView.image = image
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
+            audioRecorder.meteringEnabled = true
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             sender.invalidate()
-            
+            recordImage!.setImage(UIImage(named: "Kiki11"), forState: UIControlState.Normal)
+            recordImage!.enabled = true
+
         }
         
     }
@@ -76,6 +83,8 @@ class ViewController: UIViewController {
         } catch {
             print("初期設定でerror")
         }
+    }
+    
     
     
     // 録音するファイルのパスを取得(録音時、再生時に参照)
@@ -89,20 +98,6 @@ class ViewController: UIViewController {
         
         
     
-    var error: NSError?
-    
-    if let e = error {
-        print(e.localizedDescription)
-    } else {
-    audioRecorder.prepareToRecord()
-    audioRecorder.meteringEnabled = true
-    audioRecorder.record()
-    self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
-    
-    }
-    
-}
-    
     
 
 //これが、タイマー処理//このaveragePowerForChannel(0)やaveragePowerForChannel(0)が、録音中の音量レベルです。これを取得してグラフ表示すればいい
@@ -114,9 +109,8 @@ func levelTimerCallback() {
         print(audioRecorder.averagePowerForChannel(0))
         print("Do the thing I want, mofo")
     }
- }
-
-
-
+   }
 }
+
+
 
