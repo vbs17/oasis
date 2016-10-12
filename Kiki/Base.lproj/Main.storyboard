@@ -27,15 +27,15 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBJ-16-cwb">
                                 <rect key="frame" x="-8" y="579" width="383" height="88"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ieW-3C-xPd">
+                                    <progressView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieW-3C-xPd">
                                         <rect key="frame" x="113" y="33" width="262" height="2"/>
                                         <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-uR-7ti">
+                                    <progressView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-uR-7ti">
                                         <rect key="frame" x="113" y="43" width="262" height="2"/>
                                         <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-Wh-ykg">
+                                    <progressView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-Wh-ykg">
                                         <rect key="frame" x="113" y="53" width="262" height="2"/>
                                         <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
@@ -67,7 +67,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324.5" y="400.5"/>
+            <point key="canvasLocation" x="97.5" y="383.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rJ7-YK-V8d">
+            <objects>
+                <viewController id="ybh-Ee-9Y7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="78x-p9-gkU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ww3-Q4-MiM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gaf-G7-Q9a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hX-6Q-Zck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570.5" y="383.5"/>
         </scene>
     </scenes>
     <resources>

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.setupAudioRecorder()
     }
     
-    //カウントダウンしてレコード開始しボタンのUIも変更
+    //カウントダウンしてレコード開始しボタンのUIも変更 //countでif文で処理ればいいかも
     @IBAction func recordStart(sender: UIButton) {
         recordImage!.enabled = false
         let image:UIImage! = UIImage(named: photos[0])
@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         
         var image:UIImage! = UIImage(named: photos[1])
         if count == 1{
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             imageView.image = image;
             count += 1
         }else if count == 2{
@@ -63,7 +64,6 @@ class ViewController: UIViewController {
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
             audioRecorder.meteringEnabled = true
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             sender.invalidate()
             recordImage!.setImage(UIImage(named: "Kiki11"), forState: UIControlState.Normal)
             recordImage!.enabled = true
@@ -101,18 +101,17 @@ class ViewController: UIViewController {
         return dirURL.URLByAppendingPathComponent(fileName)
     }          //その指定したディレクトリにurlを置いて完
         
+    
     func levelTimerCallback() {
-    //オーディオ レコーダーのすべてのチャネルの平均およびピーク電力値を更新します。
-    //オーディオ電源の現在の値を得るためには、averagePowerForChannel を呼び出す前にこのメソッドを呼び出す必要があります
-    audioRecorder.updateMeters()
-    //このaveragePowerForChannel(0)が、録音中の音量レベルです。これを取得してグラフ表示すればいい
-    if audioRecorder.averagePowerForChannel(0) > -7 {
-        print("Dis be da level I'm hearin' you in dat mic ")
-        print(audioRecorder.averagePowerForChannel(0))
-        print("Do the thing I want, mofo")
+        audioRecorder.updateMeters()
+        let dB = audioRecorder.averagePowerForChannel(0)
+        let atai = (dB + 160) / 160
+        nami1.progress = atai
+        nami2.progress = atai
+        nami3.progress = atai
     }
    }
-}
+
 
 
 
