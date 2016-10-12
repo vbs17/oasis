@@ -58,6 +58,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="imageView" destination="4FA-kF-0cf" id="Ux0-yy-eHL"/>
+                        <outlet property="nami1" destination="ieW-3C-xPd" id="kWN-l5-zQF"/>
+                        <outlet property="nami2" destination="PKO-uR-7ti" id="7c7-96-q6I"/>
+                        <outlet property="nami3" destination="4rw-Wh-ykg" id="Icn-zW-pXi"/>
                         <outlet property="recordImage" destination="a5H-rz-lF5" id="rdW-v8-OgR"/>
                         <outlet property="viewImage" destination="YBJ-16-cwb" id="ab6-rC-T9P"/>
                     </connections>

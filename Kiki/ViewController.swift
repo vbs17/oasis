@@ -18,6 +18,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var viewImage: UIView!
     @IBOutlet weak var recordImage: UIButton?
+    @IBOutlet weak var nami1: UIProgressView!
+    @IBOutlet weak var nami2: UIProgressView!
+    @IBOutlet weak var nami3: UIProgressView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,14 +101,11 @@ class ViewController: UIViewController {
         return dirURL.URLByAppendingPathComponent(fileName)
     }          //その指定したディレクトリにurlを置いて完
         
-        
-    
-    
-
-//これが、タイマー処理//このaveragePowerForChannel(0)やaveragePowerForChannel(0)が、録音中の音量レベルです。これを取得してグラフ表示すればいい
-
-func levelTimerCallback() {
+    func levelTimerCallback() {
+    //オーディオ レコーダーのすべてのチャネルの平均およびピーク電力値を更新します。
+    //オーディオ電源の現在の値を得るためには、averagePowerForChannel を呼び出す前にこのメソッドを呼び出す必要があります
     audioRecorder.updateMeters()
+    //このaveragePowerForChannel(0)が、録音中の音量レベルです。これを取得してグラフ表示すればいい
     if audioRecorder.averagePowerForChannel(0) > -7 {
         print("Dis be da level I'm hearin' you in dat mic ")
         print(audioRecorder.averagePowerForChannel(0))
