@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var nami1: UIProgressView!
     @IBOutlet weak var nami2: UIProgressView!
     @IBOutlet weak var nami3: UIProgressView!
+    @IBOutlet weak var byou: UILabel!
+    @IBOutlet weak var byou2: UILabel!
     
     
     
@@ -105,12 +107,30 @@ class ViewController: UIViewController {
     func levelTimerCallback() {
         audioRecorder.updateMeters()
         let dB = audioRecorder.averagePowerForChannel(0)
-        let atai = (dB + 160) / 160
+        let atai = max(0, (dB + 77)) / 77
         nami1.progress = atai
         nami2.progress = atai
         nami3.progress = atai
+        let userTimer = 6
+        var count = userTimer * 60
+        if  count >= 60 {
+            let minuteCount = count / 60
+            byou.text = String(minuteCount)
+            byou2.text = "分"
+            count += 1
+        }
+            else if count < 60{
+            byou.text = String(count)
+            byou2.text = "秒"
+            if count == 360{
+            audioRecorder.stop()
+                
+        }
     }
-   }
+
+        
+  }
+}
 
 
 
