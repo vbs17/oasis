@@ -130,6 +130,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         byou.text = String(format: "%d:%d", minuteCount, secondCount)
         }
         if timeCount == 360{
+            self.timeCountTimer.invalidate()
             audioRecorder.stop()
         }else{
             timeCount += 1
