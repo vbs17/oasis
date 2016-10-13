@@ -56,8 +56,12 @@
                                 <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun_Studios_Memphis" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-kF-0cf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
+                                <rect key="frame" x="0.0" y="49" width="375" height="531"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esp-HA-0w9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -101,18 +105,8 @@
                                     <action selector="goPause:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="MFY-Kl-oXr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-FM-yzm">
-                                <rect key="frame" x="45" y="67" width="67" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="BACK">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="6o5-v8-5X6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj2-VD-ta4">
-                                <rect key="frame" x="118" y="110" width="139" height="53"/>
+                                <rect key="frame" x="69" y="110" width="244" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -153,14 +147,23 @@
                                     <action selector="goPlay:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="UZf-R5-OEu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsh-4F-OQR">
+                                <rect key="frame" x="51" y="67" width="76" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="5QJ-Na-Bc9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="back" destination="Qlv-FM-yzm" id="J4M-5I-Bdg"/>
+                        <outlet property="back" destination="hsh-4F-OQR" id="K8m-SK-QOx"/>
                         <outlet property="byou" destination="hj2-VD-ta4" id="mDO-SH-8zd"/>
-                        <outlet property="goBack" destination="Qlv-FM-yzm" id="9Nj-zy-9cE"/>
                         <outlet property="onbyou" destination="uYK-LU-Mvn" id="Qdu-kH-jE4"/>
                         <outlet property="pause" destination="SiJ-yA-5XG" id="dsY-4A-3JH"/>
                         <outlet property="play" destination="99X-WN-WhX" id="9Xp-CW-LT0"/>
