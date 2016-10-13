@@ -39,9 +39,13 @@
                                         <rect key="frame" x="113" y="53" width="202" height="2"/>
                                         <color key="tintColor" red="1" green="0.79329039329999995" blue="0.241803505" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5H-rz-lF5">
-                                        <rect key="frame" x="17" y="5" width="79" height="77"/>
-                                        <state key="normal" title="Button" image="kiki"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5H-rz-lF5">
+                                        <rect key="frame" x="17" y="8" width="81" height="74"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <state key="normal" title="REC" backgroundImage="IMG_1718">
+                                            <color key="titleColor" red="1" green="0.14454209879999999" blue="0.30022567849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.21770696989999999" green="0.18234666999999999" blue="0.043725202300000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="recordStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VtQ-eH-abY"/>
                                         </connections>
@@ -76,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="97.5" y="383.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Play View Controller-->
         <scene sceneID="rJ7-YK-V8d">
             <objects>
-                <viewController id="ybh-Ee-9Y7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Play" id="ybh-Ee-9Y7" customClass="PlayViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="78x-p9-gkU"/>
                         <viewControllerLayoutGuide type="bottom" id="ww3-Q4-MiM"/>
@@ -97,7 +101,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_1718" width="3024" height="3024"/>
         <image name="Sun_Studios_Memphis" width="638" height="850"/>
-        <image name="kiki" width="181" height="177"/>
     </resources>
 </document>

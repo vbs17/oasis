@@ -14,6 +14,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    let songs = ["kiki.band","kiki2.band","kiki3.band","kiki4.band","kiki5.band"]
     
     
     
@@ -24,6 +25,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     @IBOutlet weak var nami2: UIProgressView!
     @IBOutlet weak var nami3: UIProgressView!
     @IBOutlet weak var byou: UILabel!
+
  
     
     
@@ -31,6 +33,8 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAudioRecorder()
+        recordImage!.layer.cornerRadius = 37
+        recordImage!.clipsToBounds = true
     }
     
     //カウントダウンしてレコード開始しボタンのUIも変更 //countでif文で処理ればいいかも
@@ -43,6 +47,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             self.timeCountTimer.invalidate()
             audioRecorder.stop()
+            nextGamenn()
     }
         
     }
@@ -75,7 +80,9 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             audioRecorder.meteringEnabled = true
             sender.invalidate()
-            recordImage!.setImage(UIImage(named: "Kiki11"), forState: UIControlState.Normal)
+            recordImage!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
+            recordImage!.layer.cornerRadius = 37
+            recordImage!.clipsToBounds = true
             recordImage!.enabled = true
 
         }
@@ -87,7 +94,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
-            //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮
+            //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる
             AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
             AVEncoderBitRateKey : 16,//1枚のページにたして16の情報をかけてる
             AVNumberOfChannelsKey: 2 , //イヤホンも左右から違う音が聞こえる
@@ -95,6 +102,8 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         ]
         do {     //録音したものは/aaa/bbb/ccc.app/Document/sample.caここに入る
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
+            
+            print(self.documentFilePath())
         } catch {
             print("初期設定でerror")
         }
@@ -111,10 +120,16 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         return dirURL.URLByAppendingPathComponent(fileName)
     }          //その指定したディレクトリにurlを置いて完
         
-    
+    //  0 ||||||||||||||||||||||||||||| 1
+    //-77 ||||||||||||||||||||||||||||| 0
+    //それが、dBに77を足した値を、77で割る式
     func levelTimerCallback() {
         audioRecorder.updateMeters()
+        //元のdB値が0から160を取れる
         let dB = audioRecorder.averagePowerForChannel(0)
+                    //0か(dB + 77)かいずれか大きい方という意味.あとはこれを、取り得る最大値(今回だと77)で割れば良い
+        //dBが-77のとき0.0になり、0のとき1.0になる変換を行う必要があります
+        //(db + 77) / 77が意味不明
         let atai = max(0, (dB + 77)) / 77
         nami1.progress = atai
         nami2.progress = atai
@@ -122,6 +137,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     func recordLimits(){
+        //ここの計算よく分からん
         let minuteCount = timeCount / 60
         let secondCount = timeCount % 60
         if secondCount <= 9 {
@@ -132,9 +148,17 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         if timeCount == 360{
             self.timeCountTimer.invalidate()
             audioRecorder.stop()
+            nextGamenn()
         }else{
             timeCount += 1
         }
+    }
+    
+    func nextGamenn(){
+        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play")
+         self.presentViewController(playviewcontroller!, animated: true, completion: nil)
+        
+        
     }
 
     
