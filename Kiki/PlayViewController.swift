@@ -7,7 +7,15 @@ class PlayViewController: UIViewController {
     
     var songData:NSURL!
     var playSong:AVAudioPlayer!
-    let deleteSong:AVAudioRecorder!
+    let recordSetting : [String : AnyObject] = [
+        //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる
+        AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
+        AVEncoderBitRateKey : 16,//1枚のページにたして16の情報をかけてる
+        AVNumberOfChannelsKey: 2 , //イヤホンも左右から違う音が聞こえる
+        AVSampleRateKey: 44100.0 //これが多ければ多いほどスムーズ
+    ]
+
+   
     
     @IBOutlet weak var play: UIButton!
     @IBOutlet weak var back: UIButton!
@@ -44,8 +52,9 @@ class PlayViewController: UIViewController {
     }
     
     @IBAction func retake(sender: AnyObject) {
-        deleteSong.url =
+        let deleteSong = try!AVAudioRecorder(URL: songData,settings:recordSetting)
         deleteSong.deleteRecording()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
