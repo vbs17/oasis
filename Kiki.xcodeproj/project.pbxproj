@@ -18,6 +18,7 @@
 		B0A78FDB1DACFF6500AC0513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FD91DACFF6500AC0513 /* Main.storyboard */; };
 		B0A78FDD1DACFF6500AC0513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */; };
 		B0A78FE01DACFF6500AC0513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */; };
+		B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0A78FDF1DACFF6500AC0513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0A78FE11DACFF6500AC0513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
+				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
 				B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */,

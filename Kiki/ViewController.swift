@@ -8,7 +8,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     
     let fileManager = NSFileManager()//録音もできないしそれを再生もできない
     var audioRecorder: AVAudioRecorder!
-    let fileName = "sample.caf"
+    let fileName = "sister.m4a"
     var timer: NSTimer!
     var timeCountTimer: NSTimer!
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
@@ -94,10 +94,12 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
             //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
-            AVEncoderBitRateKey : 16,//1枚のページにたして16の情報をかけてる
-            AVNumberOfChannelsKey: 2 , //イヤホンも左右から違う音が聞こえる
-            AVSampleRateKey: 44100.0 //これが多ければ多いほどスムーズ
+            AVEncoderBitRateKey : 16,
+            AVNumberOfChannelsKey: 1 ,
+            AVSampleRateKey: 8000.0,
+            AVLinearPCMBitDepthKey: 8
         ]
         do {     //録音したものは/aaa/bbb/ccc.app/Document/sample.caここに入る
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)

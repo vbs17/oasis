@@ -37,6 +37,15 @@ class PlayViewController: UIViewController {
         back.clipsToBounds = true
     }
     
+    //mp3に圧縮させて投稿
+    @IBAction func gok(sender: AnyObject) {
+        playSong.stop()
+        timer.invalidate()
+        let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
+        self.presentViewController(sendviewcontroller, animated: true, completion: nil)
+    }
+    
+    
     //再生
     @IBAction func goPlay(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
@@ -48,6 +57,7 @@ class PlayViewController: UIViewController {
     
     //巻き戻し
     @IBAction func goBack(sender: UIButton) {
+        onbyou.text = "0:00"
         play.enabled = true
         back.enabled = false
         playSong.stop()
@@ -58,6 +68,7 @@ class PlayViewController: UIViewController {
     //取り直し
     @IBAction func retake(sender: AnyObject) {
         playSong.stop()
+        timer.invalidate()
         let deleteSong = try!AVAudioRecorder(URL: songData,settings:recordSetting)
         deleteSong.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top") as! ViewController
@@ -71,11 +82,16 @@ class PlayViewController: UIViewController {
     }
     
     func updatePlayingTime() {
+        //細かすぎるとあうわけないから
+        if  floor(playSong.currentTime) ==  floor(playSong.duration) {
+            timer.invalidate()
+            onbyou.text = formatTimeString(playSong.duration)
+            return
+        }
+        
         onbyou.text = formatTimeString(playSong.currentTime)
-        print(playSong.currentTime)
-        print(playSong.duration)
     }
-
+    
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
         let m: Int = Int((d - Double(s)) / 60 % 60)
