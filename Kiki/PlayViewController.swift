@@ -4,19 +4,17 @@ import UIKit
 import AVFoundation
 
 class PlayViewController: UIViewController {
-    
+    //曲はここ
     var songData:NSURL!
     var playSong:AVAudioPlayer!
-    let recordSetting : [String : AnyObject] = [
-        //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる
-        AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
-        AVEncoderBitRateKey : 16,//1枚のページにたして16の情報をかけてる
-        AVNumberOfChannelsKey: 2 , //イヤホンも左右から違う音が聞こえる
-        AVSampleRateKey: 44100.0 //これが多ければ多いほどスムーズ
-    ]
     var timer = NSTimer()
-   
-    
+    let recordSetting : [String : AnyObject] = [
+        AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
+        AVEncoderBitRateKey : 16,
+        AVNumberOfChannelsKey: 2 ,
+        AVSampleRateKey: 44100.0
+    ]
+
     @IBOutlet weak var onbyou: UILabel!
     @IBOutlet weak var play: UIButton!
     @IBOutlet weak var back: UIButton!
@@ -28,6 +26,7 @@ class PlayViewController: UIViewController {
     //秒数がすでに表示
     override func viewDidLoad() {
         super.viewDidLoad()
+        //曲はここ
         let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
         playSong = sound
         sound.prepareToPlay()
@@ -36,23 +35,16 @@ class PlayViewController: UIViewController {
         play.clipsToBounds = true
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
-      
-        
     }
     
     //再生
     @IBAction func goPlay(sender: AnyObject) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
         playSong.play()
         play.enabled = false
         back.enabled = true
+        
     }
-    
-    func updatePlayingTime() {
-        onbyou.text = formatTimeString(playSong.currentTime)
-    }
-    
-    
     
     //巻き戻し
     @IBAction func goBack(sender: UIButton) {
@@ -63,7 +55,9 @@ class PlayViewController: UIViewController {
         playSong.currentTime = 0
     }
     
+    //取り直し
     @IBAction func retake(sender: AnyObject) {
+        playSong.stop()
         let deleteSong = try!AVAudioRecorder(URL: songData,settings:recordSetting)
         deleteSong.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top") as! ViewController
@@ -76,6 +70,12 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func updatePlayingTime() {
+        onbyou.text = formatTimeString(playSong.currentTime)
+        print(playSong.currentTime)
+        print(playSong.duration)
+    }
+
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
         let m: Int = Int((d - Double(s)) / 60 % 60)
@@ -83,8 +83,6 @@ class PlayViewController: UIViewController {
         return str
     }
         
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
