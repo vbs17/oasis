@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Top" id="BYZ-38-t0r" customClass="ViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -121,26 +121,38 @@
                                     <action selector="goBack:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="5QJ-Na-Bc9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="791-cf-Bbb">
+                                <rect key="frame" x="162" y="143" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-uz-4Dr">
                                 <rect key="frame" x="0.0" y="581" width="375" height="86"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-qH-Cuu">
-                                        <rect key="frame" x="35" y="28" width="90" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="RETAKE">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="20" y="5" width="134" height="75"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <state key="normal" title="RETAKE" backgroundImage="519726084">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="retake:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="zay-GO-PUm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-Lp-WH1">
-                                        <rect key="frame" x="227" y="28" width="94" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="OK">
-                                            <color key="titleColor" red="1" green="0.27777903949999999" blue="0.42538812990000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="222" y="5" width="139" height="73"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                        <state key="normal" title="OK" backgroundImage="IMG_2846">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57N-lo-X0c">
+                                        <rect key="frame" x="166" y="32" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -151,7 +163,10 @@
                     <connections>
                         <outlet property="back" destination="hsh-4F-OQR" id="K8m-SK-QOx"/>
                         <outlet property="byou" destination="hj2-VD-ta4" id="mDO-SH-8zd"/>
+                        <outlet property="ok" destination="iHg-Lp-WH1" id="o63-oe-crU"/>
+                        <outlet property="onbyou" destination="791-cf-Bbb" id="ran-AQ-cnu"/>
                         <outlet property="play" destination="99X-WN-WhX" id="9Xp-CW-LT0"/>
+                        <outlet property="retake" destination="ku3-qH-Cuu" id="4kb-1F-rNw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hX-6Q-Zck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,7 +175,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="519726084" width="659" height="1024"/>
         <image name="IMG_1718" width="3024" height="3024"/>
+        <image name="IMG_2846" width="1568" height="1044"/>
         <image name="Sun_Studios_Memphis" width="638" height="850"/>
     </resources>
 </document>

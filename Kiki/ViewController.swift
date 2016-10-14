@@ -14,7 +14,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
-    let songs = ["kiki.band","kiki2.band","kiki3.band","kiki4.band","kiki5.band"]
     
     
     
