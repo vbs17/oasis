@@ -25,10 +25,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     @IBOutlet weak var nami3: UIProgressView!
     @IBOutlet weak var byou: UILabel!
 
- 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAudioRecorder()
@@ -47,8 +43,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             self.timeCountTimer.invalidate()
             audioRecorder.stop()
             nextGamenn()
-    }
-        
+        }
     }
     
     
@@ -88,20 +83,17 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         
     }
     
+    //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる//ここではどっちも設定してる
+    //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
     func setupAudioRecorder() {
-        let session = AVAudioSession.sharedInstance() //ここではどっちも設定してる
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
-            //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
-            AVEncoderBitRateKey : 16,
             AVNumberOfChannelsKey: 1 ,
-            AVSampleRateKey: 8000.0,
-            AVLinearPCMBitDepthKey: 8
-        ]
-        do {     //録音したものは/aaa/bbb/ccc.app/Document/sample.caここに入る
+            AVSampleRateKey: 22050
+        ];        do {     //録音したものは/aaa/bbb/ccc.app/Document/sister.m4aここに入る
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
             
             print(self.documentFilePath())
@@ -111,26 +103,21 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     
-    
-    // 録音するファイルのパスを取得(録音時、再生時に参照)
+    //要求されたドメインで指定された一般的なディレクトリの Url の配列のうちの一個が帰ってくる//その指定したディレクトリにurlを置いて完
+    // 録音するファイルのパスを取得(録音時、再生時に参照)//要求されたドメインで指定された一般的なディレクトリの Url の配列を返します
     // swift2からstringByAppendingPathComponentが使えなくなったので少し面倒
-    func documentFilePath()-> NSURL {//要求されたドメインで指定された一般的なディレクトリの Url の配列を返します
+    func documentFilePath()-> NSURL {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
-        //iTunesにもバックアップされる、大事なファイルを置くディレクトリへのパスを取得
-        let dirURL = urls[0] //要求されたドメインで指定された一般的なディレクトリの Url の配列のうちの一個が帰ってくる
+        let dirURL = urls[0]
         return dirURL.URLByAppendingPathComponent(fileName)
-    }          //その指定したディレクトリにurlを置いて完
-        
-    //  0 ||||||||||||||||||||||||||||| 1
-    //-77 ||||||||||||||||||||||||||||| 0
-    //それが、dBに77を足した値を、77で割る式
+    }
+    
+    //0か(dB + 77)かいずれか大きい方という意味.あとはこれを、取り得る最大値(今回だと77)で割れば良い
+    //dBが-77のとき0.0になり、0のとき1.0になる変換を行う必要があります
+    //(db + 77) / 77が意味不明 //元のdB値が0から160を取れる
     func levelTimerCallback() {
         audioRecorder.updateMeters()
-        //元のdB値が0から160を取れる
         let dB = audioRecorder.averagePowerForChannel(0)
-                    //0か(dB + 77)かいずれか大きい方という意味.あとはこれを、取り得る最大値(今回だと77)で割れば良い
-        //dBが-77のとき0.0になり、0のとき1.0になる変換を行う必要があります
-        //(db + 77) / 77が意味不明
         let atai = max(0, (dB + 77)) / 77
         nami1.progress = atai
         nami2.progress = atai
@@ -138,7 +125,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     func recordLimits(){
-        //ここの計算よく分からん
         let minuteCount = timeCount / 60
         let secondCount = timeCount % 60
         if secondCount <= 9 {
@@ -165,6 +151,40 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
 
     
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

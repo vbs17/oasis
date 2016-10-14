@@ -9,10 +9,9 @@ class PlayViewController: UIViewController {
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
     let recordSetting : [String : AnyObject] = [
-        AVEncoderAudioQualityKey : AVAudioQuality.Min.rawValue,
-        AVEncoderBitRateKey : 16,
-        AVNumberOfChannelsKey: 2 ,
-        AVSampleRateKey: 44100.0
+        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVNumberOfChannelsKey: 1 ,
+        AVSampleRateKey: 22050
     ]
 
     @IBOutlet weak var onbyou: UILabel!
@@ -31,10 +30,14 @@ class PlayViewController: UIViewController {
         playSong = sound
         sound.prepareToPlay()
         byou.text = formatTimeString(sound.duration)
-        play.layer.cornerRadius = 37
+        play.layer.cornerRadius = 15
         play.clipsToBounds = true
-        back.layer.cornerRadius = 37
+        back.layer.cornerRadius = 15
         back.clipsToBounds = true
+        retake.layer.cornerRadius = 10
+        retake.clipsToBounds = true
+        ok.layer.cornerRadius = 10
+        ok.clipsToBounds = true
     }
     
     //mp3に圧縮させて投稿
@@ -42,6 +45,7 @@ class PlayViewController: UIViewController {
         playSong.stop()
         timer.invalidate()
         let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
+        sendviewcontroller.songData = songData
         self.presentViewController(sendviewcontroller, animated: true, completion: nil)
     }
     

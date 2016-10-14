@@ -130,16 +130,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-uz-4Dr">
                                 <rect key="frame" x="0.0" y="581" width="375" height="86"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-qH-Cuu">
-                                        <rect key="frame" x="20" y="5" width="134" height="75"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="RETAKE" backgroundImage="519726084">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="retake:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="zay-GO-PUm"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57N-lo-X0c">
                                         <rect key="frame" x="166" y="32" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -147,13 +137,23 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-Lp-WH1">
-                                        <rect key="frame" x="222" y="5" width="139" height="73"/>
+                                        <rect key="frame" x="223" y="5" width="138" height="75"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                         <state key="normal" title="OK" backgroundImage="IMG_2846">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="gok:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="bjd-4n-KKP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-qH-Cuu">
+                                        <rect key="frame" x="13" y="5" width="138" height="75"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <state key="normal" title="RETAKE" backgroundImage="519726084">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retake:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="zay-GO-PUm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -188,9 +188,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Miles-Davis-and-Stevie-Wonder" translatesAutoresizingMaskIntoConstraints="NO" id="htG-PC-cXM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e71e666325392cd08f47f8e7417d38c2" translatesAutoresizingMaskIntoConstraints="NO" id="htG-PC-cXM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rn-8H-qWP">
+                                <rect key="frame" x="103" y="464" width="172" height="76"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="CAMERA" backgroundImage="ダウンロード">
+                                    <color key="titleColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcG-RX-Xgp">
+                                <rect key="frame" x="103" y="356" width="172" height="76"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="LIBRARY" backgroundImage="ダウンロード">
+                                    <color key="titleColor" red="0.10749345549738221" green="0.096233228288226419" blue="0.042639232166160286" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,6 +217,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="camera" destination="2Rn-8H-qWP" id="5ju-Lz-Bx0"/>
+                        <outlet property="library" destination="GcG-RX-Xgp" id="bni-U4-iq3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZa-Ml-mSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,7 +231,8 @@
         <image name="519726084" width="659" height="1024"/>
         <image name="IMG_1718" width="3024" height="3024"/>
         <image name="IMG_2846" width="1568" height="1044"/>
-        <image name="Miles-Davis-and-Stevie-Wonder" width="864" height="1280"/>
         <image name="Sun_Studios_Memphis" width="638" height="850"/>
+        <image name="e71e666325392cd08f47f8e7417d38c2" width="472" height="700"/>
+        <image name="ダウンロード" width="300" height="168"/>
     </resources>
 </document>
