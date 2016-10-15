@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0190A211DB20FE400FA066D /* KindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0190A201DB20FE400FA066D /* KindViewController.swift */; };
 		B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03151751DAE6A06007EE64C /* PlayViewController.swift */; };
 		B03151781DAE706C007EE64C /* kiki.band in Resources */ = {isa = PBXBuildFile; fileRef = B03151771DAE706C007EE64C /* kiki.band */; };
 		B031517A1DAE73AD007EE64C /* kiki2.band in Resources */ = {isa = PBXBuildFile; fileRef = B03151791DAE73AD007EE64C /* kiki2.band */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0190A201DB20FE400FA066D /* KindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindViewController.swift; sourceTree = "<group>"; };
 		B03151751DAE6A06007EE64C /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		B03151771DAE706C007EE64C /* kiki.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki.band; sourceTree = "<group>"; };
 		B03151791DAE73AD007EE64C /* kiki2.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki2.band; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
+				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0190A211DB20FE400FA066D /* KindViewController.swift in Sources */,
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
