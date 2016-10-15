@@ -2,7 +2,7 @@
 
 import UIKit
 
-class SendViewController: UIViewController {
+class SendViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var songData:NSURL!
     
@@ -21,4 +21,42 @@ class SendViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func libGo(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self
+            pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            presentViewController(pickerController, animated: true, completion: nil)
+    }
+    
+    func camGo(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self
+            pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            presentViewController(pickerController, animated: true, completion: nil)
+    }
+   }
+  }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if info[UIImagePickerControllerOriginalImage] != nil {
+            // 撮影/選択された画像を取得する
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            // ここでpresentViewControllerを呼び出しても表示されないためメソッドが終了してから呼ばれるようにする
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                // AdobeImageEditorを起動する
+                let okviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Ok") as! OkViewController
+                okviewcontroller.image = image
+                okviewcontroller.songData = self.songData
+                self.presentViewController(okviewcontroller, animated: true, completion:  nil)
+            }
+        }
+        
+        // 閉じる
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }
