@@ -14,17 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="339" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-2N-0R0">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-2N-0R0">
                         <rect key="frame" x="8" y="16" width="263" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLD-Kg-DWt">
                         <rect key="frame" x="293" y="12" width="46" height="30"/>
                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                        <state key="normal" title="決定" backgroundImage="IMG_3064 2">
-                            <color key="titleColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="決定" backgroundImage="59774115_220x220">
+                            <color key="titleColor" red="0.75047038610000005" green="0.75047038610000005" blue="0.75047038610000005" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                 </subviews>
@@ -37,6 +37,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IMG_3064 2" width="3024" height="4032"/>
+        <image name="59774115_220x220" width="220" height="220"/>
     </resources>
 </document>

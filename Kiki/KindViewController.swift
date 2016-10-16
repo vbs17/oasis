@@ -465,6 +465,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
         
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
