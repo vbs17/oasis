@@ -8,7 +8,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var label: UILabel!
     
     
-    let a: NSArray = [ "赤犬",
+   let AllItems: [[String]]  = [[ "赤犬",
         "あがた森魚",
         "浅井健一",
         "安室奈美恵",
@@ -31,9 +31,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "ASA-CHANG&巡礼",
         "audio active",
         "avengers in sci-fi",
-        "Azami"
-]
-    let b: NSArray = ["ボアダムス",
+        "Azami"],
+    ["ボアダムス",
         "Base Ball Bear",
         "back number",
         "THE BAWDIES",
@@ -59,8 +58,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Buffalo Daughter",
         "BUZZ THE BEARS",
         "B'z"
-]
-    let c: NSArray = ["cero",
+],
+     ["cero",
         "CHEMISTRY",
         "CHAGE&ASKA",
         "THE CHECKERS",
@@ -71,8 +70,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "THE CORNELIUS GROUP",
         "coldrain",
         "CORNELIUS",
-        "Crossfaith"]
-    let d: NSArray = ["怒髪天",
+        "Crossfaith"],
+    ["怒髪天",
         "電気グルーヴ",
         "電撃ネットワーク",
         "でんぱ組.inc",
@@ -88,14 +87,14 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Dragon Ash",
         "DRY&HEAVY",
         "dustbox",
-        "DUBSENSEMANIA"]
-    let e: NSArray = ["エレファントカシマシ",
+        "DUBSENSEMANIA"],
+     ["エレファントカシマシ",
         "eastern youth",
         "ELLEGARDEN",
         "envy",
         "EGO-WRAPPIN",
-        "EYE"]
-    let f: NSArray = ["Fantastic Plastic Machine",
+        "EYE"],
+   ["Fantastic Plastic Machine",
         "FACT",
         "FAKY",
         "Fear, and Loathing in Las Vegas",
@@ -104,8 +103,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Flower Travellin' Band",
         "FRONT LINE",
         "FRONTIER BACKYARD",
-        "FUNKY MONKEY BABYS"]
-    let g: NSArray = ["ギターウルフ",
+        "FUNKY MONKEY BABYS"],
+     ["ギターウルフ",
         "グッドモーニングアメリカ",
         "グループ魂",
         "ゲスの極み乙女。",
@@ -123,8 +122,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "THE GOLDEN WET FINGERS",
         "GO!GO!7188",
         "GReeeeN",
-        "GRAPEVINE"]
-    let h: NSArray = ["ハナレグミ",
+        "GRAPEVINE"],
+     ["ハナレグミ",
         "ハスキング・ビー",
         "浜田省吾",
         "浜田麻里",
@@ -160,8 +159,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Hi-STANDARD",
         "HUSKING BEE",
         "HY",
-        "HYDE"]
-    let i: NSArray = ["イエロー・マジック・オーケストラ",
+        "HYDE"],
+    ["イエロー・マジック・オーケストラ",
         "いきものがかり",
         "忌野清志郎",
         "井上陽水",
@@ -170,12 +169,12 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "稲葉浩志",
         "iLL ",
         "illion",
-        "indigo la end"]
-    let j: NSArray = ["JUDY AND MARY",
+        "indigo la end"],
+    ["JUDY AND MARY",
         "JUDE",
         "JUN SKY WALKER(S)",
-]
-    let k: NSArray = ["加藤登紀子",
+],
+     ["加藤登紀子",
         "勝手にしやがれ",
         "かりゆし58",
         "完熟トリオ",
@@ -215,8 +214,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "KREVA　",
         "DJ KRUSH",
         "Kylee"
-]
-    let l: NSArray = ["L'Arc~en~Ciel",
+],
+    ["L'Arc~en~Ciel",
         "lecca",
         "LiSA",
         "LITTLE TEMPO",
@@ -225,8 +224,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "LOVE PSYCHEDELICO",
         "LOW IQ 01",
         "LOSALIOS",
-        "LOVE JETS"]
-    let m: NSArray = ["槇原敬之",
+        "LOVE JETS"],
+    ["槇原敬之",
         "真心ブラザーズ",
         "マキシマムザホルモン",
         "三浦大知",
@@ -256,8 +255,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Mr.Children",
         "MUDDY APES",
         "MURO"
-]
-    let n: NSArray = ["ナオト・インティライミ",
+],
+     ["ナオト・インティライミ",
         "長渕剛",
         "中田ヤスタカ",
         "中山うり",
@@ -267,8 +266,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "西川貴教",
         "ねごと",
        " NICO Touches the Walls",
-        "NITRO MICROPHONE UNDERGROUND"]
-    let o: NSArray = ["大沢伸一",
+        "NITRO MICROPHONE UNDERGROUND"],
+     ["大沢伸一",
         "大橋トリオ",
         "大森靖子",
         "大江慎也",
@@ -291,8 +290,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "ORANGE RANGE",
         "OVERGROUND ACOUSTIC UNDERGROUND",
         "OZROSAURUS"
-]
-    let p: NSArray = ["プリンセス・プリンセス",
+],
+["プリンセス・プリンセス",
         "ポルノグラフィティ",
         "プレイモ",
         "Pay money To my Pain",
@@ -303,8 +302,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "POLYSICS",
         "PONTIACS",
         "PUFFY"
-]
-    let r: NSArray = ["羅針盤",
+],
+     ["羅針盤",
         "凛として時雨",
         "ルースターズ",
         "レイ・ハラカミ",
@@ -317,8 +316,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "ROVO",
         "ROSSO",
         "RYUKYUDISKO"
-]
-    let s: NSArray = ["サカナクション",
+],
+    ["サカナクション",
         "斉藤和義",
         "サザンオールスターズ",
         "サイケアウツ",
@@ -372,8 +371,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "Sunrise In My Attache Case",
         "Super Junky Monkey",
         "SWANKY DANK"
-]
-    let t: NSArray = ["高田漣",
+],
+     ["高田漣",
         "高橋優",
         "高橋幸宏",
         "田中フミヤ",
@@ -403,26 +402,26 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "TRICERATOPS",
         "TUXEDO",
         "TUBE",
-        "TWIGY"]
-    let u: NSArray = ["上原ひろみ",
+        "TWIGY"],
+   ["上原ひろみ",
         "宇多田ヒカル",
         "ウルフルズ",
         "UA",
         "UVERworld"
-]
-    let v: NSArray = ["VOLA & THE ORIENTAL MACHINE"
-]
-    let w: NSArray = ["忘れらんねぇよ",
+],
+    ["VOLA & THE ORIENTAL MACHINE"
+],
+  ["忘れらんねぇよ",
         "ワタナベイビー",
         "和田アキ子",
         "WANDS",
         "WAGDUG FUTURISTIC UNITY",
         "WEAVER",
         "WHITE ASH",
-        "The Winking Owl"]
-    let x: NSArray = ["Xmas Eileen"
-]
-    let y: NSArray = ["矢沢永吉",
+        "The Winking Owl"],
+     ["Xmas Eileen"
+],
+     ["矢沢永吉",
         "山崎まさよし",
         "山下洋輔",
         "山内恵介",
@@ -444,13 +443,13 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "YOUR SONG IS GOOD",
         "YUKI",
         "YUI "
-]
-    let z: NSArray = ["在日ファンク",
+],
+    ["在日ファンク",
         "頭脳警察",
         "ZAZEN BOYS",
-        "ZONE"]
-    let kazu:NSArray = ["80kidz",
-    "9mm Parabellum Bullet"]
+        "ZONE"],
+   ["80kidz",
+    "9mm Parabellum Bullet"]]
    
     private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","kazu"]
     
@@ -481,69 +480,17 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
         cell.button.addTarget(self, action: #selector(KindViewController.btn_click(_:)), forControlEvents:.TouchUpInside)
-        
-        if indexPath.section == 0 {
-            cell.label.text = "\(a[indexPath.row])"
-        } else if indexPath.section == 1 {
-            cell.label.text = "\(b[indexPath.row])"
-        } else if indexPath.section == 2 {
-            cell.label.text = "\(c[indexPath.row])"
-        } else if indexPath.section == 3 {
-            cell.label.text = "\(d[indexPath.row])"
-        } else if indexPath.section == 4 {
-            cell.label.text = "\(e[indexPath.row])"
-        } else if indexPath.section == 5 {
-            cell.label.text = "\(f[indexPath.row])"
-        } else if indexPath.section == 6 {
-            cell.label.text = "\(g[indexPath.row])"
-        } else if indexPath.section == 7 {
-            cell.label.text = "\(h[indexPath.row])"
-        } else if indexPath.section == 8 {
-            cell.label.text = "\(i[indexPath.row])"
-        } else if indexPath.section == 9 {
-            cell.label.text = "\(j[indexPath.row])"
-        } else if indexPath.section == 10 {
-            cell.label.text = "\(k[indexPath.row])"
-        } else if indexPath.section == 11{
-            cell.label.text = "\(l[indexPath.row])"
-        } else if indexPath.section == 12 {
-            cell.label.text = "\(m[indexPath.row])"
-        } else if indexPath.section == 13 {
-            cell.label.text = "\(n[indexPath.row])"
-        } else if indexPath.section == 14 {
-            cell.label.text = "\(o[indexPath.row])"
-        } else if indexPath.section == 15 {
-            cell.label.text = "\(p[indexPath.row])"
-        } else if indexPath.section == 16 {
-            cell.label.text = "\(r[indexPath.row])"
-        } else if indexPath.section == 17 {
-            cell.label.text = "\(s[indexPath.row])"
-        } else if indexPath.section == 18 {
-            cell.label.text = "\(t[indexPath.row])"
-        } else if indexPath.section == 19 {
-            cell.label.text = "\(u[indexPath.row])"
-        } else if indexPath.section == 20 {
-            cell.label.text = "\(v[indexPath.row])"
-        } else if indexPath.section == 21 {
-            cell.label.text = "\(w[indexPath.row])"
-        } else if indexPath.section == 22 {
-            cell.label.text = "\(x[indexPath.row])"
-        } else if indexPath.section == 23 {
-            cell.label.text = "\(y[indexPath.row])"
-        } else if indexPath.section == 24{
-            cell.label.text = "\(z[indexPath.row])"
-        } else if indexPath.section == 25 {
-            cell.label.text = "\(kazu[indexPath.row])"
-        }
-
+        let items = AllItems[indexPath.section][indexPath.row]
+        cell.label.text = items
         return cell
     }
+    
     
    
      //セクションの数を返す.
  
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return mySections.count
+        return AllItems.count
     }
     
 
@@ -558,14 +505,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.section == 0 {
-            print("Value: \(a[indexPath.row])")
-        } else if indexPath.section == 1 {
-            print("Value: \(b[indexPath.row])")
-        } else if indexPath.section == 2 {
-            print("Value: \(c[indexPath.row])")
-        }
-    }
+         }
     
     
     
@@ -573,60 +513,24 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
      //テーブルに表示する配列の総数を返す.
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return a.count
-        } else if section == 1 {
-            return b.count
-        }  else if section == 2 {
-            return c.count
-        }  else if section == 3 {
-            return d.count
-        }  else if section == 4 {
-            return e.count
-        }  else if section == 5 {
-            return f.count
-        }  else if section == 6 {
-            return g.count
-        }  else if section == 7 {
-            return h.count
-        }  else if section == 8 {
-            return i.count
-        }  else if section == 9 {
-            return j.count
-        }  else if section == 10 {
-            return k.count
-        }  else if section == 11 {
-            return l.count
-        }  else if section == 12 {
-            return m.count
-        }  else if section == 13 {
-            return n.count
-        }  else if section == 14 {
-            return o.count
-        }  else if section == 15 {
-            return p.count
-        }  else if section == 16 {
-            return r.count
-        }  else if section == 17 {
-            return s.count
-        }  else if section == 18 {
-            return t.count
-        }  else if section == 19 {
-            return u.count
-        }  else if section == 20 {
-            return v.count
-        }  else if section == 21 {
-            return w.count
-        }  else if section == 22 {
-            return x.count
-        }  else if section == 23 {
-            return y.count
-        }  else if section == 24 {
-            return z.count
-        }  else if section == 25 {
-            return kazu.count
-        } else {
-            return 0
-        }
+        return AllItems[section].count
     }
-}
+   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
