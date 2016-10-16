@@ -328,6 +328,40 @@
                     <view key="view" contentMode="scaleToFill" id="5c9-a5-My9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-Jv-Pev">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="ジャンル選択" id="4Tg-Cd-TIg"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueR-fm-zad">
+                                <rect key="frame" x="0.0" y="44" width="375" height="69"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncI-rh-xOO">
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="69"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="邦楽" backgroundImage="1742-1-20120710124340">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fq-jf-nrI">
+                                        <rect key="frame" x="189" y="0.0" width="186" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="洋楽" backgroundImage="jakebuggmain-970-80">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.67705021566938273" blue="0.63826298540307946" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pfg-da-DvC">
+                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -338,6 +372,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1742-1-20120710124340" width="950" height="632"/>
         <image name="18916c3125fc9488c912b2c9297575e8" width="400" height="600"/>
         <image name="519726084" width="659" height="1024"/>
         <image name="IMG_1718" width="3024" height="3024"/>
@@ -345,6 +380,7 @@
         <image name="Jake-Bugg-jake-bugg-34373470-588-806" width="588" height="806"/>
         <image name="Sun_Studios_Memphis" width="638" height="850"/>
         <image name="e71e666325392cd08f47f8e7417d38c2" width="472" height="700"/>
+        <image name="jakebuggmain-970-80" width="850" height="478"/>
         <image name="ダウンロード" width="300" height="168"/>
     </resources>
 </document>
