@@ -7,6 +7,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var label: UILabel!
     
+    
     let a: NSArray = [ "赤犬",
         "あがた森魚",
         "浅井健一",
@@ -451,17 +452,91 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     let kazu:NSArray = ["80kidz",
     "9mm Parabellum Bullet"]
    
-    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","kazu"]
+    
+    var buttonImage:UIImage = UIImage(named: "104937")!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-       
+        
+        let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    
+    func btn_click(sender: UIButton){
+        sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+        }
+    
+    // Cellに値を設定する
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
+        cell.button.addTarget(self, action: #selector(KindViewController.btn_click(_:)), forControlEvents:.TouchUpInside)
+        
+        if indexPath.section == 0 {
+            cell.label.text = "\(a[indexPath.row])"
+        } else if indexPath.section == 1 {
+            cell.label.text = "\(b[indexPath.row])"
+        } else if indexPath.section == 2 {
+            cell.label.text = "\(c[indexPath.row])"
+        } else if indexPath.section == 3 {
+            cell.label.text = "\(d[indexPath.row])"
+        } else if indexPath.section == 4 {
+            cell.label.text = "\(e[indexPath.row])"
+        } else if indexPath.section == 5 {
+            cell.label.text = "\(f[indexPath.row])"
+        } else if indexPath.section == 6 {
+            cell.label.text = "\(g[indexPath.row])"
+        } else if indexPath.section == 7 {
+            cell.label.text = "\(h[indexPath.row])"
+        } else if indexPath.section == 8 {
+            cell.label.text = "\(i[indexPath.row])"
+        } else if indexPath.section == 9 {
+            cell.label.text = "\(j[indexPath.row])"
+        } else if indexPath.section == 10 {
+            cell.label.text = "\(k[indexPath.row])"
+        } else if indexPath.section == 11{
+            cell.label.text = "\(l[indexPath.row])"
+        } else if indexPath.section == 12 {
+            cell.label.text = "\(m[indexPath.row])"
+        } else if indexPath.section == 13 {
+            cell.label.text = "\(n[indexPath.row])"
+        } else if indexPath.section == 14 {
+            cell.label.text = "\(o[indexPath.row])"
+        } else if indexPath.section == 15 {
+            cell.label.text = "\(p[indexPath.row])"
+        } else if indexPath.section == 16 {
+            cell.label.text = "\(r[indexPath.row])"
+        } else if indexPath.section == 17 {
+            cell.label.text = "\(s[indexPath.row])"
+        } else if indexPath.section == 18 {
+            cell.label.text = "\(t[indexPath.row])"
+        } else if indexPath.section == 19 {
+            cell.label.text = "\(u[indexPath.row])"
+        } else if indexPath.section == 20 {
+            cell.label.text = "\(v[indexPath.row])"
+        } else if indexPath.section == 21 {
+            cell.label.text = "\(w[indexPath.row])"
+        } else if indexPath.section == 22 {
+            cell.label.text = "\(x[indexPath.row])"
+        } else if indexPath.section == 23 {
+            cell.label.text = "\(y[indexPath.row])"
+        } else if indexPath.section == 24{
+            cell.label.text = "\(z[indexPath.row])"
+        } else if indexPath.section == 25 {
+            cell.label.text = "\(kazu[indexPath.row])"
+        }
+
+        return cell
     }
     
    
@@ -487,8 +562,12 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("Value: \(a[indexPath.row])")
         } else if indexPath.section == 1 {
             print("Value: \(b[indexPath.row])")
+        } else if indexPath.section == 2 {
+            print("Value: \(c[indexPath.row])")
         }
     }
+    
+    
     
   
      //テーブルに表示する配列の総数を返す.
@@ -498,28 +577,56 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
             return a.count
         } else if section == 1 {
             return b.count
+        }  else if section == 2 {
+            return c.count
+        }  else if section == 3 {
+            return d.count
+        }  else if section == 4 {
+            return e.count
+        }  else if section == 5 {
+            return f.count
+        }  else if section == 6 {
+            return g.count
+        }  else if section == 7 {
+            return h.count
+        }  else if section == 8 {
+            return i.count
+        }  else if section == 9 {
+            return j.count
+        }  else if section == 10 {
+            return k.count
+        }  else if section == 11 {
+            return l.count
+        }  else if section == 12 {
+            return m.count
+        }  else if section == 13 {
+            return n.count
+        }  else if section == 14 {
+            return o.count
+        }  else if section == 15 {
+            return p.count
+        }  else if section == 16 {
+            return r.count
+        }  else if section == 17 {
+            return s.count
+        }  else if section == 18 {
+            return t.count
+        }  else if section == 19 {
+            return u.count
+        }  else if section == 20 {
+            return v.count
+        }  else if section == 21 {
+            return w.count
+        }  else if section == 22 {
+            return x.count
+        }  else if section == 23 {
+            return y.count
+        }  else if section == 24 {
+            return z.count
+        }  else if section == 25 {
+            return kazu.count
         } else {
             return 0
         }
     }
-    
-    
-    // Cellに値を設定する
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell1 = UITableViewCell()
-        cell1.accessoryType = UITableViewCellAccessoryType.Checkmark
-        if cell1.accessoryView == nil {
-            cell1.accessoryView = UISwitch()
-        }
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
-        
-        if indexPath.section == 0 {
-            cell.textLabel?.text = "\(a[indexPath.row])"
-        } else if indexPath.section == 1 {
-            cell.textLabel?.text = "\(b[indexPath.row])"
-        }
-        
-        return cell
-    }
-    
 }
