@@ -5,6 +5,7 @@ import UIKit
 class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var label: UILabel!
     
     let a: NSArray = [ "赤犬",
         "あがた森魚",
@@ -505,8 +506,12 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // Cellに値を設定する
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell1 = UITableViewCell()
+        cell1.accessoryType = UITableViewCellAccessoryType.Checkmark
+        if cell1.accessoryView == nil {
+            cell1.accessoryView = UISwitch()
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
         
         if indexPath.section == 0 {
             cell.textLabel?.text = "\(a[indexPath.row])"

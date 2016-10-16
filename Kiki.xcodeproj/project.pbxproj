@@ -21,6 +21,8 @@
 		B0A78FE01DACFF6500AC0513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */; };
 		B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */; };
 		B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */; };
+		B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F582A91DB38E5300654519 /* KindTableViewCell.swift */; };
+		B0F582AC1DB38E5300654519 /* KindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B0A78FE11DACFF6500AC0513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewController.swift; sourceTree = "<group>"; };
 		B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		B0F582A91DB38E5300654519 /* KindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindTableViewCell.swift; sourceTree = "<group>"; };
+		B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KindTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
+				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
+				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
@@ -159,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F582AC1DB38E5300654519 /* KindTableViewCell.xib in Resources */,
 				B03151801DAE73D0007EE64C /* kiki5.band in Resources */,
 				B031517E1DAE73C4007EE64C /* kiki4.band in Resources */,
 				B031517C1DAE73B8007EE64C /* kiki3.band in Resources */,
@@ -181,6 +188,7 @@
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
+				B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */,
 				B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */,
 				B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */,
 			);
