@@ -11,6 +11,7 @@ class OkViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var text: UITextField!
     @IBOutlet weak var byou: UILabel!
+    @IBOutlet weak var back: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,8 @@ class OkViewController: UIViewController {
         byou.text = formatTimeString(sound.duration)
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
+        back.layer.cornerRadius = 25
+        back.clipsToBounds = true
         imageView.image = image
     
 
@@ -28,8 +31,14 @@ class OkViewController: UIViewController {
     }
     
     @IBAction func OKGo(sender: AnyObject) {
-        
+        let kindviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Kind") as! KindViewController
+        self.presentViewController(kindviewcontroller, animated: true, completion: nil)
     }
+    
+    @IBAction func backGo(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
