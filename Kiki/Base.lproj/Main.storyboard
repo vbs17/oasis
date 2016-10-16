@@ -318,57 +318,57 @@
             <point key="canvasLocation" x="1376.5" y="383.5"/>
         </scene>
         <!--Kind View Controller-->
-        <scene sceneID="e4s-dr-btH">
+        <scene sceneID="dhl-MP-n9H">
             <objects>
-                <viewController storyboardIdentifier="Kind" id="yx4-p9-aEJ" customClass="KindViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Kind" id="Hnc-Yf-s6U" customClass="KindViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Bv5-pY-ahg"/>
-                        <viewControllerLayoutGuide type="bottom" id="ry7-z3-g23"/>
+                        <viewControllerLayoutGuide type="top" id="Yz9-YT-ub2"/>
+                        <viewControllerLayoutGuide type="bottom" id="b5T-0J-FPL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5c9-a5-My9">
+                    <view key="view" contentMode="scaleToFill" id="XHm-es-uZY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-Jv-Pev">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36I-tP-GZB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="ジャンル選択" id="4Tg-Cd-TIg"/>
+                                    <navigationItem title="Title" id="YDU-pb-lfF">
+                                        <barButtonItem key="rightBarButtonItem" title="投稿" id="omx-QK-rMB">
+                                            <color key="tintColor" red="0.3055783749" green="0.48423735779999999" blue="0.75047038610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueR-fm-zad">
-                                <rect key="frame" x="0.0" y="44" width="375" height="69"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VEh-ni-ZL0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="73"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncI-rh-xOO">
-                                        <rect key="frame" x="0.0" y="0.0" width="186" height="69"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="邦楽" backgroundImage="1742-1-20120710124340">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fq-jf-nrI">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAQ-sm-PZR">
                                         <rect key="frame" x="189" y="0.0" width="186" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="洋楽" backgroundImage="jakebuggmain-970-80">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mY9-dB-ytB">
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="邦楽" backgroundImage="1742-1-20120710124340">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.67705021566938273" blue="0.63826298540307946" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pfg-da-DvC">
-                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eTv-Cj-qhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uT6-bs-C5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782.5" y="383.5"/>
+            <point key="canvasLocation" x="1803.5" y="383.5"/>
         </scene>
     </scenes>
     <resources>
