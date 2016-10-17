@@ -20,6 +20,9 @@
 		B071D96B1DB4E6B60017E287 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9691DB4E6B60017E287 /* HomeTableViewCell.swift */; };
 		B071D96C1DB4E6B60017E287 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B071D96A1DB4E6B60017E287 /* HomeTableViewCell.xib */; };
 		B071D96F1DB4EA9B0017E287 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */; };
+		B071D9711DB509FA0017E287 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9701DB509FA0017E287 /* TabViewController.swift */; };
+		B071D9731DB50C4E0017E287 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9721DB50C4E0017E287 /* LoginViewController.swift */; };
+		B071D9751DB50E670017E287 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9741DB50E670017E287 /* SetViewController.swift */; };
 		B08690781DB4A311006BB6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08690771DB4A311006BB6FD /* GoogleService-Info.plist */; };
 		B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */; };
 		B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD71DACFF6500AC0513 /* ViewController.swift */; };
@@ -47,6 +50,9 @@
 		B071D9691DB4E6B60017E287 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		B071D96A1DB4E6B60017E287 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B071D9701DB509FA0017E287 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		B071D9721DB50C4E0017E287 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B071D9741DB50E670017E287 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		B08690771DB4A311006BB6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0A78FD21DACFF6400AC0513 /* Kiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +113,6 @@
 		B071D96D1DB4E6BF0017E287 /* HomeCell */ = {
 			isa = PBXGroup;
 			children = (
-				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B071D9691DB4E6B60017E287 /* HomeTableViewCell.swift */,
 				B071D96A1DB4E6B60017E287 /* HomeTableViewCell.xib */,
 			);
@@ -146,12 +151,16 @@
 			children = (
 				B08690761DB4A1BD006BB6FD /* cell */,
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
+				B071D9701DB509FA0017E287 /* TabViewController.swift */,
+				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
+				B071D9741DB50E670017E287 /* SetViewController.swift */,
 				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B071D9671DB4E5040017E287 /* PostData.swift */,
+				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B071D96D1DB4E6BF0017E287 /* HomeCell */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
@@ -295,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B071D9711DB509FA0017E287 /* TabViewController.swift in Sources */,
 				B0190A211DB20FE400FA066D /* KindViewController.swift in Sources */,
 				B071D9681DB4E5040017E287 /* PostData.swift in Sources */,
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
@@ -305,6 +315,8 @@
 				B071D96F1DB4EA9B0017E287 /* HomeViewController.swift in Sources */,
 				B071D9661DB4D6140017E287 /* File.swift in Sources */,
 				B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */,
+				B071D9751DB50E670017E287 /* SetViewController.swift in Sources */,
+				B071D9731DB50C4E0017E287 /* LoginViewController.swift in Sources */,
 				B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

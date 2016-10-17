@@ -475,12 +475,20 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func post(sender: AnyObject) {
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
-        let songName = songname
-        let kazu = byou
-        let ongen:NSData = NSData(contentsOfURL: songData)!
-        
-         let postData = ["byou": kazu!, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
+        let songName:NSString = songname.text!
+        let kazu:NSString = byou.text!
+        let ongen:NSString = songData.path!
+        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
+         postRef.childByAutoId().setValue(postData)
+        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
     }
+    
+        
+    
+    
+    
+    
     
     func btn_click(sender: UIButton){
         if sender.currentBackgroundImage !== buttonImage{
@@ -529,9 +537,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
-    func post(){
-        var onge = NSData(contentsOfURL: songData)
-    }
+    
    }
 
   
