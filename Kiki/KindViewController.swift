@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Firebase
 
 class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
