@@ -2,6 +2,8 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import SVProgressHUD
 
 class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -457,6 +459,9 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     var buttonImage:UIImage = UIImage(named: "104937")!
     var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
     var songData:NSURL!
+    var image:UIImage!
+    var songname:UITextField!
+    var byou:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -469,6 +474,18 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func post(sender: AnyObject) {
+         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
+        
+        let imageData = UIImageJPEGRepresentation(image!, 0.5)
+        let songName = songname
+        let kazu = byou
+        let ongen = NSData(contentsOfURL: songData)
+        
+         let postData = ["byou": kazu!, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
+    }
+    
     
     
     func btn_click(sender: UIButton){

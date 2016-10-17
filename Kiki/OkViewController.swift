@@ -33,6 +33,9 @@ class OkViewController: UIViewController {
     @IBAction func OKGo(sender: AnyObject) {
         let kindviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Kind") as! KindViewController
         kindviewcontroller.songData = songData
+        kindviewcontroller.image = imageView.image
+        kindviewcontroller.byou = byou
+        kindviewcontroller.songname = text
         self.presentViewController(kindviewcontroller, animated: true, completion: nil)
     }
     
