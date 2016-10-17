@@ -55,9 +55,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun_Studios_Memphis" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-kF-0cf">
-                                <rect key="frame" x="0.0" y="49" width="375" height="531"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esp-HA-0w9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
@@ -70,9 +67,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun_Studios_Memphis" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-kF-0cf">
+                                <rect key="frame" x="0.0" y="49" width="375" height="531"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="soV-Qd-PFH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="byou" destination="FD4-F7-Tkq" id="3gj-hE-DwP"/>
@@ -86,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97.5" y="383.5"/>
+            <point key="canvasLocation" x="919.5" y="332.5"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="rJ7-YK-V8d">
@@ -182,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hX-6Q-Zck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.5" y="383.5"/>
+            <point key="canvasLocation" x="1363.5" y="327.5"/>
         </scene>
         <!--Send View Controller-->
         <scene sceneID="Cma-uh-jPi">
@@ -256,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZa-Ml-mSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975.5" y="383.5"/>
+            <point key="canvasLocation" x="1786.5" y="358.5"/>
         </scene>
         <!--Ok View Controller-->
         <scene sceneID="L9R-lE-x6J">
@@ -326,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0U-i1-0Cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.5" y="383.5"/>
+            <point key="canvasLocation" x="2188.5" y="383.5"/>
         </scene>
         <!--Kind View Controller-->
         <scene sceneID="0dy-ij-zbz">
@@ -374,13 +375,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="choosing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGE-lV-SaQ">
                                         <rect key="frame" x="102" y="85" width="78" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99647290050000004" green="0.63966908040000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.94019288393838152" blue="0.10351489710916795" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="↓　  アーティスト検索　　↓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wk-nV-Rzj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🔻　 アーティスト検索　  🔻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wk-nV-Rzj">
                                         <rect key="frame" x="56" y="0.0" width="263" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" red="0.97751504359999997" green="0.99325098170000004" blue="0.3292908879" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.43587780300000001" green="0.53794273569999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -400,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgX-Ge-8kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793.5" y="383.5"/>
+            <point key="canvasLocation" x="2592.5" y="314.5"/>
         </scene>
     </scenes>
     <resources>

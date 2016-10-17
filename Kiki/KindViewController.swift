@@ -5,7 +5,7 @@ import UIKit
 class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var label: UILabel!
+    
     
     
    let AllItems: [[String]]  = [[ "赤犬",
@@ -160,8 +160,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "HUSKING BEE",
         "HY",
         "HYDE"],
-    ["イエロー・マジック・オーケストラ",
-        "いきものがかり",
+    ["いきものがかり",
         "忌野清志郎",
         "井上陽水",
         "石野卓球",
@@ -439,6 +438,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         "米津玄師",
         "ヨーコ・オノ・プラスチック・オノ・バンド",
         "yanokami",
+        "Yellow Magic Orchestra",
         "THE YELLOW MONKEY",
         "YOUR SONG IS GOOD",
         "YUKI",
@@ -451,22 +451,17 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
    ["80kidz",
     "9mm Parabellum Bullet"]]
    
-    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","kazu"]
+    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
     
     var buttonImage:UIImage = UIImage(named: "104937")!
-    
+    var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
-        
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -475,7 +470,12 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func btn_click(sender: UIButton){
+        if sender.currentBackgroundImage !== buttonImage{
         sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+        } else {
+        sender.setBackgroundImage(buttonImage2, forState: UIControlState.Normal)
+        }; return
+        
         }
     
     // Cellに値を設定する
@@ -487,12 +487,9 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    
-   
      //セクションの数を返す.
- 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return AllItems.count
+     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return mySections.count
     }
     
 
@@ -509,10 +506,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         
          }
     
-    
-    
-  
-     //テーブルに表示する配列の総数を返す.
+    //テーブルに表示する配列の総数を返す.
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AllItems[section].count

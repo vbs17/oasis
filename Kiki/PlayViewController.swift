@@ -46,7 +46,7 @@ class PlayViewController: UIViewController {
         timer.invalidate()
         let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
         sendviewcontroller.songData = songData
-        self.presentViewController(sendviewcontroller, animated: true, completion: nil)
+         self.presentViewController(sendviewcontroller, animated: true, completion: nil)
     }
     
     
