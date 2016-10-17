@@ -469,24 +469,18 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
     }
     
     @IBAction func post(sender: AnyObject) {
-         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
-        
+        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let songName = songname
         let kazu = byou
-        let ongen = NSData(contentsOfURL: songData)
+        let ongen:NSData = NSData(contentsOfURL: songData)!
         
          let postData = ["byou": kazu!, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
     }
-    
-    
     
     func btn_click(sender: UIButton){
         if sender.currentBackgroundImage !== buttonImage{
@@ -531,8 +525,12 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         return AllItems[section].count
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func post(){
-        var ongen = NSData(contentsOfURL: songData)
+        var onge = NSData(contentsOfURL: songData)
     }
    }
 

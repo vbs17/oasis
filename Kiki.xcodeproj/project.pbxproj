@@ -16,6 +16,7 @@
 		B031517E1DAE73C4007EE64C /* kiki4.band in Resources */ = {isa = PBXBuildFile; fileRef = B031517D1DAE73C4007EE64C /* kiki4.band */; };
 		B03151801DAE73D0007EE64C /* kiki5.band in Resources */ = {isa = PBXBuildFile; fileRef = B031517F1DAE73D0007EE64C /* kiki5.band */; };
 		B071D9661DB4D6140017E287 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9651DB4D6140017E287 /* File.swift */; };
+		B071D9681DB4E5040017E287 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9671DB4E5040017E287 /* PostData.swift */; };
 		B08690781DB4A311006BB6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08690771DB4A311006BB6FD /* GoogleService-Info.plist */; };
 		B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */; };
 		B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD71DACFF6500AC0513 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		B031517D1DAE73C4007EE64C /* kiki4.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki4.band; sourceTree = "<group>"; };
 		B031517F1DAE73D0007EE64C /* kiki5.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki5.band; sourceTree = "<group>"; };
 		B071D9651DB4D6140017E287 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B071D9671DB4E5040017E287 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		B08690771DB4A311006BB6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0A78FD21DACFF6400AC0513 /* Kiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,10 +135,11 @@
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
-				B071D9651DB4D6140017E287 /* File.swift */,
+				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
+				B071D9651DB4D6140017E287 /* File.swift */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
 				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
 				B03151811DAE741A007EE64C /* music */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0190A211DB20FE400FA066D /* KindViewController.swift in Sources */,
+				B071D9681DB4E5040017E287 /* PostData.swift in Sources */,
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
