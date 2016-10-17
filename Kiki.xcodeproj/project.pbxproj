@@ -14,6 +14,7 @@
 		B031517C1DAE73B8007EE64C /* kiki3.band in Resources */ = {isa = PBXBuildFile; fileRef = B031517B1DAE73B8007EE64C /* kiki3.band */; };
 		B031517E1DAE73C4007EE64C /* kiki4.band in Resources */ = {isa = PBXBuildFile; fileRef = B031517D1DAE73C4007EE64C /* kiki4.band */; };
 		B03151801DAE73D0007EE64C /* kiki5.band in Resources */ = {isa = PBXBuildFile; fileRef = B031517F1DAE73D0007EE64C /* kiki5.band */; };
+		B08690781DB4A311006BB6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08690771DB4A311006BB6FD /* GoogleService-Info.plist */; };
 		B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */; };
 		B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD71DACFF6500AC0513 /* ViewController.swift */; };
 		B0A78FDB1DACFF6500AC0513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FD91DACFF6500AC0513 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		B031517B1DAE73B8007EE64C /* kiki3.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki3.band; sourceTree = "<group>"; };
 		B031517D1DAE73C4007EE64C /* kiki4.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki4.band; sourceTree = "<group>"; };
 		B031517F1DAE73D0007EE64C /* kiki5.band */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = kiki5.band; sourceTree = "<group>"; };
+		B08690771DB4A311006BB6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0A78FD21DACFF6400AC0513 /* Kiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A78FD71DACFF6500AC0513 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		B08690761DB4A1BD006BB6FD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
+				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		B0A78FC91DACFF6400AC0513 = {
 			isa = PBXGroup;
 			children = (
@@ -89,18 +100,18 @@
 		B0A78FD41DACFF6500AC0513 /* Kiki */ = {
 			isa = PBXGroup;
 			children = (
+				B08690761DB4A1BD006BB6FD /* cell */,
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
 				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
-				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
-				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
+				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
 				B03151811DAE741A007EE64C /* music */,
 			);
 			path = Kiki;
@@ -172,6 +183,7 @@
 				B031517A1DAE73AD007EE64C /* kiki2.band in Resources */,
 				B03151781DAE706C007EE64C /* kiki.band in Resources */,
 				B0A78FE01DACFF6500AC0513 /* LaunchScreen.storyboard in Resources */,
+				B08690781DB4A311006BB6FD /* GoogleService-Info.plist in Resources */,
 				B0A78FDD1DACFF6500AC0513 /* Assets.xcassets in Resources */,
 				B0A78FDB1DACFF6500AC0513 /* Main.storyboard in Resources */,
 			);

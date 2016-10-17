@@ -455,6 +455,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var buttonImage:UIImage = UIImage(named: "104937")!
     var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
+    var songData:NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -510,6 +511,10 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AllItems[section].count
+    }
+    
+    func post(){
+        var ongen = NSData(contentsOfURL: songData)
     }
    }
 
