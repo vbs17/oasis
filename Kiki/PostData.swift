@@ -10,6 +10,7 @@ class PostData: NSObject {
     var imageString: String?
     var name: String?
     var song: String?
+    var byou: String?
    
     
     init(snapshot: FIRDataSnapshot, myId: String) {
@@ -19,7 +20,7 @@ class PostData: NSObject {
         
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
-        
+        byou = valueDictionary["byou"] as? String
         name = valueDictionary["songname"] as? String
         song = valueDictionary["ongen"] as? String
     }
