@@ -12,6 +12,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     var postArray: [PostData] = [] //写真　曲名　秒数　音源の格納庫
     var observing = false
+    var genre: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if FIRAuth.auth()?.currentUser != nil {
             if observing == false {
                 // 写真　曲名　秒数　音源が追加されたらpostArray(写真　曲名　秒数　音源の格納庫)に追加してTableViewを再表示する
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = FIRAuth.auth()?.currentUser?.uid {

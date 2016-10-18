@@ -451,6 +451,8 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                     "9mm Parabellum Bullet"]]
     
     private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
+    
+    var genre:String!
 
 
     override func viewDidLoad() {
@@ -488,9 +490,18 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     //Cellが選択された際に呼び出される.
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
+        let event = UIEvent()
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        genre =  AllItems[indexPath!.section][indexPath!.row]
+        homeviewcontroller.genre = genre
         
+
     }
     
     //テーブルに表示する配列の総数を返す.

@@ -465,24 +465,15 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     var byou:UILabel!
     var genre = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
-        
-    }
     
     //ここ写真　曲名　秒数　音源　ジャンルをfirebaseに投稿
     @IBAction func post(sender: AnyObject) {
-        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
+        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let songName:NSString = songname.text!
         let kazu:NSString = byou.text!
         let ongen:NSString = songData.path!
-        let Genre = genre
-        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "genre": Genre]
+        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
          postRef.childByAutoId().setValue(postData)
         let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
         self.presentViewController(homeviewcontroller, animated: true, completion: nil)
@@ -504,6 +495,15 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
+        
+    }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
@@ -513,21 +513,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     //セクションの数を返す.
+    //セクションの数を返す.
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return mySections.count
     }
