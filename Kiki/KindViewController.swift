@@ -463,6 +463,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     var image:UIImage!
     var songname:UITextField!
     var byou:UILabel!
+    var genre = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -473,35 +474,37 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    //ここ写真　曲名　秒数　音源をfirebaseに投稿
+    //ここ写真　曲名　秒数　音源　ジャンルをfirebaseに投稿
     @IBAction func post(sender: AnyObject) {
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let songName:NSString = songname.text!
         let kazu:NSString = byou.text!
         let ongen:NSString = songData.path!
-        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
+        let Genre = genre
+        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "genre": Genre]
          postRef.childByAutoId().setValue(postData)
         let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
         self.presentViewController(homeviewcontroller, animated: true, completion: nil)
     }
     
-        
-    
-    
-    
-    
-    
+    //どのジャンルが選択されたか判明
     func btn_click(sender: UIButton){
         if sender.currentBackgroundImage !== buttonImage{
         sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+        let event = UIEvent()
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        genre = AllItems[indexPath!.section][indexPath!.row]
+           
         } else {
         sender.setBackgroundImage(buttonImage2, forState: UIControlState.Normal)
         }; return
         
         }
     
-    // Cellに値を設定する
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
         cell.button.addTarget(self, action: #selector(KindViewController.btn_click(_:)), forControlEvents:.TouchUpInside)
@@ -509,6 +512,20 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.label.text = items
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
      //セクションの数を返す.
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {

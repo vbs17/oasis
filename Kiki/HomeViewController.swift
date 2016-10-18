@@ -18,7 +18,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.delegate = self
         tableView.dataSource = self
         let nib = UINib(nibName: "HomeTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
+        tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         cell.setPostData(postArray[indexPath.row])   //var postArray: [PostData] = [] 写真　曲名　秒数　音源が存在してる
 
         

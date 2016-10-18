@@ -4,6 +4,8 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
+
 class PostData: NSObject {
     var id: String?
     var image: UIImage?
@@ -11,6 +13,7 @@ class PostData: NSObject {
     var name: String?
     var song: String?
     var byou: String?
+    var genre:String?
    
     //写真　曲名　秒数　音源
     
@@ -24,6 +27,7 @@ class PostData: NSObject {
         byou = valueDictionary["byou"] as? String
         name = valueDictionary["songname"] as? String
         song = valueDictionary["ongen"] as? String
+        genre = valueDictionary["genre"] as? String
     }
     
 }
