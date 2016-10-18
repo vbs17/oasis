@@ -508,9 +508,6 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return AllItems[section].count
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
 }
 
