@@ -455,6 +455,11 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "ItiranTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Celll")
+        
 
     }
 
