@@ -12,6 +12,7 @@ class PostData: NSObject {
     var song: String?
     var byou: String?
    
+    //写真　曲名　秒数　音源
     
     init(snapshot: FIRDataSnapshot, myId: String) {
         id = snapshot.key

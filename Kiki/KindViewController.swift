@@ -472,6 +472,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    //ここ写真　曲名　秒数　音源をfirebaseに投稿
     @IBAction func post(sender: AnyObject) {
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
