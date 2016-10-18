@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,8 +17,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-QU-tFv">
                         <rect key="frame" x="40" y="44" width="240" height="128"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="240" id="spC-hI-NRB"/>
-                            <constraint firstAttribute="height" constant="128" id="ufK-RK-ETc"/>
+                            <constraint firstAttribute="width" constant="240" id="fZ9-ds-jPP"/>
+                            <constraint firstAttribute="height" constant="128" id="thH-DC-RJ3"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMN-Yt-9yQ">
@@ -28,7 +27,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR2-Fh-DHe">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR2-Fh-DHe">
                         <rect key="frame" x="86" y="239" width="123" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -42,11 +41,15 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="oMh-QU-tFv" secondAttribute="trailing" constant="32" id="BTE-Ot-XzG"/>
-                    <constraint firstItem="oMh-QU-tFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="32" id="Lyk-we-C5i"/>
-                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z2v-55-dUJ"/>
-                    <constraint firstItem="oMh-QU-tFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="36" id="srP-hM-Kyf"/>
-                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="22" id="vH2-sW-ie7"/>
+                    <constraint firstAttribute="bottom" secondItem="FR2-Fh-DHe" secondAttribute="bottom" constant="37" id="0mE-So-JUh"/>
+                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="22" id="1b0-fv-xQv"/>
+                    <constraint firstAttribute="trailing" secondItem="oMh-QU-tFv" secondAttribute="trailing" constant="40" id="J8t-3G-ZNm"/>
+                    <constraint firstItem="FR2-Fh-DHe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="86" id="WyB-oW-YVO"/>
+                    <constraint firstItem="oMh-QU-tFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Z1N-Da-LdI"/>
+                    <constraint firstAttribute="trailing" secondItem="FR2-Fh-DHe" secondAttribute="trailing" constant="111" id="gOG-3q-1qh"/>
+                    <constraint firstItem="oMh-QU-tFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="44" id="if9-fF-BNT"/>
+                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jpe-mi-7Cy"/>
+                    <constraint firstItem="FR2-Fh-DHe" firstAttribute="top" secondItem="aMN-Yt-9yQ" secondAttribute="bottom" constant="24" id="zce-2i-cjF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
