@@ -470,20 +470,6 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //セクションの数を返す.
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return mySections.count
     }

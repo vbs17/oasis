@@ -19,21 +19,21 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxZ-E7-MVy">
                                 <rect key="frame" x="276" y="600" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="設定"/>
                                 <connections>
                                     <action selector="home:" destination="xtg-j0-lo1" eventType="touchUpInside" id="4GY-Hl-ump"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcT-JV-gPt">
                                 <rect key="frame" x="164" y="600" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="録音"/>
                                 <connections>
                                     <action selector="post:" destination="xtg-j0-lo1" eventType="touchUpInside" id="udH-6J-BSo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDJ-wC-UCP">
                                 <rect key="frame" x="50" y="600" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="一覧"/>
                                 <connections>
                                     <action selector="set:" destination="xtg-j0-lo1" eventType="touchUpInside" id="Djc-c9-jvA"/>
                                 </connections>
@@ -569,11 +569,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPF-QW-POo">
                                         <rect key="frame" x="0.0" y="20" width="187" height="89"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="邦楽"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FD8-a0-Frx">
                                         <rect key="frame" x="188" y="20" width="187" height="89"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="洋楽"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

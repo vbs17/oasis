@@ -8,7 +8,7 @@ import FirebaseAuth
 class TabViewController: UIViewController {
     
     @IBAction func home(sender: AnyObject) {
-        let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Itiran")
+        let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set")
         self.presentViewController(HomeViewController!, animated: true, completion: nil)
         }
     
@@ -19,8 +19,8 @@ class TabViewController: UIViewController {
     }
     
     @IBAction func set(sender: AnyObject) {
-        let setViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set") as! SetViewController
-        self.presentViewController(setViewController, animated: true, completion: nil)
+        let setViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Itiran")
+        self.presentViewController(setViewController!, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
