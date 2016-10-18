@@ -13,14 +13,14 @@ class TabViewController: UIViewController {
         }
     
     @IBAction func post(sender: AnyObject) {
-        let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Top")
+        let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Top") 
         self.presentViewController(TopViewController!, animated: true, completion: nil)
         
     }
     
     @IBAction func set(sender: AnyObject) {
-        let SetViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set")
-        self.presentViewController(SetViewController!, animated: true, completion: nil)
+        let setViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set") as! SetViewController
+        self.presentViewController(setViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
