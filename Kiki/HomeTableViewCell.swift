@@ -15,7 +15,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     
     //写真タップされたら音源を再生
-    @IBAction func saisei(sender: AnyObject) {
+    @IBAction func play(sender: AnyObject) {
         let url = NSURL(fileURLWithPath: tap!)
         playSong = try! AVAudioPlayer(contentsOfURL: url)
         playSong?.prepareToPlay()

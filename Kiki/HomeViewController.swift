@@ -10,7 +10,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var tableView: UITableView!
     
-    var postArray: [PostData] = []
+    var postArray: [PostData] = [] //写真　曲名　秒数　音源の格納庫
     var observing = false
 
     override func viewDidLoad() {
@@ -25,12 +25,12 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         super.viewWillAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
             if observing == false {
-                // 要素が追加されたらpostArrayに追加してTableViewを再表示する
+                // 写真　曲名　秒数　音源が追加されたらpostArray(写真　曲名　秒数　音源の格納庫)に追加してTableViewを再表示する
                 FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
-                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        let postData = PostData(snapshot: snapshot, myId: uid) //写真　曲名　秒数　音源が存在してる
                         self.postArray.insert(postData, atIndex: 0)
                         
                         // TableViewを再表示する
@@ -53,7 +53,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HomeTableViewCell
-        cell.setPostData(postArray[indexPath.row])
+        cell.setPostData(postArray[indexPath.row])   //var postArray: [PostData] = [] 写真　曲名　秒数　音源が存在してる
+
         
         return cell
     }

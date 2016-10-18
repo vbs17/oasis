@@ -17,9 +17,6 @@
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsu-5q-BDI">
                         <rect key="frame" x="8" y="8" width="352" height="261"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="zGc-Fc-2dZ" appends="YES" id="Eqh-n3-51h"/>
-                        </connections>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pq0-I6-bgn">
                         <rect key="frame" x="58" y="299" width="240" height="30"/>
@@ -32,20 +29,26 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKc-58-ER5">
+                        <rect key="frame" x="161" y="124" width="46" height="32"/>
+                        <state key="normal" title="PLAY" backgroundImage="p0004_m">
+                            <color key="titleColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="play:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6MS-B1-IzC"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="ImageView" destination="dsu-5q-BDI" id="IV6-aN-IFI"/>
                 <outlet property="cellLabel" destination="W9D-as-Sl6" id="U81-vL-CeK"/>
                 <outlet property="cellText" destination="Pq0-I6-bgn" id="55v-rS-LUL"/>
-                <outlet property="imageView" destination="dsu-5q-BDI" id="i6j-RA-vYX"/>
             </connections>
             <point key="canvasLocation" x="385" y="348"/>
         </tableViewCell>
-        <tapGestureRecognizer id="zGc-Fc-2dZ">
-            <connections>
-                <action selector="saisei:" destination="KGk-i7-Jjw" id="S4L-32-sAc"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="p0004_m" width="640" height="881"/>
+    </resources>
 </document>
