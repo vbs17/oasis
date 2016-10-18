@@ -16,7 +16,8 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var T1ext: UITextField!
+    
+    @IBOutlet weak var label2: UILabel!
     
     @IBAction func play(sender: AnyObject) {
         let url = NSURL(fileURLWithPath: tap!)
@@ -29,7 +30,7 @@ class HomeTableViewCell: UITableViewCell {
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
         label.text = postData.name
-        T1ext.text = postData.byou
+        label2.text = postData.byou
         tap = postData.song
     }
 
