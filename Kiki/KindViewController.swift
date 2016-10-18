@@ -482,13 +482,13 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     //どのジャンルが選択されたか判明
     func btn_click(sender: UIButton){
         if sender.currentBackgroundImage !== buttonImage{
-        sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
-        let event = UIEvent()
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        genre = AllItems[indexPath!.section][indexPath!.row]
-           
+            let event = UIEvent()
+            let touch = event.allTouches()?.first
+            let point = touch!.locationInView(self.tableView)
+            let indexPath = tableView.indexPathForRowAtPoint(point)
+            genre = AllItems[indexPath!.section][indexPath!.row]
+            sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+            
         } else {
         sender.setBackgroundImage(buttonImage2, forState: UIControlState.Normal)
         }; return
