@@ -485,19 +485,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         let ongen:NSString = songData.path!
         let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
          postRef.childByAutoId().setValue(postData)
-        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
-        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     //値を設定
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -510,7 +498,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func buttonPressed(tableViewCell: KindTableViewCell) {
         let indexPath = tableView.indexPathForCell(tableViewCell)
-         genre = AllItems[indexPath!.section][indexPath!.row]
+        genre = AllItems[indexPath!.section][indexPath!.row]
         let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
         homeviewcontroller.genre = genre
     }

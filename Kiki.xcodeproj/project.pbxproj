@@ -116,6 +116,7 @@
 		B08690761DB4A1BD006BB6FD /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
 				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
@@ -170,7 +171,6 @@
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
-				B071D9671DB4E5040017E287 /* PostData.swift */,
 			);
 			name = Toukou;
 			sourceTree = "<group>";

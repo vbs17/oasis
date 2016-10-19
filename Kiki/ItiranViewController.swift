@@ -491,13 +491,9 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //Cellが選択された際に呼び出される.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
-        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
-        let event = UIEvent()
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        genre =  AllItems[indexPath!.section][indexPath!.row]
+        genre =  AllItems[indexPath.section][indexPath.row]
         homeviewcontroller.genre = genre
+        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
         
 
     }
