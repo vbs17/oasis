@@ -483,14 +483,12 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     //セクションのタイトルを返す.
-    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section] as? String
     }
     
     
     //Cellが選択された際に呼び出される.
-
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
         self.presentViewController(homeviewcontroller, animated: true, completion: nil)
@@ -505,7 +503,6 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //テーブルに表示する配列の総数を返す.
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AllItems[section].count
     }
