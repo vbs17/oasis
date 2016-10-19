@@ -26,6 +26,9 @@
                         <state key="normal" title="決定" backgroundImage="59774115_220x220">
                             <color key="titleColor" red="0.75047038610000005" green="0.75047038610000005" blue="0.75047038610000005" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="genreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bwM-mz-oJR"/>
+                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>

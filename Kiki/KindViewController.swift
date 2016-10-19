@@ -5,10 +5,10 @@ import Firebase
 import FirebaseDatabase
 import SVProgressHUD
 
-class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, KindTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     
     
    let AllItems: [[String]]  = [[ "赤犬",
@@ -466,6 +466,16 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     var genre = ""
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
+        
+    }
+
+    
     //ここ写真　曲名　秒数　音源　ジャンルをfirebaseに投稿
     @IBAction func post(sender: AnyObject) {
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
@@ -479,39 +489,50 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.presentViewController(homeviewcontroller, animated: true, completion: nil)
     }
     
-    //どのジャンルが選択されたか判明
-    func btn_click(sender: UIButton){
-        if sender.currentBackgroundImage !== buttonImage{
-            let event = UIEvent()
-            let touch = event.allTouches()?.first
-            let point = touch!.locationInView(self.tableView)
-            let indexPath = tableView.indexPathForRowAtPoint(point)
-            genre = AllItems[indexPath!.section][indexPath!.row]
-            sender.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
-            
-        } else {
-        sender.setBackgroundImage(buttonImage2, forState: UIControlState.Normal)
-        }; return
-        
-        }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        let nib = UINib(nibName: "KindTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "Cell")
-        
-    }
-
     
+    
+    
+    
+    
+    
+    
+    
+    
+    //値を設定
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! KindTableViewCell
-        cell.button.addTarget(self, action: #selector(KindViewController.btn_click(_:)), forControlEvents:.TouchUpInside)
+        cell.delegate = self
         let items = AllItems[indexPath.section][indexPath.row]
         cell.label.text = items
         return cell
     }
+    
+    func buttonPressed(tableViewCell: KindTableViewCell) {
+        let indexPath = tableView.indexPathForCell(tableViewCell)
+         genre = AllItems[indexPath!.section][indexPath!.row]
+        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+        homeviewcontroller.genre = genre
+    }
+    
+    //Cellが選択された際に呼び出される.
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     //セクションの数を返す.
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -523,12 +544,6 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section] as? String
     }
-    
-  
-     //Cellが選択された際に呼び出される.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-         }
     
     //テーブルに表示する配列の総数を返す.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
