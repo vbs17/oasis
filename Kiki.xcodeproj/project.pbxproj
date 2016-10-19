@@ -153,7 +153,6 @@
 				B071D9741DB50E670017E287 /* SetViewController.swift */,
 				B08690761DB4A1BD006BB6FD /* cell */,
 				B0B263D21DB7467100C0F2A3 /* Toukou */,
-				B0B263D31DB7467B00C0F2A3 /* Saisei */,
 				B00501C31DB6428500319866 /* Celll */,
 				B00501BA1DB610D200319866 /* Cell */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
@@ -175,13 +174,6 @@
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
 			);
 			name = Toukou;
-			sourceTree = "<group>";
-		};
-		B0B263D31DB7467B00C0F2A3 /* Saisei */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Saisei;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

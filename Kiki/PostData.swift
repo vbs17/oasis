@@ -30,5 +30,5 @@ class PostData: NSObject {
         song = valueDictionary["ongen"] as? String
         realsong = valueDictionary["realsong"] as? String
     
-}
+  }
 }
