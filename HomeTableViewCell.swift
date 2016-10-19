@@ -21,7 +21,7 @@ class HomeTableViewCell: UITableViewCell {
         ImageView.image = postData.image
         label.text = postData.name
         label2.text = postData.byou
-        tap = postData.realsong!.dataUsingEncoding(NSUTF8StringEncoding)
+        tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
 
 
