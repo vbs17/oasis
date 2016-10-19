@@ -7,6 +7,8 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
+
     let AllItems: [[String]]  = [[ "赤犬",
         "あがた森魚",
         "浅井健一",
@@ -450,7 +452,6 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                  ["80kidz",
                                     "9mm Parabellum Bullet"]]
     
-    private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
     
     var genre:String!
 
@@ -461,10 +462,21 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         let nib = UINib(nibName: "ItiranTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Celll")
-        
-
     }
 
+    //Cellが選択された際に呼び出される.
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+        genre =  AllItems[indexPath.section][indexPath.row]
+        homeviewcontroller.genre = genre
+        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
+    }
+    
+    //テーブルに表示する配列の総数を返す.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AllItems[section].count
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -486,22 +498,7 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section] as? String
     }
-    
-    
-    //Cellが選択された際に呼び出される.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
-        genre =  AllItems[indexPath.section][indexPath.row]
-        homeviewcontroller.genre = genre
-        self.presentViewController(homeviewcontroller, animated: true, completion: nil)
-        
 
-    }
-    
-    //テーブルに表示する配列の総数を返す.
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AllItems[section].count
-    }
     
     
 }

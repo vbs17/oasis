@@ -458,7 +458,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var buttonImage:UIImage = UIImage(named: "104937")!
     var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
-    //写真　曲名　秒数　音源が
+    //写真　曲名　秒数　音源
     var songData:NSURL!
     var image:UIImage!
     var songname:UITextField!
@@ -476,15 +476,25 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     
-    //ここ写真　曲名　秒数　音源　ジャンルをfirebaseに投稿
+    //FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre) に保存
+    
     @IBAction func post(sender: AnyObject) {
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let songName:NSString = songname.text!
         let kazu:NSString = byou.text!
         let ongen:NSString = songData.path!
-        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen]
+        let realSongdata = NSData(contentsOfFile: songData.path!)
+        let realsong = realSongdata!.base64EncodedStringWithOptions([])
+        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "realsong":realsong]
          postRef.childByAutoId().setValue(postData)
+    }
+    
+    
+    //どこのジャンル押されたか判明
+    func buttonPressed(tableViewCell: KindTableViewCell) {
+        let indexPath = tableView.indexPathForCell(tableViewCell)
+        genre = AllItems[indexPath!.section][indexPath!.row]
     }
     
     //値を設定
@@ -495,38 +505,19 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.label.text = items
         return cell
     }
-    
-    func buttonPressed(tableViewCell: KindTableViewCell) {
-        let indexPath = tableView.indexPathForCell(tableViewCell)
-        genre = AllItems[indexPath!.section][indexPath!.row]
-    }
+
     
     //Cellが選択された際に呼び出される.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //セクションの数を返す.
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return mySections.count
     }
     
-
-     //セクションのタイトルを返す.
+    //セクションのタイトルを返す.
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section] as? String
     }

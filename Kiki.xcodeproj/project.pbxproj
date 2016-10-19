@@ -38,14 +38,14 @@
 		9E6B0D253A1C1620CEF05707 /* Pods-Kiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiki.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kiki/Pods-Kiki.release.xcconfig"; sourceTree = "<group>"; };
 		B00501B81DB610D200319866 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		B00501B91DB610D200319866 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
-		B00501BD1DB6420800319866 /* ItiranViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItiranViewController.swift; sourceTree = "<group>"; };
+		B00501BD1DB6420800319866 /* ItiranViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItiranViewController.swift; path = Kiki/ItiranViewController.swift; sourceTree = "<group>"; };
 		B00501C11DB6428500319866 /* ItiranTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItiranTableViewCell.swift; sourceTree = "<group>"; };
 		B00501C21DB6428500319866 /* ItiranTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItiranTableViewCell.xib; sourceTree = "<group>"; };
 		B0190A201DB20FE400FA066D /* KindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindViewController.swift; sourceTree = "<group>"; };
 		B03151751DAE6A06007EE64C /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		B071D9651DB4D6140017E287 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B071D9671DB4E5040017E287 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
-		B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Kiki/HomeViewController.swift; sourceTree = "<group>"; };
 		B071D9701DB509FA0017E287 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B071D9721DB50C4E0017E287 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B071D9741DB50E670017E287 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +96,8 @@
 		B00501BA1DB610D200319866 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
+				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
 				B00501B91DB610D200319866 /* HomeTableViewCell.xib */,
 			);
@@ -149,8 +151,8 @@
 				B071D9701DB509FA0017E287 /* TabViewController.swift */,
 				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
 				B071D9741DB50E670017E287 /* SetViewController.swift */,
-				B0B263D21DB7467100C0F2A3 /* Toukou */,
 				B08690761DB4A1BD006BB6FD /* cell */,
+				B0B263D21DB7467100C0F2A3 /* Toukou */,
 				B0B263D31DB7467B00C0F2A3 /* Saisei */,
 				B00501C31DB6428500319866 /* Celll */,
 				B00501BA1DB610D200319866 /* Cell */,
@@ -178,8 +180,6 @@
 		B0B263D31DB7467B00C0F2A3 /* Saisei */ = {
 			isa = PBXGroup;
 			children = (
-				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
-				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 			);
 			name = Saisei;
 			sourceTree = "<group>";

@@ -13,6 +13,7 @@ class PostData: NSObject {
     var name: String?
     var song: String?
     var byou: String?
+    var realsong: String?
     
    
     //写真　曲名　秒数　音源
@@ -27,7 +28,7 @@ class PostData: NSObject {
         byou = valueDictionary["byou"] as? String
         name = valueDictionary["songname"] as? String
         song = valueDictionary["ongen"] as? String
-        
-    }
+        realsong = valueDictionary["realsong"] as? String
     
+}
 }
