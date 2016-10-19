@@ -60,7 +60,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageView" destination="oMh-QU-tFv" id="uLd-Ez-WK4"/>
+                <outlet property="ImageView" destination="oMh-QU-tFv" id="lGQ-xd-4p2"/>
                 <outlet property="label" destination="aMN-Yt-9yQ" id="UZ8-BQ-RvF"/>
                 <outlet property="label2" destination="X8F-E1-oAD" id="sjd-09-Zgq"/>
             </connections>
