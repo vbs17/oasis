@@ -499,8 +499,6 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func buttonPressed(tableViewCell: KindTableViewCell) {
         let indexPath = tableView.indexPathForCell(tableViewCell)
         genre = AllItems[indexPath!.section][indexPath!.row]
-        let homeviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
-        homeviewcontroller.genre = genre
     }
     
     //Cellが選択された際に呼び出される.
