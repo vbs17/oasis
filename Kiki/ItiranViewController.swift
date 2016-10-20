@@ -7,6 +7,10 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func back(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
 
     let AllItems: [[String]]  = [[ "赤犬",

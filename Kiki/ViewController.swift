@@ -17,6 +17,9 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     
     
     
+    @IBAction func back(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var viewImage: UIView!
     @IBOutlet weak var recordImage: UIButton?

@@ -11,6 +11,9 @@ class SetViewController: UIViewController {
     
     @IBOutlet weak var disname: UITextField!
     
+    @IBAction func back(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBAction func change(sender: AnyObject) {
         if let name = disname.text {
                 if name.characters.isEmpty {
