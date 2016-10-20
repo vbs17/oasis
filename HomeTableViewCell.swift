@@ -20,7 +20,7 @@ class HomeTableViewCell: UITableViewCell {
         playSong = try! AVAudioPlayer(data:tap!)
         playSong?.prepareToPlay()
         playSong?.play()
-         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }
     
     
@@ -58,7 +58,7 @@ class HomeTableViewCell: UITableViewCell {
             let p:Double = x / Double(nami.frame.size.width)
             
             playSong.currentTime = Double(time * p)
-            nami.progress = Float(time * p)
+            
         }
     }
     
