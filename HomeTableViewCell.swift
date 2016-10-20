@@ -67,6 +67,13 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        nami.transform = CGAffineTransformMakeScale(1.0, 30.0)
+        nami.progressImage = UIImage(named: "Kiki31" )
+        nami.trackImage = UIImage(named: "Kiki32")
+    }
+    
     
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!
@@ -91,9 +98,7 @@ class HomeTableViewCell: UITableViewCell {
 
 
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

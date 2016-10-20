@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMN-Yt-9yQ">
-                        <rect key="frame" x="39" y="279" width="300" height="21"/>
+                        <rect key="frame" x="39" y="298" width="300" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="300" id="Y8t-ZL-OUC"/>
                             <constraint firstAttribute="height" constant="21" id="boy-jh-p26"/>
@@ -99,14 +99,9 @@
                     </button>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
                         <rect key="frame" x="8" y="183" width="363" height="63"/>
-                        <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-8R-nN3">
-                                <rect key="frame" x="0.0" y="31" width="363" height="2"/>
-                            </progressView>
-                        </subviews>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-E1-oAD">
-                        <rect key="frame" x="8" y="279" width="42" height="21"/>
+                        <rect key="frame" x="8" y="304" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="AkC-MO-Xl4"/>
                             <constraint firstAttribute="width" constant="42" id="g3i-Mr-gtc"/>
@@ -115,16 +110,20 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-8R-nN3">
+                        <rect key="frame" x="0.0" y="277" width="378" height="2"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </progressView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="diB-Ai-OmM" secondAttribute="trailing" constant="163" id="5Ru-62-zNY"/>
                     <constraint firstAttribute="bottom" secondItem="FcN-S1-qm3" secondAttribute="bottom" constant="22" id="6Lb-tj-lqh"/>
                     <constraint firstAttribute="bottom" secondItem="ivC-1H-FS5" secondAttribute="bottom" constant="22" id="8DX-wn-OUE"/>
                     <constraint firstItem="FcN-S1-qm3" firstAttribute="leading" secondItem="q75-k2-nJp" secondAttribute="trailing" constant="8" id="8U9-JK-qwy"/>
-                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="top" secondItem="X8F-E1-oAD" secondAttribute="bottom" constant="-21" id="EZe-eN-V9S"/>
+                    <constraint firstItem="aMN-Yt-9yQ" firstAttribute="top" secondItem="X8F-E1-oAD" secondAttribute="bottom" constant="-27" id="EZe-eN-V9S"/>
                     <constraint firstAttribute="trailing" secondItem="X8F-E1-oAD" secondAttribute="trailing" constant="329" id="MKr-yV-Rq4"/>
                     <constraint firstItem="ivC-1H-FS5" firstAttribute="leading" secondItem="oGr-oM-cqs" secondAttribute="trailing" constant="8" id="MPs-4M-An5"/>
-                    <constraint firstItem="X8F-E1-oAD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="279" id="MWm-eJ-uMj"/>
+                    <constraint firstItem="X8F-E1-oAD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="304" id="MWm-eJ-uMj"/>
                     <constraint firstItem="FcN-S1-qm3" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="27" id="SMl-9J-eaD"/>
                     <constraint firstItem="ltf-Uk-188" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="27" id="XMJ-JF-6Tf"/>
                     <constraint firstItem="ltf-Uk-188" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="54" id="Y4R-y7-jIp"/>
