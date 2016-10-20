@@ -8,7 +8,13 @@ import FirebaseDatabase
 class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
     
+    @IBOutlet weak var back: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func backGo(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     var postArray: [PostData] = [] //写真　曲名　秒数　音源の格納庫
     var observing = false
@@ -20,6 +26,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.dataSource = self
         let nib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
     }
     
     override func viewWillAppear(animated: Bool) {

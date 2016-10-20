@@ -93,7 +93,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B00501BA1DB610D200319866 /* CEll */ = {
+		B00501BA1DB610D200319866 /* HomeCEll */ = {
 			isa = PBXGroup;
 			children = (
 				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
@@ -101,21 +101,21 @@
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
 				B00501B91DB610D200319866 /* HomeTableViewCell.xib */,
 			);
-			name = CEll;
+			name = HomeCEll;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		B00501C31DB6428500319866 /* Celll */ = {
+		B00501C31DB6428500319866 /* ItiranCelll */ = {
 			isa = PBXGroup;
 			children = (
 				B00501C11DB6428500319866 /* ItiranTableViewCell.swift */,
 				B00501C21DB6428500319866 /* ItiranTableViewCell.xib */,
 			);
-			name = Celll;
+			name = ItiranCelll;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		B08690761DB4A1BD006BB6FD /* Cell */ = {
+		B08690761DB4A1BD006BB6FD /* KindCell */ = {
 			isa = PBXGroup;
 			children = (
 				B071D9671DB4E5040017E287 /* PostData.swift */,
@@ -123,7 +123,7 @@
 				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
 				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
 			);
-			name = Cell;
+			name = KindCell;
 			sourceTree = "<group>";
 		};
 		B0A78FC91DACFF6400AC0513 = {
@@ -151,10 +151,10 @@
 				B071D9701DB509FA0017E287 /* TabViewController.swift */,
 				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
 				B071D9741DB50E670017E287 /* SetViewController.swift */,
-				B08690761DB4A1BD006BB6FD /* Cell */,
 				B0B263D21DB7467100C0F2A3 /* Toukou */,
-				B00501C31DB6428500319866 /* Celll */,
-				B00501BA1DB610D200319866 /* CEll */,
+				B08690761DB4A1BD006BB6FD /* KindCell */,
+				B00501C31DB6428500319866 /* ItiranCelll */,
+				B00501BA1DB610D200319866 /* HomeCEll */,
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B071D9651DB4D6140017E287 /* File.swift */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,

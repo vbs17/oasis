@@ -7,24 +7,35 @@ import FirebaseAuth
 
 class TabViewController: UIViewController {
     
-    @IBAction func home(sender: AnyObject) {
+    @IBOutlet weak var music1: UIButton!
+    @IBOutlet weak var recpic1: UIButton!
+    @IBOutlet weak var set1: UIButton!
+    
+    @IBAction func setting(sender: AnyObject) {
         let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set")
         self.presentViewController(HomeViewController!, animated: true, completion: nil)
-        }
+    }
     
-    @IBAction func post(sender: AnyObject) {
+    
+    @IBAction func recpic(sender: AnyObject) {
         let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Top") 
         self.presentViewController(TopViewController!, animated: true, completion: nil)
         
     }
     
-    @IBAction func set(sender: AnyObject) {
+    @IBAction func music(sender: AnyObject) {
         let setViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Itiran")
         self.presentViewController(setViewController!, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        music1.layer.cornerRadius = 2
+        music1.clipsToBounds = true
+        recpic1.layer.cornerRadius = 2
+        recpic1.clipsToBounds = true
+        set1.layer.cornerRadius = 2
+        set1.clipsToBounds = true
     }
     
     override func viewDidAppear(animated: Bool) {

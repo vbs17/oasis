@@ -488,6 +488,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         let realsong = realSongdata!.base64EncodedStringWithOptions([])
         let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "realsong":realsong]
          postRef.childByAutoId().setValue(postData)
+        let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
+        self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
     }
     
     
