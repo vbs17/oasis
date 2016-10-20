@@ -10,11 +10,33 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
+    
     @IBAction func play(sender: AnyObject) {
         playSong = try! AVAudioPlayer(data:tap!)
         playSong?.prepareToPlay()
         playSong?.play()
 
+    }
+    
+    @IBOutlet weak var star1: UIButton!
+    @IBOutlet weak var star2: UIButton!
+    @IBOutlet weak var star3: UIButton!
+    @IBOutlet weak var star4: UIButton!
+    @IBOutlet weak var star5: UIButton!
+    
+    @IBAction func star1Go(sender: AnyObject) {
+    }
+    
+    @IBAction func star2Go(sender: AnyObject) {
+    }
+    
+    @IBAction func star3Go(sender: AnyObject) {
+    }
+    
+    @IBAction func star4Go(sender: AnyObject) {
+    }
+    
+    @IBAction func star5Go(sender: AnyObject) {
     }
     
     func setPostData(postData: PostData) {
