@@ -97,9 +97,6 @@
                             <action selector="star1Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n1C-yh-zOO"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
-                        <rect key="frame" x="8" y="183" width="363" height="63"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-E1-oAD">
                         <rect key="frame" x="8" y="304" width="42" height="21"/>
                         <constraints>
@@ -111,9 +108,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-8R-nN3">
-                        <rect key="frame" x="0.0" y="277" width="378" height="2"/>
+                        <rect key="frame" x="0.0" y="277" width="379" height="2"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </progressView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
+                        <rect key="frame" x="0.0" y="298" width="363" height="27"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="diB-Ai-OmM" secondAttribute="trailing" constant="163" id="5Ru-62-zNY"/>

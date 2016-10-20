@@ -6,58 +6,67 @@ import AVFoundation
 class HomeTableViewCell: UITableViewCell {
     var tap:NSData?
     var playSong:AVAudioPlayer!
-    let audioView = UIView()
+    var timer: NSTimer!
+
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var view: UIView!
-    
     @IBOutlet weak var nami: UIProgressView!
+    
+    
     @IBAction func play(sender: AnyObject) {
         playSong = try! AVAudioPlayer(data:tap!)
         playSong?.prepareToPlay()
         playSong?.play()
-
-    }
+         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+        }
     
     
 //タッチ開始時
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(audioView)) != nil) {
+        if ((event?.touchesForView(nami)) != nil) {
             print("touchesBegan ---- AudioView")
             let touch = touches.first
             let tapLocation = touch!.locationInView(self.view)
-            print("touchesBegan ---- " + (tapLocation.x - audioView.frame.origin.x).description)
+            print("touchesBegan ---- " + (tapLocation.x - nami.frame.origin.x).description)
         }
     }
     //タッチしたまま指を移動
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(audioView)) != nil) {
+        if ((event?.touchesForView(nami)) != nil) {
             print("touchesMoved ---- AudioView")
             
             let touch = touches.first
             let tapLocation = touch!.locationInView(self.view)
-            print("touchesMoved ---- " + (tapLocation.x - audioView.frame.origin.x).description)
+            print("touchesMoved ---- " + (tapLocation.x - nami.frame.origin.x).description)
             
         }
     }
     
     //タッチした指が画面から離れる
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(audioView)) != nil) {
+        if ((event?.touchesForView(nami)) != nil) {
             print("touchesEnded ---- AudioView")
             
             let touch = touches.first
             let tapLocation = touch!.locationInView(self.view)
             
-            let x:Double = Double(tapLocation.x - audioView.frame.origin.x)
+            let x:Double = Double(tapLocation.x - view.frame.origin.x)
             let time = playSong.duration
-            let p:Double = x / Double(audioView.frame.size.width)
+            let p:Double = x / Double(nami.frame.size.width)
             
             playSong.currentTime = Double(time * p)
+            nami.progress = Float(time * p)
         }
     }
+    
+    func namigo(){
+         nami.progress = Float(playSong.currentTime / playSong.duration)
+    }
+    
+    
     
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
@@ -70,8 +79,11 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         nami.transform = CGAffineTransformMakeScale(1.0, 30.0)
-        nami.progressImage = UIImage(named: "Kiki31" )
-        nami.trackImage = UIImage(named: "Kiki32")
+        nami.progressImage = UIImage(named: "Kiki36" )
+        nami.trackImage = UIImage(named: "Kiki37")
+        nami.progress = 0
+       
+
     }
     
     
@@ -105,3 +117,4 @@ class HomeTableViewCell: UITableViewCell {
     }
     
 }
+
