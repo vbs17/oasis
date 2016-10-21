@@ -13,9 +13,15 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var genre: String!
     var playSong:AVAudioPlayer!
     var timer: NSTimer!
-
-    @IBOutlet weak var back: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    var ImageView: UIImageView!
+    var label: UILabel!
+    var label2: UILabel!
+    var onlabel2: UILabel!
+    var view: UIView!
+    var nami: UIProgressView!
+    var back: UIButton!
+    var tableView: UITableView!
+    
     @IBAction func backGo(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
