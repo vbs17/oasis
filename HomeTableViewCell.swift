@@ -20,16 +20,19 @@ class HomeTableViewCell: UITableViewCell {
     
     
     @IBAction func play(sender: AnyObject) {
-        playSong = try! AVAudioPlayer(data:tap!)
-        playSong?.prepareToPlay()
-        if ((playSong?.play()) != nil){
-             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
-        }else {
-            playSong.stop()
+        if (timer == nil){
+            playSong?.play()
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeTableViewCell.updatePlayingTime), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+        }else  {
+            playSong.pause()
             timer.invalidate()
+            timer = nil
         }
+            
         
-        }
+    }
+    
     
     func updatePlayingTime() {
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
@@ -98,7 +101,8 @@ class HomeTableViewCell: UITableViewCell {
         label.text = postData.name
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        
+        playSong = try! AVAudioPlayer(data:tap!)
+        playSong?.prepareToPlay()
     }
     
     override func awakeFromNib() {
@@ -107,7 +111,7 @@ class HomeTableViewCell: UITableViewCell {
         nami.progressImage = UIImage(named: "Kiki45" )
         nami.trackImage = UIImage(named: "Kiki41")
         nami.progress = 0
-       
+        onlabel2.text = "0:00"
 
     }
     
