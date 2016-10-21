@@ -5,7 +5,6 @@ import AVFoundation
 
 class HomeTableViewCell: UITableViewCell {
     var tap:NSData?
-    var playSong:AVAudioPlayer!
     var timer: NSTimer!
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -19,44 +18,38 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBAction func play(sender: AnyObject) {
         if (timer == nil){
-            playSong?.play()
+            appDelegate.playSong?.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeTableViewCell.updatePlayingTime), userInfo: nil, repeats: true)
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }else if (timer !== nil){
-            playSong.pause()
+            appDelegate.playSong.pause()
             timer.invalidate()
             timer = nil
-        }else if (playSong.currentTime == playSong.duration) {
-        onlabel2.text = "0:00"
-        playSong.prepareToPlay()
-        playSong.currentTime = 0
-        playSong.play()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }
     }
     
     @IBAction func bsck(sender: AnyObject) {
         onlabel2.text = "0:00"
-        playSong.stop()
-        playSong.prepareToPlay()
-        playSong.currentTime = 0
-        playSong.play()
+        appDelegate.playSong.stop()
+        appDelegate.playSong.prepareToPlay()
+        appDelegate.playSong.currentTime = 0
+        appDelegate.playSong.play()
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }
     
     
     
     func updatePlayingTime() {
-        if  floor(playSong.currentTime) ==  floor(playSong.duration) {
-            playSong.stop()
+        if  floor(appDelegate.playSong.currentTime) ==  floor(appDelegate.playSong.duration) {
+            appDelegate.playSong.stop()
             if timer != nil {
                 timer.invalidate()
             }
-            onlabel2.text = formatTimeString(playSong.duration)
+            onlabel2.text = formatTimeString(appDelegate.playSong.duration)
             return
         }
         
-        onlabel2.text = formatTimeString(playSong.currentTime)
+        onlabel2.text = formatTimeString(appDelegate.playSong.currentTime)
     }
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
@@ -96,16 +89,16 @@ class HomeTableViewCell: UITableViewCell {
             let tapLocation = touch!.locationInView(self.view)
             
             let x:Double = Double(tapLocation.x - view.frame.origin.x)
-            let time = playSong.duration
+            let time = appDelegate.playSong.duration
             let p:Double = x / Double(nami.frame.size.width)
             
-            playSong.currentTime = Double(time * p)
+            appDelegate.playSong.currentTime = Double(time * p)
             
         }
     }
     
     func namigo(){
-         nami.progress = Float(playSong.currentTime / playSong.duration)
+         nami.progress = Float(appDelegate.playSong.currentTime / appDelegate.playSong.duration)
     }
     
     
@@ -115,8 +108,8 @@ class HomeTableViewCell: UITableViewCell {
         label.text = postData.name
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        playSong = try! AVAudioPlayer(data:tap!)
-        playSong?.prepareToPlay()
+        appDelegate.playSong = try! AVAudioPlayer(data:tap!)
+        appDelegate.playSong?.prepareToPlay()
     }
     
     override func awakeFromNib() {
