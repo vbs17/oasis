@@ -36,7 +36,29 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let indexPath = tableView.indexPathForRowAtPoint(point)
         let postData = postArray[indexPath!.row]//どのセルがタップされたか認識できた(写真　曲名　秒数　音源など)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell
+        func play(sender: AnyObject) {
+            if (timer == nil){
+                playSong = try! AVAudioPlayer(data:tap!)
+                playSong?.prepareToPlay()
+                playSong?.play()
+                timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeTableViewCell.updatePlayingTime), userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+            }else if (timer !== nil){
+                playSong.pause()
+                timer.invalidate()
+                timer = nil
+            }
+        }
         
+         func back(sender: AnyObject) {
+            onlabel2.text = "0:00"
+            playSong.stop()
+            playSong.prepareToPlay()
+            playSong.currentTime = 0
+            playSong.play()
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+        }
+
     }
     
     //移動
