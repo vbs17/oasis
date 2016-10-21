@@ -17,14 +17,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var label: UILabel!
     var label2: UILabel!
     var onlabel2: UILabel!
-    var view: UIView!
+    var view11: UIView!
     var nami: UIProgressView!
     var back: UIButton!
     var tableView: UITableView!
-    
-    @IBAction func backGo(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,42 +32,54 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         back.clipsToBounds = true
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
+        cell.setPostData(postArray[indexPath.row])
+        cell.playButton.addTarget(self, action:#selector(
+            handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.backButton.addTarget(self, action:#selector(
+            back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        return cell
+    }
+
+
+    //どの音楽がタップされたか識別
     func handleButton(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
-        let postData = postArray[indexPath!.row]//どのセルがタップされたか認識できた(写真　曲名　秒数　音源など)
+        let postData = postArray[indexPath!.row]
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell
-        func play(sender: AnyObject) {
-            if (timer == nil){
-                playSong = try! AVAudioPlayer(data:tap!)
-                playSong?.prepareToPlay()
-                playSong?.play()
-                timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeTableViewCell.updatePlayingTime), userInfo: nil, repeats: true)
-                timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
-            }else if (timer !== nil){
-                playSong.pause()
-                timer.invalidate()
-                timer = nil
-            }
+        if (timer == nil){
+            let tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+            playSong = try! AVAudioPlayer(data:tap!)
+            playSong?.prepareToPlay()
+            playSong?.play()
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.namigo), userInfo: nil, repeats: true)
+        }else if (timer !== nil){
+            playSong.pause()
+            timer.invalidate()
+            timer = nil
         }
-        
-         func back(sender: AnyObject) {
+
+    }
+    
+    //巻き戻し
+    func back(sender: UIButton, event:UIEvent) {
             onlabel2.text = "0:00"
             playSong.stop()
             playSong.prepareToPlay()
             playSong.currentTime = 0
             playSong.play()
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
-        }
-
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.namigo), userInfo: nil, repeats: true)
     }
-    
-    //移動
+
+    //波
     func namigo(){
         nami.progress = Float(playSong.currentTime / playSong.duration)
     }
-    
+    //onbyou
     func updatePlayingTime() {
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
             playSong.stop()
@@ -85,6 +93,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         onlabel2.text = formatTimeString(playSong.currentTime)
     }
     
+    //tesita
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
         let m: Int = Int((d - Double(s)) / 60 % 60)
@@ -97,7 +106,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesBegan ---- AudioView")
             let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view)
+            let tapLocation = touch!.locationInView(self.view11)
             print("touchesBegan ---- " + (tapLocation.x - nami.frame.origin.x).description)
         }
     }
@@ -107,7 +116,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesMoved ---- AudioView")
             let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view)
+            let tapLocation = touch!.locationInView(self.view11)
             print("touchesMoved ---- " + (tapLocation.x - nami.frame.origin.x).description)
             
         }
@@ -118,15 +127,15 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesEnded ---- AudioView")
             let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view)
-            let x:Double = Double(tapLocation.x - view.frame.origin.x)
+            let tapLocation = touch!.locationInView(self.view11)
+            let x:Double = Double(tapLocation.x - view11.frame.origin.x)
             let time = playSong.duration
             let p:Double = x / Double(nami.frame.size.width)
             playSong.currentTime = Double(time * p)
         }
     }
 
-    
+    //無視
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -136,14 +145,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return postArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
-        cell.setPostData(postArray[indexPath.row])   //var postArray: [PostData] = [] 写真　曲名　秒数　音源が存在してる
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // Auto Layoutを使ってセルの高さを動的に変更する
         return UITableViewAutomaticDimension
     }
@@ -174,6 +176,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
 
     
+    @IBAction func backGo(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
    
-}
+ }
+

@@ -30,9 +30,6 @@
                         <state key="normal">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="play:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="neY-A3-3tl"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGr-oM-cqs">
                         <rect key="frame" x="114" y="341" width="46" height="30"/>
@@ -134,9 +131,6 @@
                             <color key="titleColor" red="1" green="0.9401928839" blue="0.1035148971" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" red="1" green="0.93655589660000005" blue="0.184571125" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
-                        <connections>
-                            <action selector="bsck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Zeq-zz-GDo"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-E1-oAD">
                         <rect key="frame" x="30" y="209" width="40" height="26"/>
@@ -193,10 +187,12 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="ImageView" destination="oMh-QU-tFv" id="Acu-YI-wQM"/>
+                <outlet property="backButton" destination="1K3-t4-Uub" id="Mhh-Mp-GgF"/>
                 <outlet property="label" destination="aMN-Yt-9yQ" id="UZ8-BQ-RvF"/>
                 <outlet property="label2" destination="X8F-E1-oAD" id="sjd-09-Zgq"/>
                 <outlet property="nami" destination="UNu-8R-nN3" id="ril-GJ-Drk"/>
                 <outlet property="onlabel2" destination="3Ty-hM-VeE" id="oxL-jk-x0i"/>
+                <outlet property="playButton" destination="diB-Ai-OmM" id="isk-xv-CHz"/>
                 <outlet property="star1" destination="ltf-Uk-188" id="hkN-4Z-Plj"/>
                 <outlet property="star2" destination="oGr-oM-cqs" id="sRg-Ix-Qtr"/>
                 <outlet property="star3" destination="ivC-1H-FS5" id="cxr-4L-pIN"/>
@@ -204,7 +200,7 @@
                 <outlet property="star5" destination="FcN-S1-qm3" id="ERe-1e-yXv"/>
                 <outlet property="view" destination="Gbk-Ed-PD0" id="SSC-wM-iPQ"/>
             </connections>
-            <point key="canvasLocation" x="130.5" y="351"/>
+            <point key="canvasLocation" x="45.5" y="350"/>
         </tableViewCell>
     </objects>
 </document>

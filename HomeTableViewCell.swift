@@ -12,7 +12,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var onlabel2: UILabel!
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var nami: UIProgressView!
-    //再度再生した時の処理はまだ 3回目のタップの処理が必要やな（再生→停止→再生）
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+  
     
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
