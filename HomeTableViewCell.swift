@@ -19,8 +19,13 @@ class HomeTableViewCell: UITableViewCell {
     @IBAction func play(sender: AnyObject) {
         playSong = try! AVAudioPlayer(data:tap!)
         playSong?.prepareToPlay()
-        playSong?.play()
-         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+        if ((playSong?.play()) != nil){
+             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+        }else {
+            playSong.stop()
+            timer.invalidate()
+        }
+        
         }
     
     
