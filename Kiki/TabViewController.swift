@@ -18,10 +18,8 @@ class TabViewController: UIViewController {
     
     
     @IBAction func recpic(sender: AnyObject) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Syuru")
         self.presentViewController(TopViewController!, animated: true, completion: nil)
-        
     }
     
     @IBAction func music(sender: AnyObject) {
