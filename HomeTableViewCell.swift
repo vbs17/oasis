@@ -11,7 +11,10 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+    //byou
     @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var onlabel2: UILabel!
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var nami: UIProgressView!
     
@@ -27,6 +30,23 @@ class HomeTableViewCell: UITableViewCell {
         }
         
         }
+    
+    func updatePlayingTime() {
+        if  floor(playSong.currentTime) ==  floor(playSong.duration) {
+            timer.invalidate()
+            onlabel2.text = formatTimeString(playSong.duration)
+            return
+        }
+        
+        onlabel2.text = formatTimeString(playSong.currentTime)
+    }
+    
+    func formatTimeString(d: Double) -> String {
+        let s: Int = Int(d % 60)
+        let m: Int = Int((d - Double(s)) / 60 % 60)
+        let str = String(format: "%2d:%02d",  m, s)
+        return str
+    }
     
     
 //タッチ開始時

@@ -89,16 +89,6 @@
                             <action selector="star1Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n1C-yh-zOO"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-E1-oAD">
-                        <rect key="frame" x="8" y="261" width="42" height="34"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="34" id="AkC-MO-Xl4"/>
-                            <constraint firstAttribute="width" constant="42" id="g3i-Mr-gtc"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
                         <rect key="frame" x="0.0" y="298" width="379" height="35"/>
                         <subviews>
@@ -118,6 +108,22 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ty-hM-VeE">
+                        <rect key="frame" x="8" y="267" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-E1-oAD">
+                        <rect key="frame" x="56" y="261" width="42" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="AkC-MO-Xl4"/>
+                            <constraint firstAttribute="width" constant="42" id="g3i-Mr-gtc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.90402759598603832" green="0.90402759598603832" blue="0.90402759598603832" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="diB-Ai-OmM" secondAttribute="trailing" id="5Ru-62-zNY"/>
@@ -125,7 +131,7 @@
                     <constraint firstAttribute="bottom" secondItem="ivC-1H-FS5" secondAttribute="bottom" constant="68" id="8DX-wn-OUE"/>
                     <constraint firstItem="FcN-S1-qm3" firstAttribute="leading" secondItem="q75-k2-nJp" secondAttribute="trailing" constant="8" id="8U9-JK-qwy"/>
                     <constraint firstItem="aMN-Yt-9yQ" firstAttribute="top" secondItem="X8F-E1-oAD" secondAttribute="bottom" constant="-287" id="EZe-eN-V9S"/>
-                    <constraint firstAttribute="trailing" secondItem="X8F-E1-oAD" secondAttribute="trailing" constant="329" id="MKr-yV-Rq4"/>
+                    <constraint firstAttribute="trailing" secondItem="X8F-E1-oAD" secondAttribute="trailing" constant="281" id="MKr-yV-Rq4"/>
                     <constraint firstItem="ivC-1H-FS5" firstAttribute="leading" secondItem="oGr-oM-cqs" secondAttribute="trailing" constant="8" id="MPs-4M-An5"/>
                     <constraint firstItem="X8F-E1-oAD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="261" id="MWm-eJ-uMj"/>
                     <constraint firstItem="FcN-S1-qm3" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="41" id="SMl-9J-eaD"/>
@@ -146,7 +152,7 @@
                     <constraint firstItem="ivC-1H-FS5" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="41" id="vGT-yp-B49"/>
                     <constraint firstItem="q75-k2-nJp" firstAttribute="leading" secondItem="ivC-1H-FS5" secondAttribute="trailing" constant="8" id="w8B-NW-kP6"/>
                     <constraint firstItem="aMN-Yt-9yQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xVD-bA-fOT"/>
-                    <constraint firstItem="X8F-E1-oAD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xXa-F6-qUg"/>
+                    <constraint firstItem="X8F-E1-oAD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="56" id="xXa-F6-qUg"/>
                     <constraint firstItem="oGr-oM-cqs" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="41" id="yL0-T3-lRO"/>
                     <constraint firstAttribute="trailing" secondItem="oMh-QU-tFv" secondAttribute="trailing" id="ykB-4k-Ubm"/>
                     <constraint firstAttribute="bottom" secondItem="ltf-Uk-188" secondAttribute="bottom" constant="68" id="zmY-fL-IhL"/>
@@ -157,6 +163,7 @@
                 <outlet property="label" destination="aMN-Yt-9yQ" id="UZ8-BQ-RvF"/>
                 <outlet property="label2" destination="X8F-E1-oAD" id="sjd-09-Zgq"/>
                 <outlet property="nami" destination="UNu-8R-nN3" id="ril-GJ-Drk"/>
+                <outlet property="onlabel2" destination="3Ty-hM-VeE" id="oxL-jk-x0i"/>
                 <outlet property="star1" destination="ltf-Uk-188" id="hkN-4Z-Plj"/>
                 <outlet property="star2" destination="oGr-oM-cqs" id="sRg-Ix-Qtr"/>
                 <outlet property="star3" destination="ivC-1H-FS5" id="cxr-4L-pIN"/>
