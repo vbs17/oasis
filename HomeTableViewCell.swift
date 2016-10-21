@@ -33,10 +33,20 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
+    @IBAction func bsck(sender: AnyObject) {
+        onlabel2.text = "0:00"
+        playSong.stop()
+        playSong.prepareToPlay()
+        playSong.currentTime = 0
+        playSong.play()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
+
+        
+    }
     
     func updatePlayingTime() {
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
-            timer.invalidate()
+            playSong.stop()
             onlabel2.text = formatTimeString(playSong.duration)
             return
         }
