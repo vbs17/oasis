@@ -7,30 +7,32 @@ class HomeTableViewCell: UITableViewCell {
     var tap:NSData?
     var playSong:AVAudioPlayer!
     var timer: NSTimer!
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-    //byou
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var onlabel2: UILabel!
-    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var nami: UIProgressView!
-    
     
     @IBAction func play(sender: AnyObject) {
         if (timer == nil){
             playSong?.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeTableViewCell.updatePlayingTime), userInfo: nil, repeats: true)
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
-        }else  {
+        }else if (timer !== nil){
             playSong.pause()
             timer.invalidate()
             timer = nil
+        }else if (playSong.currentTime == playSong.duration) {
+        onlabel2.text = "0:00"
+        playSong.prepareToPlay()
+        playSong.currentTime = 0
+        playSong.play()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }
-            
-        
     }
     
     @IBAction func bsck(sender: AnyObject) {
@@ -40,20 +42,22 @@ class HomeTableViewCell: UITableViewCell {
         playSong.currentTime = 0
         playSong.play()
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
-
-        
-    }
+        }
+    
+    
     
     func updatePlayingTime() {
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
             playSong.stop()
+            if timer != nil {
+                timer.invalidate()
+            }
             onlabel2.text = formatTimeString(playSong.duration)
             return
         }
         
         onlabel2.text = formatTimeString(playSong.currentTime)
     }
-    
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
         let m: Int = Int((d - Double(s)) / 60 % 60)
