@@ -14,7 +14,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var onlabel2: UILabel!
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var nami: UIProgressView!
-    
+    //再度再生した時の処理はまだ
     @IBAction func play(sender: AnyObject) {
         
         if (timer == nil){
@@ -30,11 +30,9 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-    
     func namigo(){
         nami.progress = Float(playSong.currentTime / playSong.duration)
     }
-    
     
     func updatePlayingTime() {
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
@@ -56,8 +54,6 @@ class HomeTableViewCell: UITableViewCell {
         return str
     }
 
-
-    
     //黒幕
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
@@ -66,8 +62,7 @@ class HomeTableViewCell: UITableViewCell {
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
 
-    
-    @IBAction func bsck(sender: AnyObject) {
+    @IBAction func back(sender: AnyObject) {
         onlabel2.text = "0:00"
         playSong.stop()
         playSong.prepareToPlay()
@@ -76,10 +71,7 @@ class HomeTableViewCell: UITableViewCell {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeTableViewCell.namigo), userInfo: nil, repeats: true)
         }
     
-    
-    
-    
-//タッチ開始時
+    //タッチ開始時
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesBegan ---- AudioView")
@@ -88,11 +80,11 @@ class HomeTableViewCell: UITableViewCell {
             print("touchesBegan ---- " + (tapLocation.x - nami.frame.origin.x).description)
         }
     }
+    
     //タッチしたまま指を移動
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesMoved ---- AudioView")
-            
             let touch = touches.first
             let tapLocation = touch!.locationInView(self.view)
             print("touchesMoved ---- " + (tapLocation.x - nami.frame.origin.x).description)
@@ -104,20 +96,14 @@ class HomeTableViewCell: UITableViewCell {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if ((event?.touchesForView(nami)) != nil) {
             print("touchesEnded ---- AudioView")
-            
             let touch = touches.first
             let tapLocation = touch!.locationInView(self.view)
-            
             let x:Double = Double(tapLocation.x - view.frame.origin.x)
             let time = playSong.duration
             let p:Double = x / Double(nami.frame.size.width)
-            
             playSong.currentTime = Double(time * p)
-            
-        }
+      }
     }
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -129,7 +115,7 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
-    
+    //ここは今後
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!
     @IBOutlet weak var star3: UIButton!

@@ -7,19 +7,16 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
-    
-    @IBOutlet weak var back: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func backGo(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
     var postArray: [PostData] = [] //写真　曲名　秒数　音源の格納庫
     var observing = false
     var genre: String!
 
+    @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBAction func backGo(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -28,6 +25,32 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // セルを取得してデータを設定する
+        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
+        cell.setPostData(postArray[indexPath.row])   //var postArray: [PostData] = [] 写真　曲名　秒数　音源が存在してる
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // Auto Layoutを使ってセルの高さを動的に変更する
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // セルをタップされたら何もせずに選択状態を解除する
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,31 +73,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
-        cell.setPostData(postArray[indexPath.row])   //var postArray: [PostData] = [] 写真　曲名　秒数　音源が存在してる
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // Auto Layoutを使ってセルの高さを動的に変更する
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // セルをタップされたら何もせずに選択状態を解除する
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
     
 
    
