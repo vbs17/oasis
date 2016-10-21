@@ -3,7 +3,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import SVProgressHUD
+
 
 class KindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, KindTableViewCellDelegate {
     

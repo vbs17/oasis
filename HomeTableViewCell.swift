@@ -79,8 +79,8 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         nami.transform = CGAffineTransformMakeScale(1.0, 30.0)
-        nami.progressImage = UIImage(named: "Kiki36" )
-        nami.trackImage = UIImage(named: "Kiki37")
+        nami.progressImage = UIImage(named: "Kiki45" )
+        nami.trackImage = UIImage(named: "Kiki41")
         nami.progress = 0
        
 

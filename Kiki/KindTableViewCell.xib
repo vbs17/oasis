@@ -36,7 +36,7 @@
                 <outlet property="button" destination="lLD-Kg-DWt" id="QSg-pd-DVN"/>
                 <outlet property="label" destination="jeN-2N-0R0" id="eQc-yu-1Rh"/>
             </connections>
-            <point key="canvasLocation" x="539.5" y="419.5"/>
+            <point key="canvasLocation" x="547.5" y="446.5"/>
         </tableViewCell>
     </objects>
     <resources>

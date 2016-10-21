@@ -18,7 +18,7 @@ class TabViewController: UIViewController {
     
     
     @IBAction func recpic(sender: AnyObject) {
-        let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Top") 
+        let TopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Syuru") 
         self.presentViewController(TopViewController!, animated: true, completion: nil)
         
     }
