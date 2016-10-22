@@ -15,7 +15,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var hyouka: UIButton!
     
     var tap:NSData?
-  
+    weak var playSong: AVAudioPlayer!
+    
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
         label.text = postData.name
@@ -32,7 +33,46 @@ class HomeTableViewCell: UITableViewCell {
         onlabel2.text = "0:00"
         backButton.layer.cornerRadius = 5
         backButton.clipsToBounds = true
+        hyouka.layer.cornerRadius = 20
+        hyouka.clipsToBounds = true
+        
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if ((event?.touchesForView(nami)) != nil) {
+            print("touchesBegan ---- AudioView")
+            let touch = touches.first
+            let tapLocation = touch!.locationInView(self.view)
+            print("touchesBegan ---- " + (tapLocation.x - nami.frame.origin.x).description)
+        }
+    }
+    
+    //タッチしたまま指を移動
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if ((event?.touchesForView(nami)) != nil) {
+            print("touchesMoved ---- AudioView")
+            let touch = touches.first
+            let tapLocation = touch!.locationInView(self.view)
+            print("touchesMoved ---- " + (tapLocation.x - nami.frame.origin.x).description)
+            
+        }
+    }
+    
+    //タッチした指が画面から離れる
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if ((event?.touchesForView(nami)) != nil) {
+            print("touchesEnded ---- AudioView")
+            let touch = touches.first
+            let tapLocation = touch!.locationInView(self.view)
+            let x:Double = Double(tapLocation.x - view.frame.origin.x)
+            if playSong != nil {
+                let time = playSong.duration
+                let p:Double = x / Double(nami.frame.size.width)
+                playSong.currentTime = Double(time * p)
+            }
+        }
+    }
+
     //誰が評価したか　その評価の平均値を表示させる
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!

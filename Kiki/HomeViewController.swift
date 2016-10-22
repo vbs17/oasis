@@ -16,10 +16,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var label: UILabel!
     var label2: UILabel!
     var onlabel2: UILabel!
-    var view11: UIView!
     var nami: UIProgressView!
     var back: UIButton!
     var tableView: UITableView!
+    var playingIndexPath:NSIndexPath!
     //しょうもない設定
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,12 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
     }
-    //ここが大事
+    //セルの数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count
+    }
+
+    //セルの数の分データを設定　３つなら３つのデータが設定される　これはそのうちの一つのセルの設定
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         cell.setPostData(postArray[indexPath.row])
@@ -41,7 +46,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return cell
     }
 
-
+    
     //どの音楽がタップされたか識別
     func handleButton(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
@@ -49,49 +54,56 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let indexPath = tableView.indexPathForRowAtPoint(point)
         let postData = postArray[indexPath!.row]
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell
-        if (timer == nil){
+        
+        if indexPath == playingIndexPath{
+            if timer !== nil{
+                playSong.pause()
+                timer.invalidate()
+                timer = nil
+            }else{
+                playSong?.play()
+                timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+            }
+        } else {
+            playingIndexPath = indexPath
             let tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             playSong = try! AVAudioPlayer(data:tap!)
+            cell.playSong = playSong
             playSong?.prepareToPlay()
             playSong?.play()
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.namigo), userInfo: nil, repeats: true)
-        }else if (timer !== nil){
-            playSong.pause()
-            timer.invalidate()
-            timer = nil
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+            
         }
-
     }
     
     //巻き戻し
     func back(sender: UIButton, event:UIEvent) {
-            onlabel2.text = "0:00"
+        
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell
+            cell.onlabel2.text = "0:00"
             playSong.stop()
             timer.invalidate()
             playSong.prepareToPlay()
             playSong.currentTime = 0
             playSong.play()
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.namigo), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+        
     }
 
-    //波
-    func namigo(){
-        nami.progress = Float(playSong.currentTime / playSong.duration)
-    }
-    //onbyou
+       //onbyou
     func updatePlayingTime() {
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell
         if  floor(playSong.currentTime) ==  floor(playSong.duration) {
             playSong.stop()
             if timer != nil {
                 timer.invalidate()
             }
-            onlabel2.text = formatTimeString(playSong.duration)
+            cell.onlabel2.text = formatTimeString(playSong.duration)
             return
         }
         
-        onlabel2.text = formatTimeString(playSong.currentTime)
+        cell.onlabel2.text = formatTimeString(playSong.currentTime)
+        cell.nami.progress = Float(playSong.currentTime / playSong.duration)
     }
     
     //tesita
@@ -103,38 +115,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
 
     //タッチ開始時
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(nami)) != nil) {
-            print("touchesBegan ---- AudioView")
-            let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view11)
-            print("touchesBegan ---- " + (tapLocation.x - nami.frame.origin.x).description)
-        }
-    }
-    
-    //タッチしたまま指を移動
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(nami)) != nil) {
-            print("touchesMoved ---- AudioView")
-            let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view11)
-            print("touchesMoved ---- " + (tapLocation.x - nami.frame.origin.x).description)
-            
-        }
-    }
-    
-    //タッチした指が画面から離れる
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if ((event?.touchesForView(nami)) != nil) {
-            print("touchesEnded ---- AudioView")
-            let touch = touches.first
-            let tapLocation = touch!.locationInView(self.view11)
-            let x:Double = Double(tapLocation.x - view11.frame.origin.x)
-            let time = playSong.duration
-            let p:Double = x / Double(nami.frame.size.width)
-            playSong.currentTime = Double(time * p)
-        }
-    }
 
     //無視
     
@@ -142,11 +122,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
-    }
-    
-      func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // Auto Layoutを使ってセルの高さを動的に変更する
         return UITableViewAutomaticDimension
     }
