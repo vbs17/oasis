@@ -963,7 +963,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="センスがあう友達を見つけよう" id="c2F-FJ-l6y">
+                                    <navigationItem title="ジャンルを選ぼう" id="c2F-FJ-l6y">
                                         <barButtonItem key="leftBarButtonItem" title="BACK" id="jOh-Sc-pW8">
                                             <color key="tintColor" red="0.75047038610000005" green="0.75047038610000005" blue="0.75047038610000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>

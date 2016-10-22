@@ -7,8 +7,7 @@ import FirebaseDatabase
 import AVFoundation
 
 class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
-    
-    var postArray: [PostData] = [] //写真　曲名　秒数　音源の格納庫
+    var postArray: [PostData] = []
     var observing = false
     var genre: String!
     var playSong:AVAudioPlayer!
@@ -21,7 +20,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var nami: UIProgressView!
     var back: UIButton!
     var tableView: UITableView!
-    
+    //しょうもない設定
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -31,7 +30,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
     }
-    
+    //ここが大事
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         cell.setPostData(postArray[indexPath.row])

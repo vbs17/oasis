@@ -4,8 +4,6 @@ import UIKit
 import AVFoundation
 
 class HomeTableViewCell: UITableViewCell {
-    var tap:NSData?
-    
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -15,15 +13,16 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var hyouka: UIButton!
-  
     
+    var tap:NSData?
+  
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
         label.text = postData.name
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
-    
+    //見た目しかやってない
     override func awakeFromNib() {
         super.awakeFromNib()
         nami.transform = CGAffineTransformMakeScale(1.0, 30.0)
@@ -33,9 +32,7 @@ class HomeTableViewCell: UITableViewCell {
         onlabel2.text = "0:00"
         backButton.layer.cornerRadius = 5
         backButton.clipsToBounds = true
-
     }
-    
     //誰が評価したか　その評価の平均値を表示させる
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!
