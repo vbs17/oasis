@@ -6,11 +6,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import AVFoundation
 
-class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,AVAudioPlayerDelegate{
     var postArray: [PostData] = []
     var observing = false
     var genre: String!
-    var playSong = AVAudioPlayer()
+    var playSong:AVAudioPlayer!
+    
     var timer = NSTimer()
     var ImageView: UIImageView!
     var label: UILabel!
@@ -22,6 +23,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var playingIndexPath:NSIndexPath!
     //しょうもない設定
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,7 +33,37 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         back.clipsToBounds = true
         
     }
-    //セルの数
+    
+    //波と秒数
+    func updatePlayingTime() {
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        cell!.onlabel2.text = formatTimeString(playSong.currentTime)
+        cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
+        
+    }
+
+    //厄介者
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        timer.invalidate()
+        if cell != nil {
+            cell!.onlabel2.text = formatTimeString(playSong.duration)
+            cell!.nami.progress = 1
+        }
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if playSong != nil {
+            playSong.stop()
+            timer.invalidate()
+        }else{
+            
+        }
+    }
+    
+        //セルの数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
@@ -39,6 +71,13 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     //セルの数の分データを設定　３つなら３つのデータが設定される　これはそのうちの一つのセルの設定
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
+        if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
+            cell.backButton.enabled = true
+        } else {
+            cell.nami.progress = 0
+            cell.onlabel2.text = "0:00"
+            cell.backButton.enabled = false
+        }
         cell.setPostData(postArray[indexPath.row])
         cell.playButton.addTarget(self, action:#selector(
             handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -58,7 +97,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
         cell?.backButton.enabled = true
         if indexPath == playingIndexPath{
-            if playSong.play() == false {
+            if playSong.playing == true{
                 playSong.pause()
                 timer.invalidate()
             }else{
@@ -76,6 +115,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             playingIndexPath = indexPath
             let tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             playSong = try! AVAudioPlayer(data:tap!)
+            playSong.delegate = self
             cell!.playSong = playSong
             playSong.prepareToPlay()
             playSong.play()
@@ -98,26 +138,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             playSong.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
         
-    }
-
-       //onbyou
-    func updatePlayingTime() {
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        
-        if cell != nil {
-            if  floor(playSong.currentTime) ==  floor(playSong.duration) {
-                playSong.stop()
-                //ここ
-            if playSong.play() == false {
-                    timer.invalidate()
-                }
-                cell!.onlabel2.text = formatTimeString(playSong.duration)
-                return
-            }
-            
-            cell!.onlabel2.text = formatTimeString(playSong.currentTime)
-            cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
-        }
     }
     //tesita
     func formatTimeString(d: Double) -> String {
