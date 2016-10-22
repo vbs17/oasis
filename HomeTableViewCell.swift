@@ -35,6 +35,7 @@ class HomeTableViewCell: UITableViewCell {
         backButton.clipsToBounds = true
         hyouka.layer.cornerRadius = 20
         hyouka.clipsToBounds = true
+        backButton.enabled = false
         
     }
     

@@ -10,8 +10,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var postArray: [PostData] = []
     var observing = false
     var genre: String!
-    var playSong:AVAudioPlayer!
-    var timer: NSTimer!
+    var playSong = AVAudioPlayer()
+    var timer = NSTimer()
     var ImageView: UIImageView!
     var label: UILabel!
     var label2: UILabel!
@@ -29,6 +29,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
+        
     }
     //セルの数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,29 +50,38 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     //どの音楽がタップされたか識別
     func handleButton(sender: UIButton, event:UIEvent){
+        
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         let postData = postArray[indexPath!.row]
-        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell
-        
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
+        cell?.backButton.enabled = true
         if indexPath == playingIndexPath{
-            if timer !== nil{
+            if playSong.play() == false {
                 playSong.pause()
                 timer.invalidate()
-                timer = nil
             }else{
-                playSong?.play()
+                playSong.play()
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
             }
         } else {
+            if playingIndexPath != nil {
+                let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+                if cell != nil {
+                    cell!.nami.progress = 0
+                    cell!.onlabel2.text = "0:00"
+                    cell?.backButton.enabled = false
+                }}
             playingIndexPath = indexPath
             let tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             playSong = try! AVAudioPlayer(data:tap!)
-            cell.playSong = playSong
-            playSong?.prepareToPlay()
-            playSong?.play()
+            cell!.playSong = playSong
+            playSong.prepareToPlay()
+            playSong.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+            
+            
             
         }
     }
@@ -79,8 +89,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     //巻き戻し
     func back(sender: UIButton, event:UIEvent) {
         
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell
-            cell.onlabel2.text = "0:00"
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+            cell!.onlabel2.text = "0:00"
             playSong.stop()
             timer.invalidate()
             playSong.prepareToPlay()
@@ -92,20 +102,23 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
        //onbyou
     func updatePlayingTime() {
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell
-        if  floor(playSong.currentTime) ==  floor(playSong.duration) {
-            playSong.stop()
-            if timer != nil {
-                timer.invalidate()
-            }
-            cell.onlabel2.text = formatTimeString(playSong.duration)
-            return
-        }
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         
-        cell.onlabel2.text = formatTimeString(playSong.currentTime)
-        cell.nami.progress = Float(playSong.currentTime / playSong.duration)
+        if cell != nil {
+            if  floor(playSong.currentTime) ==  floor(playSong.duration) {
+                playSong.stop()
+                //ここ
+            if playSong.play() == false {
+                    timer.invalidate()
+                }
+                cell!.onlabel2.text = formatTimeString(playSong.duration)
+                return
+            }
+            
+            cell!.onlabel2.text = formatTimeString(playSong.currentTime)
+            cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
+        }
     }
-    
     //tesita
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
