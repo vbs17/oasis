@@ -37,9 +37,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     //波と秒数
     func updatePlayingTime() {
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        cell!.onlabel2.text = formatTimeString(playSong.currentTime)
-        cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
-        
+        if cell != nil {
+            cell!.onlabel2.text = formatTimeString(playSong.currentTime)
+            cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
+        }
     }
 
     //厄介者
