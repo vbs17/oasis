@@ -88,7 +88,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
 
     
-    //どの音楽がタップされたか識別
     func handleButton(sender: UIButton, event:UIEvent){
         
         let touch = event.allTouches()?.first
@@ -113,6 +112,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                     cell!.onlabel2.text = "0:00"
                     cell?.backButton.enabled = false
                 }}
+            
+            timer.invalidate()
             playingIndexPath = indexPath
             let tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             playSong = try! AVAudioPlayer(data:tap!)
