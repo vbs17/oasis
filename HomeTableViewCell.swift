@@ -14,6 +14,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var nami: UIProgressView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var hyouka: UIButton!
   
     
     func setPostData(postData: PostData) {
@@ -30,6 +31,8 @@ class HomeTableViewCell: UITableViewCell {
         nami.trackImage = UIImage(named: "Kiki41")
         nami.progress = 0
         onlabel2.text = "0:00"
+        backButton.layer.cornerRadius = 5
+        backButton.clipsToBounds = true
 
     }
     

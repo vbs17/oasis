@@ -69,9 +69,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func back(sender: UIButton, event:UIEvent) {
             onlabel2.text = "0:00"
             playSong.stop()
+            timer.invalidate()
             playSong.prepareToPlay()
             playSong.currentTime = 0
             playSong.play()
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.namigo), userInfo: nil, repeats: true)
     }
 

@@ -108,6 +108,7 @@
 		B00501BA1DB610D200319866 /* HomeCEll */ = {
 			isa = PBXGroup;
 			children = (
+				B00501C31DB6428500319866 /* ItiranCelll */,
 				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
 				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
@@ -124,16 +125,28 @@
 				B00501C21DB6428500319866 /* ItiranTableViewCell.xib */,
 			);
 			name = ItiranCelll;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		B042A0201DB98BBE0068D205 /* SyugoCell */ = {
 			isa = PBXGroup;
 			children = (
+				B042A0211DB991150068D205 /* SyuruViewController.swift */,
+				B042A0161DB983620068D205 /* BasyoViewController.swift */,
+				B042A0181DB985180068D205 /* SyugoViewController.swift */,
+				B042A01A1DB98A840068D205 /* Kind2ViewController.swift */,
 				B042A01C1DB98BB30068D205 /* SyugoTableViewCell.swift */,
 				B042A01D1DB98BB30068D205 /* SyugoTableViewCell.xib */,
 			);
 			name = SyugoCell;
+			sourceTree = "<group>";
+		};
+		B06491911DBAD0F000566A4B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
+				B071D9741DB50E670017E287 /* SetViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		B08690761DB4A1BD006BB6FD /* KindCell */ = {
@@ -170,19 +183,12 @@
 			children = (
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
 				B071D9701DB509FA0017E287 /* TabViewController.swift */,
-				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
-				B071D9741DB50E670017E287 /* SetViewController.swift */,
-				B00501BA1DB610D200319866 /* HomeCEll */,
+				B06491911DBAD0F000566A4B /* Login */,
 				B0B263D21DB7467100C0F2A3 /* Toukou */,
-				B00501C31DB6428500319866 /* ItiranCelll */,
-				B08690761DB4A1BD006BB6FD /* KindCell */,
-				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
-				B042A0211DB991150068D205 /* SyuruViewController.swift */,
+				B00501BA1DB610D200319866 /* HomeCEll */,
 				B042A0201DB98BBE0068D205 /* SyugoCell */,
-				B042A01A1DB98A840068D205 /* Kind2ViewController.swift */,
-				B042A0181DB985180068D205 /* SyugoViewController.swift */,
-				B042A0161DB983620068D205 /* BasyoViewController.swift */,
 				B071D9651DB4D6140017E287 /* File.swift */,
+				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
 				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
@@ -198,6 +204,7 @@
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
+				B08690761DB4A1BD006BB6FD /* KindCell */,
 			);
 			name = Toukou;
 			sourceTree = "<group>";
