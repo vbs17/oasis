@@ -11,7 +11,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var observing = false
     var genre: String!
     var playSong:AVAudioPlayer!
-    
     var timer = NSTimer()
     var ImageView: UIImageView!
     var label: UILabel!
@@ -101,6 +100,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 playSong.pause()
                 timer.invalidate()
             }else{
+                timer.invalidate()
                 playSong.play()
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
             }
