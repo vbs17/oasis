@@ -15,7 +15,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var back: UIButton!
     var tableView: UITableView!
     var playingIndexPath:NSIndexPath!
-
+    
     
     override func viewDidLoad() {
         
@@ -26,25 +26,45 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
-        //各ユーザの平均評価が表示（例）１０人の評価の平均を星の色に反映させる
         
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
+        if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
+            cell.backButton.enabled = true
+        } else {
+            cell.nami.progress = 0
+            cell.onlabel2.text = "0:00"
+            cell.backButton.enabled = false
+        }
+        cell.setPostData(postArray[indexPath.row])
+        cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.star1.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.star2.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.star3.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.star4.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.star5.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.hyouka.addTarget(self, action: #selector(hyoukaGo), forControlEvents: UIControlEvents.TouchUpInside)
+        return cell
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
             if observing == false {
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         self.postArray.insert(postData, atIndex: 0)
-                        
                         self.tableView.reloadData()
                     }
                 })
                 
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildChanged, withBlock: { snapshot in
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildChanged, withBlock: { snapshot in
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         
@@ -55,15 +75,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                                 break
                             }
                         }
-                        
                         self.postArray.removeAtIndex(index)
-                        
                         self.postArray.insert(postData, atIndex: index)
-                        
                         self.tableView.reloadData()
                     }
                 })
-                
                 observing = true
             }
         } else {
@@ -76,11 +92,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
-
-    
-    
     func hyoukaGo(){
-      let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star2.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star3.imageView?.image = UIImage(named:"IMG_2728_2")
@@ -107,65 +120,40 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             postData.star.removeAtIndex(index)
             postData.star.append([uid,String(sender.tag)])
         }
-    
-            switch sender.tag {
-            case 1:
-                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                
-            case 2:
-                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-            case 3:
-                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
-            case 4:
-                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
-            case 5:
-                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
-                cell?.star5.imageView?.image = UIImage(named:"IMG_2727_2")
-            default: break
-            }
+        
+        switch sender.tag {
+        case 1:
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            
+        case 2:
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+        case 3:
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+        case 4:
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
+        case 5:
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star5.imageView?.image = UIImage(named:"IMG_2727_2")
+        default: break
+        }
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         postRef.child(postData.id!).setValue(postData)
     }
     
-    
-    
-    
-    
-
-    
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
-
-    //セルの数の分データを設定　３つなら３つのデータが設定される　これはそのうちの一つのセルの設定
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
-        if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
-            cell.backButton.enabled = true
-        } else {
-            //５つcellがあったら４つはこうなる
-            cell.nami.progress = 0
-            cell.onlabel2.text = "0:00"
-            cell.backButton.enabled = false
-        }
-        cell.setPostData(postArray[indexPath.row])
-        cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.hyouka.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        return cell
-    }
-
+    
+    
     
     func handleButton(sender: UIButton, event:UIEvent){
         //indexPathは今選択中のセル
@@ -212,13 +200,13 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func back(sender: UIButton, event:UIEvent) {
         
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-            cell!.onlabel2.text = "0:00"
-            playSong.stop()
-            timer.invalidate()
-            playSong.prepareToPlay()
-            playSong.currentTime = 0
-            playSong.play()
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
+        cell!.onlabel2.text = "0:00"
+        playSong.stop()
+        timer.invalidate()
+        playSong.prepareToPlay()
+        playSong.currentTime = 0
+        playSong.play()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
         
     }
     //tesita
@@ -228,8 +216,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let str = String(format: "%2d:%02d",  m, s)
         return str
     }
-
-       
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -245,11 +233,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     
-
-
-
-
-
+    
+    
+    
+    
+    
     @IBAction func backGo(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -284,8 +272,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
-
-
-   
- }
+    
+    
+    
+}
 
