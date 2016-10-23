@@ -17,6 +17,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var playingIndexPath:NSIndexPath!
     
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
@@ -38,7 +40,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell.onlabel2.text = "0:00"
             cell.backButton.enabled = false
         }
-        cell.setPostData(postArray[indexPath.row])
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        cell.setPostData(postArray[indexPath.row], myid: uid!)
         cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.star1.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -49,50 +52,9 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell.hyouka.addTarget(self, action: #selector(hyoukaGo), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
+    
 
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        if FIRAuth.auth()?.currentUser != nil {
-            if observing == false {
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildAdded, withBlock: { snapshot in
-                    
-                    if let uid = FIRAuth.auth()?.currentUser?.uid {
-                        let postData = PostData(snapshot: snapshot, myId: uid)
-                        self.postArray.insert(postData, atIndex: 0)
-                        self.tableView.reloadData()
-                    }
-                })
-                
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildChanged, withBlock: { snapshot in
-                    if let uid = FIRAuth.auth()?.currentUser?.uid {
-                        let postData = PostData(snapshot: snapshot, myId: uid)
-                        
-                        var index: Int = 0
-                        for post in self.postArray {
-                            if post.id == postData.id {
-                                index = self.postArray.indexOf(post)!
-                                break
-                            }
-                        }
-                        self.postArray.removeAtIndex(index)
-                        self.postArray.insert(postData, atIndex: index)
-                        self.tableView.reloadData()
-                    }
-                })
-                observing = true
-            }
-        } else {
-            if observing == true {
-                postArray = []
-                tableView.reloadData()
-                FIRDatabase.database().reference().removeAllObservers()
-                observing = false
-            }
-        }
-    }
-    
-    func hyoukaGo(){
+    func hyoukaGo(sender:UIButton, event:UIEvent){
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star2.imageView?.image = UIImage(named:"IMG_2728_2")
@@ -149,9 +111,81 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         postRef.child(postData.id!).setValue(postData)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if FIRAuth.auth()?.currentUser != nil {
+            if observing == false {
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        self.postArray.insert(postData, atIndex: 0)
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildChanged, withBlock: { snapshot in
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        
+                        var index: Int = 0
+                        for post in self.postArray {
+                            if post.id == postData.id {
+                                index = self.postArray.indexOf(post)!
+                                break
+                            }
+                        }
+                        self.postArray.removeAtIndex(index)
+                        self.postArray.insert(postData, atIndex: index)
+                        self.tableView.reloadData()
+                    }
+                })
+                observing = true
+            }
+        } else {
+            if observing == true {
+                postArray = []
+                tableView.reloadData()
+                FIRDatabase.database().reference().removeAllObservers()
+                observing = false
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -195,6 +229,22 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     //巻き戻し
     func back(sender: UIButton, event:UIEvent) {

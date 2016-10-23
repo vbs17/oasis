@@ -2,6 +2,10 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class HomeTableViewCell: UITableViewCell {
     
@@ -24,12 +28,47 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var star5: UIButton!
     
     
-    func setPostData(postData: PostData) {
+    func setPostData(postData: PostData, myid: String) {
+        if let uid = FIRAuth.auth()?.currentUser?.uid{
+        for var i in (0 ..< postData.star.count) {
+                if postData.star[i][0] == uid{
+                    switch postData.star[i][1] {
+                    case "1":
+                        star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                        
+                    case "2":
+                        star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                    case "3":
+                        star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                    case "4":
+                        star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star4.imageView?.image = UIImage(named:"IMG_2727_2")
+                    case "5":
+                        star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star4.imageView?.image = UIImage(named:"IMG_2727_2")
+                        star5.imageView?.image = UIImage(named:"IMG_2727_2")
+                        default: break
+                    }
+                  
+            }
+            
+            }
+        }
+
         ImageView.image = postData.image
         label.text = postData.name
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
+
+    
     //見た目しかやってない
     override func awakeFromNib() {
         super.awakeFromNib()
