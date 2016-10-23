@@ -30,10 +30,10 @@ class HomeTableViewCell: UITableViewCell {
     
     func setPostData(postData: PostData, myid: String) {
         if let uid = FIRAuth.auth()?.currentUser?.uid{
-               if (postData.star.count != 0){
-        for var i in (0 ..< postData.star.count) {
-            
-                    switch postData.star[i][1] {
+               if (postData.star!.count != 0){
+        for var i in (0 ..< postData.star!.count) {
+                if postData.star![i][0] == uid{
+                    switch postData.star![i][1] {
                     case "1":
                         star1.imageView?.image = UIImage(named:"IMG_2727_2")
                         
@@ -60,7 +60,7 @@ class HomeTableViewCell: UITableViewCell {
             }
             }
             
-            
+            }
         }
 
         ImageView.image = postData.image

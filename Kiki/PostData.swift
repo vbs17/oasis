@@ -14,8 +14,7 @@ class PostData: NSObject {
     var song: String?
     var byou: String?
     var realsong: String?
-    var star: [[String]] = [[]]
-    
+    var star: Array<[String:String]> = []
    
     //写真　曲名　秒数　音源
     
@@ -23,7 +22,7 @@ class PostData: NSObject {
         id = snapshot.key
         let valueDictionary = snapshot.value as! [String: AnyObject]
         
-        if let stars = valueDictionary["star"] as? [[String]] {
+        if let stars = valueDictionary["star"] as? Array<[String:String]> {
             self.star = stars
         }
         imageString = valueDictionary["image"] as? String
