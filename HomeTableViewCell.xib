@@ -38,9 +38,6 @@
                             <constraint firstAttribute="height" constant="64" id="St7-29-pQk"/>
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
-                        <connections>
-                            <action selector="star2Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DLW-Po-ZxK"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
                         <rect key="frame" x="295" y="356" width="59" height="64"/>
@@ -49,9 +46,6 @@
                             <constraint firstAttribute="height" constant="64" id="gdy-cp-OzN"/>
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2728 2"/>
-                        <connections>
-                            <action selector="star5Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JRw-7L-zoQ"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-Uk-188">
                         <rect key="frame" x="64" y="356" width="59" height="64"/>
@@ -60,9 +54,6 @@
                             <constraint firstAttribute="height" constant="64" id="tp5-bA-840"/>
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
-                        <connections>
-                            <action selector="star1Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n1C-yh-zOO"/>
-                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
                         <rect key="frame" x="14" y="303" width="349" height="35"/>
@@ -112,9 +103,6 @@
                             <constraint firstAttribute="height" constant="64" id="WTO-J9-xwa"/>
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
-                        <connections>
-                            <action selector="star3Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ifb-U9-giD"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
                         <rect key="frame" x="236" y="356" width="60" height="64"/>
@@ -123,9 +111,6 @@
                             <constraint firstAttribute="width" constant="60" id="z02-la-BQp"/>
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
-                        <connections>
-                            <action selector="star4Go:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VG4-TQ-5ks"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV3-LJ-RMM">
                         <rect key="frame" x="4" y="362" width="56" height="58"/>

@@ -15,7 +15,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var back: UIButton!
     var tableView: UITableView!
     var playingIndexPath:NSIndexPath!
-    //しょうもない設定
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -25,40 +25,31 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
+        //各ユーザの平均評価が表示（例）１０人の評価の平均を星の色に反映させる
         
     }
     
-    //波と秒数
-    func updatePlayingTime() {
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        if cell != nil {
-            cell!.onlabel2.text = formatTimeString(playSong.currentTime)
-            cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
-        }
+    func hyoukaGo(){
+      let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
+        cell?.star2.imageView?.image = UIImage(named:"IMG_2728_2")
+        cell?.star3.imageView?.image = UIImage(named:"IMG_2728_2")
+        cell?.star4.imageView?.image = UIImage(named:"IMG_2728_2")
+        cell?.star5.imageView?.image = UIImage(named:"IMG_2728_2")
+        
     }
+    
+    func hoshi(){
+      let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        //例えば４つ目の星をタップしたら４つ目までの星の色が黄色に変化→平均評価数が更新されて表示される
+        //この時firebase関係はどうするか
 
-    //厄介者　再生が完了した時の作業
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        timer.invalidate()
-        if cell != nil {
-            cell!.onlabel2.text = formatTimeString(playSong.duration)
-            cell!.nami.progress = 1
-        }
         
     }
-    //違う画面になった時停止してタイマー止める
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        if playSong != nil {
-            playSong.stop()
-            timer.invalidate()
-        }else{
-            
-        }
-    }
     
-        //セルの数
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
@@ -184,6 +175,38 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     @IBAction func backGo(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    //波と秒数
+    func updatePlayingTime() {
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        if cell != nil {
+            cell!.onlabel2.text = formatTimeString(playSong.currentTime)
+            cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
+        }
+    }
+    
+    //厄介者　再生が完了した時の作業
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        timer.invalidate()
+        if cell != nil {
+            cell!.onlabel2.text = formatTimeString(playSong.duration)
+            cell!.nami.progress = 1
+        }
+        
+    }
+    //違う画面になった時停止してタイマー止める
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if playSong != nil {
+            playSong.stop()
+            timer.invalidate()
+        }else{
+            
+        }
+    }
+    
+
 
    
  }

@@ -4,6 +4,10 @@ import UIKit
 import AVFoundation
 
 class HomeTableViewCell: UITableViewCell {
+    
+    var tap:NSData?
+    weak var playSong: AVAudioPlayer!
+
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -13,9 +17,12 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var hyouka: UIButton!
+    @IBOutlet weak var star1: UIButton!
+    @IBOutlet weak var star2: UIButton!
+    @IBOutlet weak var star3: UIButton!
+    @IBOutlet weak var star4: UIButton!
+    @IBOutlet weak var star5: UIButton!
     
-    var tap:NSData?
-    weak var playSong: AVAudioPlayer!
     
     func setPostData(postData: PostData) {
         ImageView.image = postData.image
@@ -74,28 +81,8 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
 
-    //誰が評価したか　その評価の平均値を表示させる
-    @IBOutlet weak var star1: UIButton!
-    @IBOutlet weak var star2: UIButton!
-    @IBOutlet weak var star3: UIButton!
-    @IBOutlet weak var star4: UIButton!
-    @IBOutlet weak var star5: UIButton!
     
-    @IBAction func star1Go(sender: AnyObject) {
-    }
-    
-    @IBAction func star2Go(sender: AnyObject) {
-    }
-    
-    @IBAction func star3Go(sender: AnyObject) {
-    }
-    
-    @IBAction func star4Go(sender: AnyObject) {
-    }
-    
-    @IBAction func star5Go(sender: AnyObject) {
-    }
-    
+       
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
