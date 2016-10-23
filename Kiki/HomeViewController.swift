@@ -74,7 +74,9 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if let uid = FIRAuth.auth()?.currentUser?.uid {
             var index = -1
             for var i in (0 ..< postData.star.count) {
-                if postData.star[i].keys == uid{
+                
+                let starDic = Array(postData.star[i].keys)
+                if starDic[0] == uid{
                     index = i
                     break
                 }
@@ -110,6 +112,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         postRef.child(postData.id!).setValue(postData)
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
