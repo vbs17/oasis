@@ -100,8 +100,8 @@
                             <constraint firstAttribute="height" constant="59" id="aCE-wJ-Pwx"/>
                         </constraints>
                         <size key="titleShadowOffset" width="2" height="2.2250738585072014e-308"/>
-                        <state key="normal" image="Kiki46">
-                            <color key="titleColor" red="1" green="0.9401928839" blue="0.1035148971" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="BACK">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" red="1" green="0.93655589660000005" blue="0.184571125" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -205,7 +205,6 @@
     <resources>
         <image name="IMG_2727 2" width="349" height="335"/>
         <image name="IMG_2728 2" width="300" height="305"/>
-        <image name="Kiki46" width="450" height="470"/>
         <image name="jobs" width="1350" height="898"/>
     </resources>
 </document>

@@ -12,11 +12,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var genre: String!
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
-    var ImageView: UIImageView!
-    var label: UILabel!
-    var label2: UILabel!
-    var onlabel2: UILabel!
-    var nami: UIProgressView!
     var back: UIButton!
     var tableView: UITableView!
     var playingIndexPath:NSIndexPath!
@@ -42,7 +37,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
 
-    //厄介者
+    //厄介者　再生が完了した時の作業
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         timer.invalidate()
@@ -52,7 +47,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
         
     }
-    
+    //違う画面になった時停止してタイマー止める
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if playSong != nil {
@@ -74,6 +69,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
             cell.backButton.enabled = true
         } else {
+            //５つcellがあったら４つはこうなる
             cell.nami.progress = 0
             cell.onlabel2.text = "0:00"
             cell.backButton.enabled = false
@@ -88,7 +84,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
     
     func handleButton(sender: UIButton, event:UIEvent){
-        
+        //indexPathは今選択中のセル
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
@@ -104,7 +100,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 playSong.play()
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
             }
-        } else {
+        } else { //他の曲を再生した時再生中の曲がこうなる
             if playingIndexPath != nil {
                 let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
                 if cell != nil {
@@ -149,10 +145,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return str
     }
 
-    //タッチ開始時
-
-    //無視
-    
+       
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
