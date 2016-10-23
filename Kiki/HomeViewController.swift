@@ -46,21 +46,19 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let indexPath = tableView.indexPathForRowAtPoint(point)
         let postData = postArray[indexPath!.row]
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
-        
+        //どのセルかわかった
         if let uid = FIRAuth.auth()?.currentUser?.uid {
-            if postData.star{
-                for stars in postData.star {
-                    if stars[0] = uid{
-                        index = postData.star.indexOf(stars)!
-                        break
-                    }
+            var index = -1
+            for var i in (0 ..< postData.star.count) {
+                if postData.star[i][0] == uid{
+                    index = i
+                    break
                 }
-                postData.star.removeAtIndex(index)
             }
-        
+            postData.star.removeAtIndex(index)
             postData.star.append([uid,String(sender.tag)])
-            }
-        
+        }
+    
             switch sender.tag {
             case 1:
                 cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
@@ -85,11 +83,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 cell?.star5.imageView?.image = UIImage(named:"IMG_2727_2")
             default: break
             }
-        }
-        let star =
-        let post = ["star":]
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
-        postRef.child(postData.id!).setValue(post)
+        postRef.child(postData.id!).setValue(postData)
     }
     
     
