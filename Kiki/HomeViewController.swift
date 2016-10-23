@@ -73,14 +73,14 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         //どのセルかわかった
         if let uid = FIRAuth.auth()?.currentUser?.uid {
             var index = -1
-            for var i in (0 ..< postData.star!.count) {
-                if postData.star![i][0] == uid{
+            for var i in (0 ..< postData.star.count) {
+                if postData.star[i].keys == uid{
                     index = i
                     break
                 }
             }
             postData.star.removeAtIndex(index)
-            postData.star.append([uid,String(sender.tag)])
+            postData.star.append([uid:String(sender.tag)])
         }
         
         switch sender.tag {
