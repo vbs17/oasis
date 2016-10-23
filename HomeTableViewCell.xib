@@ -31,7 +31,7 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGr-oM-cqs">
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGr-oM-cqs">
                         <rect key="frame" x="123" y="356" width="59" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="OL0-eC-Gj8"/>
@@ -39,7 +39,7 @@
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
+                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
                         <rect key="frame" x="295" y="356" width="59" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="Hhq-DD-vG9"/>
@@ -47,7 +47,7 @@
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2728 2"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-Uk-188">
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-Uk-188">
                         <rect key="frame" x="64" y="356" width="59" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="Szr-BL-tOI"/>
@@ -96,7 +96,7 @@
                             <color key="titleShadowColor" red="1" green="0.93655589660000005" blue="0.184571125" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
                         <rect key="frame" x="181" y="356" width="59" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="KRp-uJ-bnu"/>
@@ -104,7 +104,7 @@
                         </constraints>
                         <state key="normal" title="Button" image="IMG_2727 2"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
+                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
                         <rect key="frame" x="236" y="356" width="60" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="yG8-EL-vFN"/>

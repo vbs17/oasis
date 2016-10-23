@@ -29,6 +29,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
     
+    
     func hyoukaGo(){
       let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
@@ -39,14 +40,57 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
     
-    func hoshi(){
-      let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        //例えば４つ目の星をタップしたら４つ目までの星の色が黄色に変化→平均評価数が更新されて表示される
-        //この時firebase関係はどうするか
-
+    func hoshi(sender: UIButton, event:UIEvent){
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray[indexPath!.row]
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
         
+        if let uid = FIRAuth.auth()?.currentUser?.uid {
+            if postData.star{
+                for stars in postData.star {
+                    if stars[0] = uid{
+                        index = postData.star.indexOf(stars)!
+                        break
+                    }
+                }
+                postData.star.removeAtIndex(index)
+            }
+        
+            postData.star.append([uid,String(sender.tag)])
+            }
+        
+            switch sender.tag {
+            case 1:
+                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                
+            case 2:
+                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+            case 3:
+                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+            case 4:
+                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
+            case 5:
+                cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
+                cell?.star5.imageView?.image = UIImage(named:"IMG_2727_2")
+            default: break
+            }
+        }
+        let star =
+        let post = ["star":]
+        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
+        postRef.child(postData.id!).setValue(post)
     }
-    
     
     
     
@@ -66,10 +110,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell.backButton.enabled = false
         }
         cell.setPostData(postArray[indexPath.row])
-        cell.playButton.addTarget(self, action:#selector(
-            handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.backButton.addTarget(self, action:#selector(
-            back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
 

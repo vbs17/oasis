@@ -56,7 +56,7 @@
 		B042A01D1DB98BB30068D205 /* SyugoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyugoTableViewCell.xib; sourceTree = "<group>"; };
 		B042A0211DB991150068D205 /* SyuruViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyuruViewController.swift; sourceTree = "<group>"; };
 		B071D9651DB4D6140017E287 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		B071D9671DB4E5040017E287 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		B071D9671DB4E5040017E287 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = Kiki/PostData.swift; sourceTree = "<group>"; };
 		B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Kiki/HomeViewController.swift; sourceTree = "<group>"; };
 		B071D9701DB509FA0017E287 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B071D9721DB50C4E0017E287 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -110,9 +110,10 @@
 			children = (
 				B00501C31DB6428500319866 /* ItiranCelll */,
 				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
-				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
 				B00501B91DB610D200319866 /* HomeTableViewCell.xib */,
+				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
+				B071D9671DB4E5040017E287 /* PostData.swift */,
 			);
 			name = HomeCEll;
 			path = ..;
@@ -152,7 +153,6 @@
 		B08690761DB4A1BD006BB6FD /* KindCell */ = {
 			isa = PBXGroup;
 			children = (
-				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
 				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
