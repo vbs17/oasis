@@ -61,28 +61,30 @@ class HomeTableViewCell: UITableViewCell {
     func setPostData(postData: PostData, myid: String) {
         let stars = postData.star
         
-        // デバッグ用
-        //        let stars = [
-        //            ["aaa": 4],
-        //            ["bbb": 5],
-        //            ["ccc": 3],
-        //            ["ddd": 2],
-        //            ["eee": 1],
-        //            ["fff": 4],
-        //            ["ggg": 3],
-        //        ]
+        //         デバッグ用
+        //                let stars = [
+        //                    ["aaa": "4"],
+        //                    ["bbb": "5"],
+        //                    ["ccc": "3"],
+        //                    ["ddd": "2"],
+        //                    ["eee": "1"],
+        //                    ["fff": "4"],
+        //                    ["ggg": "3"],
+        //                ]
         
         var average: Int = 0
         
         if stars.count > 0 {
             // 評価の合計
             var sum = 0
-            for data in stars as Array<[String: Int]> {
+            for data in stars as Array<[String: String]> {
                 let starDic = Array(data.keys)
                 let uid = starDic[0]
-                let rating = data[uid]! as Int
+                let ratingStr = data[uid]! as String
+                if let rating = Int(ratingStr) {
+                    sum += rating
+                }
                 
-                sum += rating
                 
             }
             average = Int(ceil(Double(sum) / Double(stars.count)))
@@ -96,7 +98,6 @@ class HomeTableViewCell: UITableViewCell {
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
-    
         
     //見た目しかやってない
     override func awakeFromNib() {

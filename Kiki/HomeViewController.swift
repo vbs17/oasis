@@ -107,7 +107,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 postData.star.removeAtIndex(index)
             }
             
-            postData.star.append([uid:sender.tag])
+           postData.star.append([uid:String(sender.tag)])
         }
         
         switch sender.tag {
