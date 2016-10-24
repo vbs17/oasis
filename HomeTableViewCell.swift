@@ -61,17 +61,6 @@ class HomeTableViewCell: UITableViewCell {
     func setPostData(postData: PostData, myid: String) {
         let stars = postData.star
         
-        //         デバッグ用
-        //                let stars = [
-        //                    ["aaa": "4"],
-        //                    ["bbb": "5"],
-        //                    ["ccc": "3"],
-        //                    ["ddd": "2"],
-        //                    ["eee": "1"],
-        //                    ["fff": "4"],
-        //                    ["ggg": "3"],
-        //                ]
-        
         var average: Int = 0
         
         if stars.count > 0 {
