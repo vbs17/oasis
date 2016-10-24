@@ -134,8 +134,18 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
         default: break
         }
+       
+       
+        let imageString = postData.imageString
+        let name = postData.name
+        let song = postData.song
+        let byou = postData.byou
+        let realsong = postData.realsong
+        let star = postData.star
+        
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
-        postRef.child(postData.id!).setValue(String(postData))
+        let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star]
+        postRef.child(postData.id!).setValue(postData2)
     }
     
     
