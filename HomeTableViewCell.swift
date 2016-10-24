@@ -37,26 +37,26 @@ class HomeTableViewCell: UITableViewCell {
                         let starData = postData.star[i][uid]
                         switch  String(starData){
                         case "1":
-                            star1.imageView?.image = UIImage(named:"IMG_2727_2")
+                            star1.imageView?.image = UIImage(named:"IMG_2727 2")
                             
                         case "2":
-                            star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star2.imageView?.image = UIImage(named:"IMG_2727_2")
+                            star1.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star2.imageView?.image = UIImage(named:"IMG_2727 2")
                         case "3":
-                            star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star3.imageView?.image = UIImage(named:"IMG_2727_2")
+                            star1.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star2.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star3.imageView?.image = UIImage(named:"IMG_2727 2")
                         case "4":
-                            star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star3.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star4.imageView?.image = UIImage(named:"IMG_2727_2")
+                            star1.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star2.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star3.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star4.imageView?.image = UIImage(named:"IMG_2727 2")
                         case "5":
-                            star1.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star2.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star3.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star4.imageView?.image = UIImage(named:"IMG_2727_2")
-                            star5.imageView?.image = UIImage(named:"IMG_2727_2")
+                            star1.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star2.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star3.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star4.imageView?.image = UIImage(named:"IMG_2727 2")
+                            star5.imageView?.image = UIImage(named:"IMG_2727 2")
                         default: break
                         }
                     }

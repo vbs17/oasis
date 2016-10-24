@@ -64,11 +64,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
-        cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
-        cell?.star2.imageView?.image = UIImage(named:"IMG_2728_2")
-        cell?.star3.imageView?.image = UIImage(named:"IMG_2728_2")
-        cell?.star4.imageView?.image = UIImage(named:"IMG_2728_2")
-        cell?.star5.imageView?.image = UIImage(named:"IMG_2728_2")
+        cell?.star1.imageView?.image = UIImage(named:"IMG_2728 2")
+        cell?.star2.imageView?.image = UIImage(named:"IMG_2728 2")
+        cell?.star3.imageView?.image = UIImage(named:"IMG_2728 2")
+        cell?.star4.imageView?.image = UIImage(named:"IMG_2728 2")
+        cell?.star5.imageView?.image = UIImage(named:"IMG_2728 2")
     }
     
     //更新して星を保存
@@ -95,26 +95,26 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         switch sender.tag {
         case 1:
-            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727 2")
             
         case 2:
-            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727 2")
         case 3:
-            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727 2")
         case 4:
-            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star4.imageView?.image = UIImage(named:"IMG_2727 2")
         case 5:
-            cell?.star1.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star2.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star3.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star4.imageView?.image = UIImage(named:"IMG_2727_2")
-            cell?.star5.imageView?.image = UIImage(named:"IMG_2727_2")
+            cell?.star1.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star2.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star3.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star4.imageView?.image = UIImage(named:"IMG_2727 2")
+            cell?.star5.imageView?.image = UIImage(named:"IMG_2727 2")
         default: break
         }
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)

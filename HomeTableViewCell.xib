@@ -37,7 +37,7 @@
                             <constraint firstAttribute="width" constant="59" id="OL0-eC-Gj8"/>
                             <constraint firstAttribute="height" constant="64" id="St7-29-pQk"/>
                         </constraints>
-                        <state key="normal" title="Button" image="IMG_2727 2"/>
+                        <state key="normal" title="Button"/>
                     </button>
                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
                         <rect key="frame" x="295" y="356" width="59" height="64"/>
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="width" constant="59" id="Hhq-DD-vG9"/>
                             <constraint firstAttribute="height" constant="64" id="gdy-cp-OzN"/>
                         </constraints>
-                        <state key="normal" title="Button" image="IMG_2728 2"/>
+                        <state key="normal" title="Button"/>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-Uk-188">
                         <rect key="frame" x="64" y="356" width="59" height="64"/>
@@ -53,7 +53,7 @@
                             <constraint firstAttribute="width" constant="59" id="Szr-BL-tOI"/>
                             <constraint firstAttribute="height" constant="64" id="tp5-bA-840"/>
                         </constraints>
-                        <state key="normal" title="Button" image="IMG_2727 2"/>
+                        <state key="normal" title="Button"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
                         <rect key="frame" x="14" y="303" width="349" height="35"/>
@@ -96,21 +96,13 @@
                             <color key="titleShadowColor" red="1" green="0.93655589660000005" blue="0.184571125" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
-                        <rect key="frame" x="181" y="356" width="59" height="64"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="59" id="KRp-uJ-bnu"/>
-                            <constraint firstAttribute="height" constant="64" id="WTO-J9-xwa"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="IMG_2727 2"/>
-                    </button>
                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
                         <rect key="frame" x="236" y="356" width="60" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="yG8-EL-vFN"/>
                             <constraint firstAttribute="width" constant="60" id="z02-la-BQp"/>
                         </constraints>
-                        <state key="normal" title="Button" image="IMG_2727 2"/>
+                        <state key="normal" title="Button"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV3-LJ-RMM">
                         <rect key="frame" x="4" y="362" width="56" height="58"/>
@@ -132,6 +124,14 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
+                        <rect key="frame" x="181" y="356" width="59" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="KRp-uJ-bnu"/>
+                            <constraint firstAttribute="height" constant="64" id="WTO-J9-xwa"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1K3-t4-Uub" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="2JQ-iw-qeI"/>
@@ -188,8 +188,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IMG_2727 2" width="349" height="335"/>
-        <image name="IMG_2728 2" width="300" height="305"/>
         <image name="jobs" width="1350" height="898"/>
     </resources>
 </document>
