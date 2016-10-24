@@ -71,6 +71,15 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
     }
     
+    
+    //たとえば5人分のデータがはいるとこんな感じです。
+    //star => [
+    //["aaa" : "4"],
+    //["bbb" : "5"],
+    //["ccc" : "3"],
+    //["ddd" : "2"],
+    //["eee" : "1"],
+    //]
     //更新して星を保存
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
@@ -84,12 +93,19 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             for var i in (0 ..< postData.star.count) {
                 
                 let starDic = Array(postData.star[i].keys)
+                // star配列の中から 自分が投票したデータを探す
                 if starDic[0] == uid{
                     index = i
                     break
                 }
             }
-            postData.star.removeAtIndex(index)
+            
+            // [このif文を追加]
+            // -1 の場合は削除対象のデータが無い
+            if index != -1 {
+                postData.star.removeAtIndex(index)
+            }
+            
             postData.star.append([uid:String(sender.tag)])
         }
         
