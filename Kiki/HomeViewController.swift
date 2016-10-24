@@ -40,6 +40,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell.backButton.enabled = false
         }
         let uid = FIRAuth.auth()?.currentUser?.uid
+        //全ての原点はここのsetPostData
         cell.setPostData(postArray[indexPath.row], myid: uid!)
         cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -106,7 +107,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 postData.star.removeAtIndex(index)
             }
             
-            postData.star.append([uid:String(sender.tag)])
+            postData.star.append([uid:sender.tag])
         }
         
         switch sender.tag {

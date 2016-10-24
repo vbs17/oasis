@@ -27,27 +27,27 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var star4: UIButton!
     @IBOutlet weak var star5: UIButton!
     
-    
-    func updateStar(ratingStr:String) {
+    //星の色　ここはシンプル
+    func updateStar(ratingStr:Int) {
         switch  ratingStr {
-        case "1":
+        case 1:
             star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             
-        case "2":
+        case 2:
             star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             
-        case "3":
+        case 3:
             star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             
-        case "4":
+        case 4:
             star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-        case "5":
+        case 5:
             star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
             star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
@@ -57,28 +57,45 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    //平均値を取得して反映させる  あれよ大事なあれこれでみんなにデータが配られるわけよこれが原点よ
     func setPostData(postData: PostData, myid: String) {
-        if let uid = FIRAuth.auth()?.currentUser?.uid{
-            if (postData.star.count != 0){
-                for var i in (0 ..< postData.star.count) {
-                    let starDic = Array(postData.star[i].keys)
-                    if starDic[0] == uid{
-                        let starData = postData.star[i][uid]
-                        // 自分の投票した☆を反映
-                        updateStar(starData!)
-                    }
-                }
+        let stars = postData.star
+        
+        // デバッグ用
+        //        let stars = [
+        //            ["aaa": 4],
+        //            ["bbb": 5],
+        //            ["ccc": 3],
+        //            ["ddd": 2],
+        //            ["eee": 1],
+        //            ["fff": 4],
+        //            ["ggg": 3],
+        //        ]
+        
+        var average: Int = 0
+        
+        if stars.count > 0 {
+            // 評価の合計
+            var sum = 0
+            for data in stars as Array<[String: Int]> {
+                let starDic = Array(data.keys)
+                let uid = starDic[0]
+                let rating = data[uid]! as Int
+                
+                sum += rating
                 
             }
+            average = Int(ceil(Double(sum) / Double(stars.count)))
+            print("合計:\(sum), 投票数:\(stars.count), 平均値:\(average)")
         }
+        
+        updateStar(average)
         
         ImageView.image = postData.image
         label.text = postData.name
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
-
-
     
         
     //見た目しかやってない
