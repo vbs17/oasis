@@ -52,16 +52,25 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    func getIndexPath(event:UIEvent) -> NSIndexPath? {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        return indexPath
+    }
+
+    
     //色を無色星にする
     func hyoukaGo(sender:UIButton, event:UIEvent){
-        let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
+        let indexPath = getIndexPath(event)
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
         cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star2.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star3.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star4.imageView?.image = UIImage(named:"IMG_2728_2")
         cell?.star5.imageView?.image = UIImage(named:"IMG_2728_2")
-        
     }
+    
     //更新して星を保存
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
@@ -310,7 +319,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         timer.invalidate()
         if cell != nil {
             cell!.onlabel2.text = formatTimeString(playSong.duration)
-            cell!.nami.progress = 1
+            cell!.nami.progress = 0
         }
         
     }
