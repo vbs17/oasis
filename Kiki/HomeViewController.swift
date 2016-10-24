@@ -107,7 +107,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 postData.star.removeAtIndex(index)
             }
             
-           postData.star.append([uid:String(sender.tag)])
+            postData.star.append([uid:String(sender.tag)])
         }
         
         switch sender.tag {
@@ -135,7 +135,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         default: break
         }
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
-        postRef.child(postData.id!).setValue(postData)
+        postRef.child(postData.id!).setValue(String(postData))
     }
     
     

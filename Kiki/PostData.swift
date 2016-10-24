@@ -15,7 +15,7 @@ class PostData: NSObject {
     var byou: String?
     var realsong: String?
     var star: Array<[String:String]> = []
-    
+   
     //写真　曲名　秒数　音源
     
     init(snapshot: FIRDataSnapshot, myId: String) {
@@ -31,5 +31,6 @@ class PostData: NSObject {
         name = valueDictionary["songname"] as? String
         song = valueDictionary["ongen"] as? String
         realsong = valueDictionary["realsong"] as? String
-    }
+    
+  }
 }
