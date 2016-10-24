@@ -31,28 +31,28 @@ class HomeTableViewCell: UITableViewCell {
     func updateStar(ratingStr:Int) {
         switch  ratingStr {
         case 1:
-            star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             
         case 2:
-            star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            
+            star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+
         case 3:
-            star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star3.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             
         case 4:
-            star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star3.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star4.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
         case 5:
-            star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
-            star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star3.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star4.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            star5.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
         default: break
         }
     }
