@@ -30,7 +30,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
@@ -53,7 +52,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return cell
     }
     
-
+    //色を無色星にする
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         cell?.star1.imageView?.image = UIImage(named:"IMG_2728_2")
@@ -63,7 +62,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell?.star5.imageView?.image = UIImage(named:"IMG_2728_2")
         
     }
-    
+    //更新して星を保存
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -299,7 +298,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     //波と秒数
     func updatePlayingTime() {
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
-        if cell != nil {
+        if (cell != nil) && (playSong.currentTime >= 0.1) {
             cell!.onlabel2.text = formatTimeString(playSong.currentTime)
             cell!.nami.progress = Float(playSong.currentTime / playSong.duration)
         }
