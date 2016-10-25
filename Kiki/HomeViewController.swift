@@ -70,15 +70,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     
-    //たとえば5人分のデータがはいるとこんな感じです。
-    //star => [
-    //["aaa" : "4"],
-    //["bbb" : "5"],
-    //["ccc" : "3"],
-    //["ddd" : "2"],
-    //["eee" : "1"],
-    //]
-    //更新して星を保存 勘違いするなよこれは池内慶だけの評価やから削除して更新してるわけよ池内慶を１００人作らんために
+       //更新して星を保存 勘違いするなよこれは池内慶だけの評価やから削除して更新してるわけよ池内慶を１００人作らんために
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -101,7 +93,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             if index != -1 {//例えば3つ星タップしてたとして再度評価したらそれを消して再度保存しな一人で総数100回とか出来てまうから
                 postData.star.removeAtIndex(index)
             }
-                                           //何個星タップしたか保存
+                                           //何個星タップしたかpostData.starに保存
             postData.star.append([uid:String(sender.tag)])
         }
         
@@ -130,13 +122,14 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         default: break
         }
        //配列との相性悪いせいでいちいち全部保存しなあかん
+        //どこのgenreのどのセルに星がついたか保存しなあかん
        
         let imageString = postData.imageString
         let name = postData.name
         let song = postData.song
         let byou = postData.byou
         let realsong = postData.realsong
-        let star = postData.star
+        let star = postData.star //97行目
         
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star]

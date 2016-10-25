@@ -16,21 +16,22 @@ class PostData: NSObject {
     var realsong: String?
     var star: Array<[String:String]> = []
    
-    //写真　曲名　秒数　音源
+   
     
     init(snapshot: FIRDataSnapshot, myId: String) {
         id = snapshot.key
         let valueDictionary = snapshot.value as! [String: AnyObject]
         
-        if let stars = valueDictionary["star"] as? Array<[String:String]> {
-            self.star = stars
-        }
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
         byou = valueDictionary["byou"] as? String
         name = valueDictionary["songname"] as? String
         song = valueDictionary["ongen"] as? String
-        realsong = valueDictionary["realsong"] as? String
+        realsong = valueDictionary["realsong"] as? String//[uid:星の数]
+        if let stars = valueDictionary["star"] as? Array<[String:String]> {
+            self.star = stars
+        }
+
     
   }
 }
