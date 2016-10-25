@@ -19,7 +19,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -34,13 +33,12 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
         if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
             cell.backButton.enabled = true
-        } else {
+        } else {//それ以外のセル
             cell.nami.progress = 0
             cell.onlabel2.text = "0:00"
             cell.backButton.enabled = false
         }
         let uid = FIRAuth.auth()?.currentUser?.uid
-        //全ての原点はここのsetPostData
         cell.setPostData(postArray[indexPath.row], myid: uid!)
         cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -60,7 +58,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return indexPath
     }
 
-    
     //色を無色星にする
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
@@ -81,7 +78,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     //["ddd" : "2"],
     //["eee" : "1"],
     //]
-    //更新して星を保存
+    //更新して星を保存 勘違いするなよこれは池内慶だけの評価やから削除して更新してるわけよ池内慶を１００人作らんために
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -90,7 +87,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
         //どのセルかわかった
         if let uid = FIRAuth.auth()?.currentUser?.uid {
-            var index = -1
+            var index = -1 //0からpostData.star.count(postData.star.countは含まない)
             for var i in (0 ..< postData.star.count) {
                 
                 let starDic = Array(postData.star[i].keys)
@@ -100,13 +97,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                     break
                 }
             }
-            
-            // [このif文を追加]
             // -1 の場合は削除対象のデータが無い
-            if index != -1 {
+            if index != -1 {//例えば3つ星タップしてたとして再度評価したらそれを消して再度保存しな一人で総数100回とか出来てまうから
                 postData.star.removeAtIndex(index)
             }
-            
+                                           //何個星タップしたか保存
             postData.star.append([uid:String(sender.tag)])
         }
         
@@ -134,7 +129,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
         default: break
         }
-       
+       //配列との相性悪いせいでいちいち全部保存しなあかん
        
         let imageString = postData.imageString
         let name = postData.name
@@ -162,7 +157,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         self.tableView.reloadData()
                     }
                 })
-                
+                //ここもfunc hoshiと一緒
                 FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre).observeEventType(.ChildChanged, withBlock: { snapshot in
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
@@ -190,43 +185,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             }
         }
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     func handleButton(sender: UIButton, event:UIEvent){
         //indexPathは今選択中のセル
@@ -264,26 +226,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             playSong.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
             
-            
-            
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     //巻き戻し
     func back(sender: UIButton, event:UIEvent) {
@@ -296,8 +240,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         playSong.currentTime = 0
         playSong.play()
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
-        
-    }
+        }
+    
     //tesita
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
@@ -306,26 +250,18 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return str
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // Auto Layoutを使ってセルの高さを動的に変更する
         return UITableViewAutomaticDimension
     }
     
+    // セルをタップされたら何もせずに選択状態を解除する
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // セルをタップされたら何もせずに選択状態を解除する
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
-    
-    
-    
-    
-    
     
     @IBAction func backGo(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -348,7 +284,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell!.onlabel2.text = formatTimeString(playSong.duration)
             cell!.nami.progress = 0
         }
-        
     }
     //違う画面になった時停止してタイマー止める
     override func viewWillDisappear(animated: Bool) {
@@ -360,9 +295,5 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             
         }
     }
-    
-    
-    
-    
 }
 

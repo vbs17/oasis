@@ -27,7 +27,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var star4: UIButton!
     @IBOutlet weak var star5: UIButton!
     
-    //星の色　ここはシンプル
+    //星の色　ここはシンプル 黄色
     func updateStar(ratingStr:Int) {
         switch  ratingStr {
         case 1:
@@ -57,6 +57,10 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    
+    //二人目も
+    //starDic[0] => "bbb"
+    //starDic[1] => “3"ってこと？//はいそうです。
     //平均値を取得して反映させる  あれよ大事なあれこれでみんなにデータが配られるわけよこれが原点よ
     func setPostData(postData: PostData, myid: String) {
         let stars = postData.star
@@ -65,9 +69,10 @@ class HomeTableViewCell: UITableViewCell {
         
         if stars.count > 0 {
             // 評価の合計
-            var sum = 0
+            var sum = 0              //["UID" : "星の数"]
             for data in stars as Array<[String: String]> {
                 let starDic = Array(data.keys)
+                //starDic[0]はuidで[1]は星の数
                 let uid = starDic[0]
                 let ratingStr = data[uid]! as String
                 if let rating = Int(ratingStr) {
