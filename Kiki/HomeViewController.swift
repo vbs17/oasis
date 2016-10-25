@@ -134,6 +134,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star]
         postRef.child(postData.id!).setValue(postData2)
+        self.tableView.reloadData()
     }
     
     
