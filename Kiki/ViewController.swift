@@ -1,3 +1,7 @@
+
+
+
+
 import UIKit
 import AVFoundation
 
@@ -14,8 +18,33 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    var peakv:Float!
     
     
+    func levelTimerCallback() {
+        audioRecorder.updateMeters()
+        let dB = audioRecorder.averagePowerForChannel(0)
+        if peakv < dB{
+            peakv = dB
+        }
+        
+        let atai = max(0, (dB + 77)) / 77
+        nami1.progress = atai
+        nami2.progress = atai
+        nami3.progress = atai
+    }
+    
+    //filenameをsongDataに渡す
+    func nextGamenn(){
+        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play") as! PlayViewController
+        playviewcontroller.songData = self.documentFilePath()
+        playviewcontroller.peakv = self.peakv
+        self.presentViewController(playviewcontroller, animated: true, completion: nil)
+        
+        
+    }
+
+
     
     @IBAction func back(sender: AnyObject) {
          self.dismissViewControllerAnimated(true, completion: nil)
@@ -35,7 +64,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         recordImage!.clipsToBounds = true
     }
     
-    //カウントダウンしてレコード開始しボタンのUIも変更 //countでif文で処理ればいいかも
     @IBAction func recordStart(sender: UIButton) {
         if count == 1{
         recordImage!.enabled = false
@@ -86,7 +114,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         
     }
     
-    //オーディオデータを設定の通りに全て取りこんでると大量のデータになってしまうので、圧縮//.minのとこ音質変えれる//ここではどっちも設定してる
     //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
@@ -96,7 +123,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVNumberOfChannelsKey: 1 ,
             AVSampleRateKey: 22050
-        ];        do {     //録音したものは/aaa/bbb/ccc.app/Document/sister.m4aここに入る
+        ];        do {
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
             
             print(self.documentFilePath())
@@ -106,28 +133,13 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     
-    //要求されたドメインで指定された一般的なディレクトリの Url の配列のうちの一個が帰ってくる//その指定したディレクトリにurlを置いて完
     // 録音するファイルのパスを取得(録音時、再生時に参照)//要求されたドメインで指定された一般的なディレクトリの Url の配列を返します
-    // swift2からstringByAppendingPathComponentが使えなくなったので少し面倒
     func documentFilePath()-> NSURL {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         let dirURL = urls[0]
         return dirURL.URLByAppendingPathComponent(fileName)
     }
-    
-    //0か(dB + 77)かいずれか大きい方という意味.あとはこれを、取り得る最大値(今回だと77)で割れば良い
-    //dBが-77のとき0.0になり、0のとき1.0になる変換を行う必要があります
-    //(db + 77) / 77が意味不明 //元のdB値が0から160を取れる
-    func levelTimerCallback() {
-        audioRecorder.updateMeters()
-        let dB = audioRecorder.averagePowerForChannel(0)
-        let atai = max(0, (dB + 77)) / 77
-        nami1.progress = atai
-        nami2.progress = atai
-        nami3.progress = atai
-    }
-    
-    func recordLimits(){
+      func recordLimits(){
         let minuteCount = timeCount / 60
         let secondCount = timeCount % 60
         if secondCount <= 9 {
@@ -143,15 +155,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             timeCount += 1
         }
     }
-    
-    func nextGamenn(){
-        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play") as! PlayViewController
-        playviewcontroller.songData = self.documentFilePath()
-         self.presentViewController(playviewcontroller, animated: true, completion: nil)
-        
-        
-    }
-
+   
     
   }
 

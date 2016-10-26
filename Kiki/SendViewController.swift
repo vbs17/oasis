@@ -3,7 +3,7 @@
 import UIKit
 
 class SendViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    //filenameをsongDataに渡す
     var songData:NSURL!
     
     @IBOutlet weak var library: UIButton!

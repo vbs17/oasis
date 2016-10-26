@@ -90,10 +90,10 @@
                             <constraint firstAttribute="width" constant="66" id="Edb-VQ-9Um"/>
                             <constraint firstAttribute="height" constant="59" id="aCE-wJ-Pwx"/>
                         </constraints>
-                        <size key="titleShadowOffset" width="2" height="2.2250738585072014e-308"/>
+                        <size key="titleShadowOffset" width="2" height="1"/>
                         <state key="normal" title="BACK">
-                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" red="1" green="0.93655589660000005" blue="0.184571125" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">

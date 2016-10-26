@@ -2,10 +2,13 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class PlayViewController: UIViewController {
     //曲はここ
+    //filenameをsongDataに渡す
     var songData:NSURL!
+    var peakv:Float!
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
     let recordSetting : [String : AnyObject] = [
@@ -13,6 +16,8 @@ class PlayViewController: UIViewController {
         AVNumberOfChannelsKey: 1 ,
         AVSampleRateKey: 22050
     ]
+    var audioRecorder: AVAudioRecorder!
+
 
     @IBOutlet weak var onbyou: UILabel!
     @IBOutlet weak var play: UIButton!
@@ -20,6 +25,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var byou: UILabel!
     @IBOutlet weak var retake: UIButton!
     @IBOutlet weak var ok: UIButton!
+    @IBOutlet weak var slider: UISlider!
     
     
     //秒数がすでに表示
@@ -40,6 +46,42 @@ class PlayViewController: UIViewController {
         ok.clipsToBounds = true
     }
     
+    
+    //再生
+    @IBAction func goPlay(sender: AnyObject) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
+        peakv = audioRecorder.averagePowerForChannel(0);
+        var level = 0.0
+        var minDecibels:Double = -77.0;
+        
+        if (peakv < minDecibels) {
+            level = 0.0;
+        }
+        else if (peakv >= 0.0) {
+            level = 1.0;
+        }
+        else {
+            let   root            = 2.0;
+            let   minAmp          = pow(10.0, 0.05 * minDecibels);
+            let   inverseAmpRange = 1.0 / (1.0 - minAmp);
+            let   amp             = pow(10.0, 0.05 * peakv);
+            let   adjAmp          = (amp - minAmp) * inverseAmpRange;
+            
+            level = pow(adjAmp, 1.0 / root);
+        }
+        
+        print(level)
+        (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(1, animated: false)
+        playSong.play()
+        play.enabled = false
+        back.enabled = true
+        
+    }
+    
+
+    @IBAction func sliderGo(sender: AnyObject) {
+    }
+    
     //mp3に圧縮させて投稿
     @IBAction func gok(sender: AnyObject) {
         playSong.stop()
@@ -49,17 +91,7 @@ class PlayViewController: UIViewController {
          self.presentViewController(sendviewcontroller, animated: true, completion: nil)
     }
     
-    
-    //再生
-    @IBAction func goPlay(sender: AnyObject) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
-        playSong.play()
-        play.enabled = false
-        back.enabled = true
-        
-    }
-    
-    //巻き戻し
+       //巻き戻し
     @IBAction func goBack(sender: UIButton) {
         onbyou.text = "0:00"
         play.enabled = true

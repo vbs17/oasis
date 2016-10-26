@@ -461,6 +461,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     var buttonImage:UIImage = UIImage(named: "104937")!
     var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
     //写真　曲名　秒数　音源
+    //filenameをsongDataに渡す
     var songData:NSURL!
     var image:UIImage!
     var songname:UITextField!

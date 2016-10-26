@@ -6,6 +6,7 @@ import AVFoundation
 class OkViewController: UIViewController {
 
     var image: UIImage!
+    //filenameをsongDataに渡す
     var songData:NSURL!
 
     @IBOutlet weak var imageView: UIImageView!
