@@ -41,6 +41,7 @@ class _TViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    //ここかな
     @IBAction func rec(sender: AnyObject) {
         if count == 1{
             recButton!.enabled = false
