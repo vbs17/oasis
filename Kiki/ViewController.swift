@@ -24,6 +24,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     func levelTimerCallback() {
         audioRecorder.updateMeters()
         let dB = audioRecorder.averagePowerForChannel(0)
+        peakv = 0.0
         if peakv < dB{
             peakv = dB
         }
