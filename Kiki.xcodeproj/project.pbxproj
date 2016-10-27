@@ -22,6 +22,7 @@
 		B042A01F1DB98BB30068D205 /* SyugoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B042A01D1DB98BB30068D205 /* SyugoTableViewCell.xib */; };
 		B042A0221DB991150068D205 /* SyuruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042A0211DB991150068D205 /* SyuruViewController.swift */; };
 		B071309B1DC22D8800B8EEC1 /* 2TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071309A1DC22D8700B8EEC1 /* 2TViewController.swift */; };
+		B071309D1DC2352E00B8EEC1 /* Play2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071309C1DC2352E00B8EEC1 /* Play2ViewController.swift */; };
 		B071D9661DB4D6140017E287 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9651DB4D6140017E287 /* File.swift */; };
 		B071D9681DB4E5040017E287 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9671DB4E5040017E287 /* PostData.swift */; };
 		B071D96F1DB4EA9B0017E287 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */; };
@@ -57,6 +58,7 @@
 		B042A01D1DB98BB30068D205 /* SyugoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyugoTableViewCell.xib; sourceTree = "<group>"; };
 		B042A0211DB991150068D205 /* SyuruViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyuruViewController.swift; sourceTree = "<group>"; };
 		B071309A1DC22D8700B8EEC1 /* 2TViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 2TViewController.swift; sourceTree = "<group>"; };
+		B071309C1DC2352E00B8EEC1 /* Play2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Play2ViewController.swift; sourceTree = "<group>"; };
 		B071D9651DB4D6140017E287 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B071D9671DB4E5040017E287 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = Kiki/PostData.swift; sourceTree = "<group>"; };
 		B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Kiki/HomeViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B071309A1DC22D8700B8EEC1 /* 2TViewController.swift */,
+				B071309C1DC2352E00B8EEC1 /* Play2ViewController.swift */,
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
@@ -346,6 +349,7 @@
 				B00501BB1DB610D200319866 /* HomeTableViewCell.swift in Sources */,
 				B071D9681DB4E5040017E287 /* PostData.swift in Sources */,
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
+				B071309D1DC2352E00B8EEC1 /* Play2ViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
 				B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */,

@@ -47,6 +47,7 @@ class PlayViewController: UIViewController {
     @IBAction func kasane(sender: AnyObject) {
         let recviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
         recviewcontroller.songData = songData
+
         self.presentViewController(recviewcontroller, animated: true, completion: nil)
     }
     

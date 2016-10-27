@@ -4,7 +4,7 @@ import AVFoundation
 
 
 class _TViewController: UIViewController {
-    
+    //こいつが音源
     var songData:NSURL!
     var playSong:AVAudioPlayer!
     let fileManager = NSFileManager()
@@ -28,8 +28,9 @@ class _TViewController: UIViewController {
     }
     
     func nextGamenn(){
-        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play") as! PlayViewController
-        playviewcontroller.songData = self.documentFilePath()
+        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
+        playviewcontroller.songData = songData
+        playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
         
         
@@ -41,7 +42,6 @@ class _TViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //ここかな
     @IBAction func rec(sender: AnyObject) {
         if count == 1{
             recButton!.enabled = false
@@ -79,6 +79,7 @@ class _TViewController: UIViewController {
             imageView.image = image
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
+            playSong.play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             audioRecorder.meteringEnabled = true
