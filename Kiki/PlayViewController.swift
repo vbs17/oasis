@@ -52,7 +52,7 @@ class PlayViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
         peakv = audioRecorder.averagePowerForChannel(0);
         var level = 0.0
-        var minDecibels:Double = -77.0;
+        var minDecibels:Float = -77.0;
         
         if (peakv < minDecibels) {
             level = 0.0;
@@ -66,8 +66,7 @@ class PlayViewController: UIViewController {
             let   inverseAmpRange = 1.0 / (1.0 - minAmp);
             let   amp             = pow(10.0, 0.05 * peakv);
             let   adjAmp          = (amp - minAmp) * inverseAmpRange;
-            
-            level = pow(adjAmp, 1.0 / root);
+            level = pow(Double(adjAmp), 1.0 / root);
         }
         
         print(level)
