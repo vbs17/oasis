@@ -14,9 +14,8 @@ class PlayViewController: UIViewController {
     let recordSetting : [String : AnyObject] = [
         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
         AVNumberOfChannelsKey: 1 ,
-        AVSampleRateKey: 22050
+        AVSampleRateKey: 44100
     ]
-    var audioRecorder: AVAudioRecorder!
 
 
     @IBOutlet weak var onbyou: UILabel!
@@ -50,29 +49,6 @@ class PlayViewController: UIViewController {
     //再生
     @IBAction func goPlay(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
-        
-        audioRecorder = try!AVAudioRecorder(URL: songData,settings:recordSetting)
-        peakv = audioRecorder.averagePowerForChannel(0);
-        var level = 0.0
-        var minDecibels:Float = -77.0;
-        
-        if (peakv < minDecibels) {
-            level = 0.0;
-        }
-        else if (peakv >= 0.0) {
-            level = 1.0;
-        }
-        else {
-            let   root            = 2.0;
-            let   minAmp          = pow(10.0, 0.05 * minDecibels);
-            let   inverseAmpRange = 1.0 / (1.0 - minAmp);
-            let   amp             = pow(10.0, 0.05 * peakv);
-            let   adjAmp          = (amp - minAmp) * inverseAmpRange;
-            level = pow(Double(adjAmp), 1.0 / root);
-        }
-        
-        print(level)
-        (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(1, animated: false)
         playSong.play()
         play.enabled = false
         back.enabled = true

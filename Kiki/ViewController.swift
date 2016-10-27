@@ -18,7 +18,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
-    var peakv:Float!
     
     
     func levelTimerCallback() {
@@ -34,7 +33,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play") as! PlayViewController
         playviewcontroller.songData = self.documentFilePath()
-        playviewcontroller.peakv = self.peakv
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
         
         
@@ -113,13 +111,20 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
+        
+        
         try! session.setCategory(AVAudioSessionCategoryPlayback)
+        
+        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
+        
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVNumberOfChannelsKey: 1 ,
             AVSampleRateKey: 44100
-        ];        do {
+        ]
+        
+        do {
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
             
             print(self.documentFilePath())
@@ -127,7 +132,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             print("初期設定でerror")
         }
     }
-    
     
     // 録音するファイルのパスを取得(録音時、再生時に参照)//要求されたドメインで指定された一般的なディレクトリの Url の配列を返します
     func documentFilePath()-> NSURL {
