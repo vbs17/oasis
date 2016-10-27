@@ -8,7 +8,6 @@ class PlayViewController: UIViewController {
     //曲はここ
     //filenameをsongDataに渡す
     var songData:NSURL!
-    var peakv:Float!
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
     let recordSetting : [String : AnyObject] = [
@@ -44,6 +43,13 @@ class PlayViewController: UIViewController {
         ok.layer.cornerRadius = 10
         ok.clipsToBounds = true
     }
+    
+    @IBAction func kasane(sender: AnyObject) {
+        let recviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
+        recviewcontroller.songData = songData
+        self.presentViewController(recviewcontroller, animated: true, completion: nil)
+    }
+    
     
     
     //再生

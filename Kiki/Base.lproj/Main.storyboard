@@ -599,6 +599,44 @@
             </objects>
             <point key="canvasLocation" x="838.5" y="346.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="eUK-ID-pDO">
+            <objects>
+                <viewController storyboardIdentifier="Top2" id="ElI-lz-eq2" customClass="_TViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pt3-zM-oA3"/>
+                        <viewControllerLayoutGuide type="bottom" id="BYm-Em-ZWP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vxn-zG-m4R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXm-j2-Dgc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="563"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plf-2g-pap">
+                                <rect key="frame" x="0.0" y="584" width="89" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="REC">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rec:" destination="ElI-lz-eq2" eventType="touchUpInside" id="ga7-ef-KFj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="LXm-j2-Dgc" id="ftB-VW-Sft"/>
+                        <outlet property="recButton" destination="plf-2g-pap" id="5Ng-Sz-L0t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gyn-iV-cPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041.5" y="346.5"/>
+        </scene>
         <!--Play View Controller-->
         <scene sceneID="rJ7-YK-V8d">
             <objects>
@@ -678,6 +716,16 @@
                                 <color key="textColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyq-zY-bCR">
+                                <rect key="frame" x="139" y="299" width="97" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="重ね">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="kasane:" destination="ybh-Ee-9Y7" eventType="touchUpInside" id="pzB-VB-bTq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
