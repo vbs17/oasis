@@ -113,12 +113,12 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     //マイクから取りこんだ音声データを、再生専用とか録音専用の指定もある
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try! session.setCategory(AVAudioSessionCategoryPlayback)
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVNumberOfChannelsKey: 1 ,
-            AVSampleRateKey: 22050
+            AVSampleRateKey: 44100
         ];        do {
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
             
