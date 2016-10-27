@@ -78,7 +78,7 @@ class PlayViewController: UIViewController {
     }
     
 
-       
+    
     //mp3に圧縮させて投稿
     @IBAction func gok(sender: AnyObject) {
         playSong.stop()
