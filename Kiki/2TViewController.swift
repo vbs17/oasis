@@ -21,6 +21,7 @@ class _TViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupAudioRecorder()
         let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
         playSong = sound
         sound.prepareToPlay()
@@ -37,24 +38,6 @@ class _TViewController: UIViewController {
     }
     
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func rec(sender: AnyObject) {
-        if count == 1{
-            recButton!.enabled = false
-            let image:UIImage! = UIImage(named: photos[0])
-            imageView.image = image
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
-        }else if count == 5{
-            self.timeCountTimer.invalidate()
-            audioRecorder.stop()
-            nextGamenn()
-        }
-        
-    }
     
     func nextPage (sender:NSTimer){
         
@@ -80,8 +63,8 @@ class _TViewController: UIViewController {
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
             playSong.play()
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
-            self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
+           
+          
             audioRecorder.meteringEnabled = true
             sender.invalidate()
             recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
@@ -92,6 +75,26 @@ class _TViewController: UIViewController {
         }
         
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func rec(sender: AnyObject) {
+        if count == 1{
+            recButton!.enabled = false
+            let image:UIImage! = UIImage(named: photos[0])
+            imageView.image = image
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
+        }else if count == 5{
+           
+            audioRecorder.stop()
+            nextGamenn()
+        }
+        
+    }
+
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
         
