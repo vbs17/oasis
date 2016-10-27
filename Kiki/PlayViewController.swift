@@ -50,6 +50,8 @@ class PlayViewController: UIViewController {
     //再生
     @IBAction func goPlay(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
+        
+        audioRecorder = try!AVAudioRecorder(URL: songData,settings:recordSetting)
         peakv = audioRecorder.averagePowerForChannel(0);
         var level = 0.0
         var minDecibels:Float = -77.0;
@@ -74,8 +76,8 @@ class PlayViewController: UIViewController {
         playSong.play()
         play.enabled = false
         back.enabled = true
-        
     }
+    
     
 
     

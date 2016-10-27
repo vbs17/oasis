@@ -24,11 +24,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     func levelTimerCallback() {
         audioRecorder.updateMeters()
         let dB = audioRecorder.averagePowerForChannel(0)
-        peakv = 0.0
-        if peakv < dB{
-            peakv = dB
-        }
-        
         let atai = max(0, (dB + 77)) / 77
         nami1.progress = atai
         nami2.progress = atai
