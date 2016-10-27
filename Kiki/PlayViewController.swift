@@ -25,7 +25,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var byou: UILabel!
     @IBOutlet weak var retake: UIButton!
     @IBOutlet weak var ok: UIButton!
-    @IBOutlet weak var slider: UISlider!
+   
     
     
     //秒数がすでに表示
@@ -78,9 +78,7 @@ class PlayViewController: UIViewController {
     }
     
 
-    @IBAction func sliderGo(sender: AnyObject) {
-    }
-    
+       
     //mp3に圧縮させて投稿
     @IBAction func gok(sender: AnyObject) {
         playSong.stop()
