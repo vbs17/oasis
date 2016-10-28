@@ -16,6 +16,14 @@ class _TViewController: UIViewController {
     var count = 1
     var timeCount = 1
     
+    @IBOutlet weak var recButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nami1: UIProgressView!
+    @IBOutlet weak var nami2: UIProgressView!
+    @IBOutlet weak var nami3: UIProgressView!
+    @IBOutlet weak var byou: UILabel!
+    @IBOutlet weak var recImage: UIButton!
+    
     func levelTimerCallback() {
         audioRecorder.updateMeters()
         let dB = audioRecorder.averagePowerForChannel(0)
@@ -26,6 +34,7 @@ class _TViewController: UIViewController {
     }
     
     func nextGamenn(){
+        //二つの音源を画面推移の際に移す
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
         playviewcontroller.songData = songData
         playviewcontroller.songData2 = self.documentFilePath()
@@ -38,14 +47,6 @@ class _TViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBOutlet weak var recButton: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nami1: UIProgressView!
-    @IBOutlet weak var nami2: UIProgressView!
-    @IBOutlet weak var nami3: UIProgressView!
-    @IBOutlet weak var byou: UILabel!
-    @IBOutlet weak var recImage: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAudioRecorder()
@@ -54,7 +55,6 @@ class _TViewController: UIViewController {
         sound.prepareToPlay()
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
-
     }
     
     @IBAction func rec(sender: AnyObject) {

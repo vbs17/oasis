@@ -24,6 +24,7 @@ class Play2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //二つとも再生
         let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
         let sound2:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData2!)
         playSong = sound
@@ -33,14 +34,14 @@ class Play2ViewController: UIViewController {
         
         
     }
-
+    //二つとも再生
     @IBAction func playGo(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
         playSong.play()
         play.enabled = false
         back.enabled = true
     }
-    
+    //二つとも再生
     @IBAction func backGo(sender: AnyObject) {
         onbyou.text = "0:00"
         play.enabled = true
@@ -50,23 +51,27 @@ class Play2ViewController: UIViewController {
         playSong.currentTime = 0
 
     }
+    
     @IBAction func okGo(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
+        //この辺合成して保存するには？
         let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
         sendviewcontroller.songData = songData
         self.presentViewController(sendviewcontroller, animated: true, completion: nil)
         
     }
+    
+    //songDataは消さなくてもいい
     @IBAction func retakeGo(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
-        let deleteSong = try!AVAudioRecorder(URL: songData,settings:recordSetting)
+        let deleteSong = try!AVAudioRecorder(URL: songData2,settings:recordSetting)
         deleteSong.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
         self.presentViewController(viewcontroller, animated: true, completion: nil)
         let manager = NSFileManager()
-        if manager.fileExistsAtPath(songData.absoluteString){
+        if manager.fileExistsAtPath(songData2.absoluteString){
             print("ok")
         }else{
             print("no")
