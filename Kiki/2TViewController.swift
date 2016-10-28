@@ -30,8 +30,6 @@ class _TViewController: UIViewController {
         playviewcontroller.songData = songData
         playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
-        
-        
     }
     
     @IBAction func back(sender: AnyObject) {
@@ -72,10 +70,6 @@ class _TViewController: UIViewController {
         }
         
     }
-
-    
-    
-    
     
     func nextPage (sender:NSTimer){
         
@@ -114,7 +108,6 @@ class _TViewController: UIViewController {
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -122,19 +115,14 @@ class _TViewController: UIViewController {
    
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
-        
-        
         try! session.setCategory(AVAudioSessionCategoryPlayback)
-        
         try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
-        
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVNumberOfChannelsKey: 1 ,
             AVSampleRateKey: 44100
         ]
-        
         do {
             try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
             

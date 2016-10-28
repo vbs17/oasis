@@ -14,7 +14,6 @@ class Play2ViewController: UIViewController {
         AVNumberOfChannelsKey: 1 ,
         AVSampleRateKey: 44100
     ]
-
     
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var play: UIButton!
@@ -35,7 +34,6 @@ class Play2ViewController: UIViewController {
         
     }
 
-    
     @IBAction func playGo(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
         playSong.play()
@@ -94,8 +92,6 @@ class Play2ViewController: UIViewController {
         return str
     }
 
-    
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

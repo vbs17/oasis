@@ -15,8 +15,7 @@ class PlayViewController: UIViewController {
         AVNumberOfChannelsKey: 1 ,
         AVSampleRateKey: 44100
     ]
-
-
+    
     @IBOutlet weak var onbyou: UILabel!
     @IBOutlet weak var play: UIButton!
     @IBOutlet weak var back: UIButton!
@@ -24,8 +23,6 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var retake: UIButton!
     @IBOutlet weak var ok: UIButton!
    
-    
-    
     //秒数がすでに表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +50,6 @@ class PlayViewController: UIViewController {
         self.presentViewController(recviewcontroller, animated: true, completion: nil)
     }
     
-    
-    
     //再生
     @IBAction func goPlay(sender: AnyObject) {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(PlayViewController.updatePlayingTime), userInfo: nil, repeats: true)
@@ -62,9 +57,6 @@ class PlayViewController: UIViewController {
         play.enabled = false
         back.enabled = true
     }
-    
-    
-
     
     //mp3に圧縮させて投稿
     @IBAction func gok(sender: AnyObject) {
