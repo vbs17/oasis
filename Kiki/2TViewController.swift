@@ -9,7 +9,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     var playSong:AVAudioPlayer!
     let fileManager = NSFileManager()
     var audioRecorder: AVAudioRecorder!
-    let fileName = "sister.m4a"
+    let fileName = "sister1.m4a"
     var timer: NSTimer!
     var timeCountTimer: NSTimer!
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
@@ -34,19 +34,16 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     func nextGamenn(){
-        //二つの音源を画面推移の際に移す
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
         playviewcontroller.songData = songData
         playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
-    
     @IBAction func back(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAudioRecorder()
@@ -56,7 +53,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
     }
-    
     @IBAction func rec(sender: AnyObject) {
         if count == 1{
             recButton!.enabled = false
@@ -70,7 +66,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }
         
     }
-    
     func nextPage (sender:NSTimer){
         
         var image:UIImage! = UIImage(named: photos[1])
@@ -112,7 +107,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         super.didReceiveMemoryWarning()
     }
     
-   
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback)

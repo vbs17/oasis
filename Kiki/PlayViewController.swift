@@ -40,7 +40,7 @@ class PlayViewController: UIViewController {
         ok.layer.cornerRadius = 10
         ok.clipsToBounds = true
     }
-    
+    //ここら辺
     @IBAction func kasane(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()

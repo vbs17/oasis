@@ -51,23 +51,23 @@ class Play2ViewController: UIViewController {
         playSong.currentTime = 0
 
     }
-    
+    //保存したのを送る
     @IBAction func okGo(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
-        //この辺合成して保存するには？
         let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
         sendviewcontroller.songData = songData
         self.presentViewController(sendviewcontroller, animated: true, completion: nil)
         
     }
     
-    //songDataは消さなくてもいい
     @IBAction func retakeGo(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
         let deleteSong = try!AVAudioRecorder(URL: songData2,settings:recordSetting)
         deleteSong.deleteRecording()
+         let deleteSong1 = try!AVAudioRecorder(URL: songData,settings:recordSetting)
+        deleteSong1.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
         self.presentViewController(viewcontroller, animated: true, completion: nil)
         let manager = NSFileManager()

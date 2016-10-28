@@ -369,7 +369,7 @@ class ItiranViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                     "SpecialThanks",
                                     "SPECIAL OTHERS",
                                     "SQUARE",
-                                    "suchmos",
+                                    "Suchmos",
                                     "SUPER BUTTER DOG",
                                     "SUGIURUMN",
                                     "SUPERCAR",
