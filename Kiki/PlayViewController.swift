@@ -45,6 +45,8 @@ class PlayViewController: UIViewController {
     }
     
     @IBAction func kasane(sender: AnyObject) {
+        playSong.stop()
+        timer.invalidate()
         let recviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
         recviewcontroller.songData = songData
 

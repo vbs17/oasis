@@ -16,16 +16,13 @@ class _TViewController: UIViewController {
     var count = 1
     var timeCount = 1
     
-    @IBOutlet weak var recButton: UIButton!
-    
-    @IBOutlet weak var imageView: UIImageView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupAudioRecorder()
-        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
-        playSong = sound
-        sound.prepareToPlay()
-        
+    func levelTimerCallback() {
+        audioRecorder.updateMeters()
+        let dB = audioRecorder.averagePowerForChannel(0)
+        let atai = max(0, (dB + 77)) / 77
+        nami1.progress = atai
+        nami2.progress = atai
+        nami3.progress = atai
     }
     
     func nextGamenn(){
@@ -36,6 +33,47 @@ class _TViewController: UIViewController {
         
         
     }
+    
+    @IBAction func back(sender: AnyObject) {
+        playSong.stop()
+        timer.invalidate()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBOutlet weak var recButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nami1: UIProgressView!
+    @IBOutlet weak var nami2: UIProgressView!
+    @IBOutlet weak var nami3: UIProgressView!
+    @IBOutlet weak var byou: UILabel!
+    @IBOutlet weak var recImage: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupAudioRecorder()
+        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
+        playSong = sound
+        sound.prepareToPlay()
+        recImage!.layer.cornerRadius = 37
+        recImage!.clipsToBounds = true
+
+    }
+    
+    @IBAction func rec(sender: AnyObject) {
+        if count == 1{
+            recButton!.enabled = false
+            let image:UIImage! = UIImage(named: photos[0])
+            imageView.image = image
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
+        }else if count == 5{
+            
+            audioRecorder.stop()
+            nextGamenn()
+        }
+        
+    }
+
+    
     
     
     
@@ -63,8 +101,8 @@ class _TViewController: UIViewController {
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
             playSong.play()
-           
-          
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
+            self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             audioRecorder.meteringEnabled = true
             sender.invalidate()
             recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
@@ -81,20 +119,7 @@ class _TViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func rec(sender: AnyObject) {
-        if count == 1{
-            recButton!.enabled = false
-            let image:UIImage! = UIImage(named: photos[0])
-            imageView.image = image
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
-        }else if count == 5{
-           
-            audioRecorder.stop()
-            nextGamenn()
-        }
-        
-    }
-
+   
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
         
@@ -125,6 +150,23 @@ class _TViewController: UIViewController {
         return dirURL.URLByAppendingPathComponent(fileName)
     }
     
+    func recordLimits(){
+        let minuteCount = timeCount / 60
+        let secondCount = timeCount % 60
+        if secondCount <= 9 {
+            byou.text = String(format: "%d:0%d", minuteCount, secondCount)
+        }else if secondCount >= 10 {
+            byou.text = String(format: "%d:%d", minuteCount, secondCount)
+        }
+        if timeCount == 360{
+            self.timeCountTimer.invalidate()
+            audioRecorder.stop()
+            nextGamenn()
+        }else{
+            timeCount += 1
+        }
+    }
+
     
     
 }
