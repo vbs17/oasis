@@ -110,7 +110,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func setupAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback)
-        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
