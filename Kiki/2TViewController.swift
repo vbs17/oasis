@@ -6,6 +6,7 @@ import AVFoundation
 class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
     var songData:NSURL!
+    let fileManager = NSFileManager()
     var playSong:AVAudioPlayer!
     var audioRecorder: AVAudioRecorder!
     var timer: NSTimer!
@@ -30,7 +31,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             let filePath = NSURL(fileURLWithPath: documentDir + "/sister1.m4a")
             let format = AVAudioFormat(commonFormat: .PCMFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
             let audioFile = try AVAudioFile(forWriting: filePath, settings: format.settings)
-                       let inputNode = engine.inputNode!
+            let inputNode = engine.inputNode!
             //録音
             inputNode.installTapOnBus(0, bufferSize: 4096, format: nil) { (buffer, when) in
                 do {
@@ -48,6 +49,12 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         } catch let error {
             print("AVAudioFile error:", error)
         }
+    }
+    
+    func documentFilePath()-> NSURL {
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
+        let dirURL = urls[0]
+        return dirURL.URLByAppendingPathComponent(fileName)
     }
 
     //ここ
