@@ -3,7 +3,7 @@ import UIKit
 import AVFoundation
 
 
-class _TViewController: UIViewController {
+class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
     var songData:NSURL!
     var playSong:AVAudioPlayer!
