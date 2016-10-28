@@ -116,7 +116,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         
         try! session.setCategory(AVAudioSessionCategoryPlayback)
         
-        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
         
         try! session.setActive(true)
         let recordSetting : [String : AnyObject] = [
