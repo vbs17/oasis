@@ -7,9 +7,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
     var songData:NSURL!
     var playSong:AVAudioPlayer!
-    let fileManager = NSFileManager()
     var audioRecorder: AVAudioRecorder!
-    let fileName = "sister1.m4a"
     var timer: NSTimer!
     var timeCountTimer: NSTimer!
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
