@@ -14,6 +14,9 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    let fileName = "sister1.m4a"
+    
+
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -61,7 +64,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
         playviewcontroller.songData = songData
-        playviewcontroller.songData2 =
+        playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
        func nextPage (sender:NSTimer){
@@ -85,6 +88,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             image = UIImage(named: photos[5])
             imageView.image = image
+            audioRecorder?.prepareToRecord()
+            audioRecorder?.record()
             record()
             playSong.play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)

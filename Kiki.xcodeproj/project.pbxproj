@@ -204,8 +204,8 @@
 		B0B263D21DB7467100C0F2A3 /* Toukou */ = {
 			isa = PBXGroup;
 			children = (
-				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B03151751DAE6A06007EE64C /* PlayViewController.swift */,
+				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
 				B071309A1DC22D8700B8EEC1 /* 2TViewController.swift */,
 				B071309C1DC2352E00B8EEC1 /* Play2ViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
