@@ -6,7 +6,6 @@ import AVFoundation
 class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
     var songData:NSURL!
-    let fileManager = NSFileManager()
     var playSong:AVAudioPlayer!
     var audioRecorder: AVAudioRecorder!
     var timer: NSTimer!
@@ -15,9 +14,13 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     var count = 1
     var timeCount = 1
     let fileName = "sister1.m4a"
+    var audioEngine: AVAudioEngine!
+    var player: AVAudioPlayerNode!
+    var sound:NSURL!
+    let fileManager = NSFileManager()
     
     
-
+    
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -29,38 +32,91 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     let engine = AVAudioEngine()
     
-    func record() {
-        do {
-            let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
-            let filePath = NSURL(fileURLWithPath: documentDir + "/sister1.m4a")
-            let format = AVAudioFormat(commonFormat: .PCMFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
-            let audioFile = try AVAudioFile(forWriting: filePath, settings: format.settings)
-            let inputNode = engine.inputNode!
-            //録音
-            inputNode.installTapOnBus(0, bufferSize: 4096, format: nil) { (buffer, when) in
-                do {
-                    try audioFile.writeFromBuffer(buffer)
-                } catch let error {
-                    print("audioFile.writeFromBuffer error:", error)
-                }
-            }
+    @IBAction func rec(sender: AnyObject) {
+        if count == 1{
+            recButton!.enabled = false
+            let image:UIImage! = UIImage(named: photos[0])
+            imageView.image = image
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
+        }else if count == 5{
             
-            do {
-                try engine.start()
-            } catch let error {
-                print("engine.start() error:", error)
-            }
-        } catch let error {
-            print("AVAudioFile error:", error)
+            audioRecorder.stop()
+            nextGamenn()
         }
     }
+    
+    
+    
+    func play() {
+        recButton.enabled = false
+        
+        let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+        let file = String(self.documentFilePath())
+        let filePath2 = NSURL(fileURLWithPath: documentDir + file)
+        if fileManager.fileExistsAtPath(filePath2.path!) {
+            _ = try? fileManager.removeItemAtURL(sound)
+            try! fileManager.moveItemAtURL(filePath2, toURL: sound)
+        }
+        if let url = sound {
+            do {
+                let audioSession = AVAudioSession.sharedInstance()
+                try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                try audioSession.setActive(true)
+                
+                let audioFile = try AVAudioFile(forReading: url)
+                
+                
+                audioEngine = AVAudioEngine()
+                player = AVAudioPlayerNode()
+                audioEngine.attachNode(player)
+                let mixer = audioEngine.mainMixerNode
+                
+                audioEngine.connect(player, to: mixer, fromBus: 0, toBus: 0, format: player.outputFormatForBus(0))
+                let inputNode = audioEngine.inputNode!
+                let format = AVAudioFormat(commonFormat: .PCMFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
+                audioEngine.connect(inputNode, to: mixer, fromBus: 0, toBus: 1, format: format)
+                
+                player.scheduleFile(audioFile, atTime: nil) {
+                    print("complete")
+                }
+                
+                let audioFile2 = try AVAudioFile(forWriting: filePath2, settings: mixer.outputFormatForBus(0).settings)
+                mixer.installTapOnBus(0, bufferSize: 4096, format: mixer.outputFormatForBus(0)) { (buffer, when) in
+                    do {
+                        try audioFile2.writeFromBuffer(buffer)
+                    } catch let error {
+                        print("audioFile2.writeFromBuffer error:", error)
+                    }
+                }
+                
+                try audioEngine.start()
+                player.play()
+            } catch let error {
+                print(error)
+            }
+        } else {
+            print("File not found")
+        }
+    }
+    
+    
+    
+    func stop() {
+        recButton.enabled = true
+        audioEngine.mainMixerNode.removeTapOnBus(0)
+        self.audioEngine.stop()
+    }
+    
+    
+    
+    
     
     func documentFilePath()-> NSURL {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         let dirURL = urls[0]
         return dirURL.URLByAppendingPathComponent(fileName)
     }
-
+    
     //ここ
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
@@ -68,7 +124,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
-       func nextPage (sender:NSTimer){
+    func nextPage (sender:NSTimer){
         
         var image:UIImage! = UIImage(named: photos[1])
         if count == 1{
@@ -89,10 +145,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             image = UIImage(named: photos[5])
             imageView.image = image
-            audioRecorder?.prepareToRecord()
-            audioRecorder?.record()
-            record()
-            playSong.play()
+            play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             sender.invalidate()
@@ -113,10 +166,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         nami2.progress = atai
         nami3.progress = atai
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     
     
     
@@ -130,19 +180,20 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }
         if timeCount == 360{
             self.timeCountTimer.invalidate()
-            audioRecorder.stop()
+            stop()
             nextGamenn()
         }else{
             timeCount += 1
         }
     }
-
+    
     
     @IBAction func back(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
@@ -151,20 +202,17 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
     }
-    @IBAction func rec(sender: AnyObject) {
-        if count == 1{
-            recButton!.enabled = false
-            let image:UIImage! = UIImage(named: photos[0])
-            imageView.image = image
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
-        }else if count == 5{
-            
-            audioRecorder.stop()
-            nextGamenn()
-        }
-        
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+    
 
     
     
+    
 }
+
+
+
+
