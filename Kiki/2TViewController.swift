@@ -5,7 +5,7 @@ import AVFoundation
 
 class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
-    var songData:NSURL!
+    
     var playSong:AVAudioPlayer!
     var audioRecorder: AVAudioRecorder!
     var timer: NSTimer!
@@ -13,11 +13,12 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    let fileManager = NSFileManager()
     let fileName = "sister1.m4a"
+    var songData:NSURL!
+    var sound:NSURL!
     var audioEngine: AVAudioEngine!
     var player: AVAudioPlayerNode!
-    var sound:NSURL!
-    let fileManager = NSFileManager()
     let engine = AVAudioEngine()
     
     @IBOutlet weak var recButton: UIButton!
@@ -30,11 +31,36 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupAudioRecorder()
         let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
         playSong = sound
         sound.prepareToPlay()
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
+    }
+    
+    func setupAudioRecorder() {
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback)
+        try! session.setActive(true)
+        let recordSetting : [String : AnyObject] = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVNumberOfChannelsKey: 1 ,
+            AVSampleRateKey: 44100
+        ]
+        do {
+            try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
+            
+            print(self.documentFilePath())
+        } catch {
+            print("初期設定でerror")
+        }
+    }
+    
+    func documentFilePath()-> NSURL {
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
+        let dirURL = urls[0]
+        return dirURL.URLByAppendingPathComponent(fileName)
     }
     
     @IBAction func rec(sender: AnyObject) {
@@ -49,6 +75,51 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             nextGamenn()
         }
     }
+    
+    func nextGamenn(){
+        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
+        playviewcontroller.songData = songData
+        playviewcontroller.songData2 = self.documentFilePath()
+        self.presentViewController(playviewcontroller, animated: true, completion: nil)
+    }
+    
+    
+    func nextPage (sender:NSTimer){
+        
+        var image:UIImage! = UIImage(named: photos[1])
+        if count == 1{
+            imageView.image = image;
+            count += 1
+        }else if count == 2{
+            image = UIImage(named: photos[2])
+            imageView.image = image
+            count += 1
+        }else if count == 3{
+            image = UIImage(named: photos[3])
+            imageView.image = image
+            count += 1
+        }else if count == 4{
+            image = UIImage(named: photos[4])
+            imageView.image = image
+            count += 1
+        }else if count == 5{
+            image = UIImage(named: photos[5])
+            imageView.image = image
+            audioRecorder?.prepareToRecord()
+            audioRecorder?.record()
+            play()
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
+            self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
+            sender.invalidate()
+            recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
+            recButton!.layer.cornerRadius = 37
+            recButton!.clipsToBounds = true
+            recButton!.enabled = true
+            
+        }
+        
+    }
+    
     
     func play() {
         recButton.enabled = false
@@ -110,54 +181,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         self.audioEngine.stop()
     }
     
-    func documentFilePath()-> NSURL {
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
-        let dirURL = urls[0]
-        return dirURL.URLByAppendingPathComponent(fileName)
-    }
-    
-    func nextGamenn(){
-        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
-        playviewcontroller.songData = songData
-        playviewcontroller.songData2 = self.documentFilePath()
-        self.presentViewController(playviewcontroller, animated: true, completion: nil)
-    }
-    
-    func nextPage (sender:NSTimer){
-        
-        var image:UIImage! = UIImage(named: photos[1])
-        if count == 1{
-            imageView.image = image;
-            count += 1
-        }else if count == 2{
-            image = UIImage(named: photos[2])
-            imageView.image = image
-            count += 1
-        }else if count == 3{
-            image = UIImage(named: photos[3])
-            imageView.image = image
-            count += 1
-        }else if count == 4{
-            image = UIImage(named: photos[4])
-            imageView.image = image
-            count += 1
-        }else if count == 5{
-            image = UIImage(named: photos[5])
-            imageView.image = image
-            audioRecorder?.prepareToRecord()
-            audioRecorder?.record()
-            play()
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
-            self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
-            sender.invalidate()
-            recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
-            recButton!.layer.cornerRadius = 37
-            recButton!.clipsToBounds = true
-            recButton!.enabled = true
-            
-        }
-        
-    }
     
     func levelTimerCallback() {
         audioRecorder.updateMeters()
@@ -197,24 +220,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func setupAudioRecorder() {
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayback)
-        try! session.setActive(true)
-        let recordSetting : [String : AnyObject] = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVNumberOfChannelsKey: 1 ,
-            AVSampleRateKey: 44100
-        ]
-        do {
-            try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
-            
-            print(self.documentFilePath())
-        } catch {
-            print("初期設定でerror")
-        }
-    }
-
+    
     
     
     
