@@ -95,7 +95,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             imageView.image = image
             play()
             playSong.play()
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             sender.invalidate()
             recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
