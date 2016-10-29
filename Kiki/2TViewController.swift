@@ -18,9 +18,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     var player: AVAudioPlayerNode!
     var sound:NSURL!
     let fileManager = NSFileManager()
-    
-    
-    
+    let engine = AVAudioEngine()
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -30,7 +28,14 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     @IBOutlet weak var byou: UILabel!
     @IBOutlet weak var recImage: UIButton!
     
-    let engine = AVAudioEngine()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
+        playSong = sound
+        sound.prepareToPlay()
+        recImage!.layer.cornerRadius = 37
+        recImage!.clipsToBounds = true
+    }
     
     @IBAction func rec(sender: AnyObject) {
         if count == 1{
@@ -44,8 +49,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             nextGamenn()
         }
     }
-    
-    
     
     func play() {
         recButton.enabled = false
@@ -107,23 +110,19 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         self.audioEngine.stop()
     }
     
-    
-    
-    
-    
     func documentFilePath()-> NSURL {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         let dirURL = urls[0]
         return dirURL.URLByAppendingPathComponent(fileName)
     }
     
-    //ここ
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
         playviewcontroller.songData = songData
         playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
+    
     func nextPage (sender:NSTimer){
         
         var image:UIImage! = UIImage(named: photos[1])
@@ -167,9 +166,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         nami3.progress = atai
     }
     
-    
-    
-    
     func recordLimits(){
         let minuteCount = timeCount / 60
         let secondCount = timeCount % 60
@@ -194,20 +190,12 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
-        playSong = sound
-        sound.prepareToPlay()
-        recImage!.layer.cornerRadius = 37
-        recImage!.clipsToBounds = true
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
+    
     
     
     
