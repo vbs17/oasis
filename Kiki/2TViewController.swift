@@ -109,7 +109,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     
     func play() {
-        recButton.enabled = false
         
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
         let file = String(self.documentFilePath())
