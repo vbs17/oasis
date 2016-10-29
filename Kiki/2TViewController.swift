@@ -22,6 +22,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     let engine = AVAudioEngine()
     let LEVEL_LOWPASS_TRIG:Float32 = 0.7
     var averagePower:Float32 = 0
+    var songFile:NSURL!
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -37,13 +38,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         recImage!.clipsToBounds = true
     }
     
-   
-    
-    func documentFilePath()-> NSURL {
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
-        let dirURL = urls[0]
-        return dirURL.URLByAppendingPathComponent(fileName)
-    }
     
     @IBAction func rec(sender: AnyObject) {
         if count == 1{
@@ -52,7 +46,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             imageView.image = image
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
         }else if count == 5{
-            
+            audioEngine.mainMixerNode.removeTapOnBus(0)
             audioEngine.stop()
             nextGamenn()
         }
@@ -60,7 +54,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
-        playviewcontroller.songData2 = self.documentFilePath()
+        playviewcontroller.songData2 = songFile
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
     
@@ -87,7 +81,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             image = UIImage(named: photos[5])
             imageView.image = image
             play()
-            playSong.play()
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             sender.invalidate()
             recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
@@ -104,10 +97,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
         let filePath2 = NSURL(fileURLWithPath: documentDir + "/sample.caf")
-        if fileManager.fileExistsAtPath(filePath2.path!) {
-            _ = try? fileManager.removeItemAtURL(songData)
-            try! fileManager.moveItemAtURL(filePath2, toURL: songData)
-        }
+        songFile = filePath2
         if let url = songData {
             do {
                 let audioSession = AVAudioSession.sharedInstance()
