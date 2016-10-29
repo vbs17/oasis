@@ -110,8 +110,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func play() {
         
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
-        let file = String(self.documentFilePath())
-        let filePath2 = NSURL(fileURLWithPath: documentDir + file)
+        let filePath2 = NSURL(fileURLWithPath: documentDir + "/sample.caf")
         if fileManager.fileExistsAtPath(filePath2.path!) {
             _ = try? fileManager.removeItemAtURL(songData)
             try! fileManager.moveItemAtURL(filePath2, toURL: songData)
