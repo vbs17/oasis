@@ -113,10 +113,10 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         let file = String(self.documentFilePath())
         let filePath2 = NSURL(fileURLWithPath: documentDir + file)
         if fileManager.fileExistsAtPath(filePath2.path!) {
-            _ = try? fileManager.removeItemAtURL(sound)
-            try! fileManager.moveItemAtURL(filePath2, toURL: sound)
+            _ = try? fileManager.removeItemAtURL(songData)
+            try! fileManager.moveItemAtURL(filePath2, toURL: songData)
         }
-        if let url = sound {
+        if let url = songData {
             do {
                 let audioSession = AVAudioSession.sharedInstance()
                 try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
