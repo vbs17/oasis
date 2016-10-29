@@ -66,7 +66,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
-        playviewcontroller.songData = songData
         playviewcontroller.songData2 = self.documentFilePath()
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }

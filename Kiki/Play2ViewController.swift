@@ -5,7 +5,6 @@ import MediaPlayer
 
 
 class Play2ViewController: UIViewController {
-    var songData:NSURL!
     var songData2:NSURL!
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
@@ -25,10 +24,7 @@ class Play2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //二つとも再生
-        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
         let sound2:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData2!)
-        playSong = sound
-        sound.prepareToPlay()
         playSong = sound2
         sound2.prepareToPlay()
         
@@ -56,7 +52,7 @@ class Play2ViewController: UIViewController {
         playSong.stop()
         timer.invalidate()
         let sendviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Send") as! SendViewController
-        sendviewcontroller.songData = songData
+        sendviewcontroller.songData = songData2
         self.presentViewController(sendviewcontroller, animated: true, completion: nil)
         
     }
@@ -66,8 +62,6 @@ class Play2ViewController: UIViewController {
         timer.invalidate()
         let deleteSong = try!AVAudioRecorder(URL: songData2,settings:recordSetting)
         deleteSong.deleteRecording()
-         let deleteSong1 = try!AVAudioRecorder(URL: songData,settings:recordSetting)
-        deleteSong1.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
         self.presentViewController(viewcontroller, animated: true, completion: nil)
         let manager = NSFileManager()
