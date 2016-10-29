@@ -144,6 +144,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             image = UIImage(named: photos[5])
             imageView.image = image
+            audioRecorder?.prepareToRecord()
+            audioRecorder?.record()
             play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
@@ -195,6 +197,24 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    func setupAudioRecorder() {
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback)
+        try! session.setActive(true)
+        let recordSetting : [String : AnyObject] = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVNumberOfChannelsKey: 1 ,
+            AVSampleRateKey: 44100
+        ]
+        do {
+            try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
+            
+            print(self.documentFilePath())
+        } catch {
+            print("初期設定でerror")
+        }
+    }
+
     
     
     
