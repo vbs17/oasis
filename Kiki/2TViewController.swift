@@ -1,13 +1,13 @@
 
 import UIKit
 import AVFoundation
+import Accelerate
 
 
 class _TViewController: UIViewController,AVAudioRecorderDelegate {
     //こいつが音源
     
     var playSong:AVAudioPlayer!
-    var audioRecorder: AVAudioRecorder!
     var timer: NSTimer!
     var timeCountTimer: NSTimer!
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
@@ -20,6 +20,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     var audioEngine: AVAudioEngine!
     var player: AVAudioPlayerNode!
     let engine = AVAudioEngine()
+    let LEVEL_LOWPASS_TRIG:Float32 = 0.7
+    var averagePower:Float32 = 0
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -40,21 +42,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     func setupAudioRecorder() {
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayback)
-        try! session.setActive(true)
-        let recordSetting : [String : AnyObject] = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVNumberOfChannelsKey: 1 ,
-            AVSampleRateKey: 44100
-        ]
-        do {
-            try audioRecorder = AVAudioRecorder(URL: self.documentFilePath(), settings: recordSetting)
-            
-            print(self.documentFilePath())
-        } catch {
-            print("初期設定でerror")
-        }
+      play()
     }
     
     func documentFilePath()-> NSURL {
@@ -71,7 +59,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
         }else if count == 5{
             
-            audioRecorder.stop()
+            audioEngine.stop()
             nextGamenn()
         }
     }
@@ -105,9 +93,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             image = UIImage(named: photos[5])
             imageView.image = image
-            audioRecorder?.prepareToRecord()
-            audioRecorder?.record()
             play()
+            playSong.play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             sender.invalidate()
@@ -161,8 +148,20 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
                     } catch let error {
                         print("audioFile2.writeFromBuffer error:", error)
                     }
+                    
+                    buffer.frameLength = 1024
+                    let inNumberFrames:vDSP_Length = vDSP_Length(buffer.frameLength)
+                    let samples = buffer.floatChannelData[0]
+                    var avgValue:Float32 = 0
+                    vDSP_meamgv(samples, 1, &avgValue, inNumberFrames);
+                    self.averagePower = (self.LEVEL_LOWPASS_TRIG*((avgValue==0) ? -100.0 : 20.0*log10f(avgValue)))
+                        + ((1-self.LEVEL_LOWPASS_TRIG)*self.averagePower)
+                    let dB = self.averagePower
+                    let atai = max(0, (dB + 77)) / 77
+                    self.nami1.progress = atai
+                    self.nami2.progress = atai
+                    self.nami3.progress = atai
                 }
-                
                 try audioEngine.start()
                 player.play()
             } catch let error {
@@ -171,27 +170,18 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         } else {
             print("File not found")
         }
+        
+        
     }
     
     
     
     func stop() {
-        recButton.enabled = true
         audioEngine.mainMixerNode.removeTapOnBus(0)
         self.audioEngine.stop()
     }
     
-    
-    func levelTimerCallback() {
-        audioRecorder.updateMeters()
-        let dB = audioRecorder.averagePowerForChannel(0)
-        let atai = max(0, (dB + 77)) / 77
-        nami1.progress = atai
-        nami2.progress = atai
-        nami3.progress = atai
-    }
-    
-    func recordLimits(){
+       func recordLimits(){
         let minuteCount = timeCount / 60
         let secondCount = timeCount % 60
         if secondCount <= 9 {
