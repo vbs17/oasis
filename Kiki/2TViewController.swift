@@ -39,9 +39,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         recImage!.clipsToBounds = true
     }
     
-    func setupAudioRecorder() {
-      play()
-    }
+   
     
     func documentFilePath()-> NSURL {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
