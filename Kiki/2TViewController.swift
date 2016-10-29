@@ -33,8 +33,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sound:AVAudioPlayer = try! AVAudioPlayer(contentsOfURL: songData!)
-        playSong = sound
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
     }
