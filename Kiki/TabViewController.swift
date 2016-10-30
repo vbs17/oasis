@@ -11,8 +11,8 @@ class TabViewController: UIViewController {
     @IBOutlet weak var recpic1: UIButton!
     @IBOutlet weak var set1: UIButton!
     
-    @IBAction func setting(sender: AnyObject) {
-        let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set")
+    @IBAction func path(sender: AnyObject) {
+        let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Itiran1")
         self.presentViewController(HomeViewController!, animated: true, completion: nil)
     }
     

@@ -683,6 +683,46 @@
             </objects>
             <point key="canvasLocation" x="897.5" y="358.5"/>
         </scene>
+        <!--Itiran1 View Controller-->
+        <scene sceneID="CuS-43-C4p">
+            <objects>
+                <viewController storyboardIdentifier="Itiran1" id="6mc-hK-kBo" customClass="Itiran1ViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TRI-Po-fgz"/>
+                        <viewControllerLayoutGuide type="bottom" id="r4j-RG-vjv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nyP-D6-zIR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z8h-uO-b6w">
+                                <rect key="frame" x="0.0" y="60" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYH-K8-iYS">
+                                <rect key="frame" x="0.0" y="16" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Kbw-Dw-C3c">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="vfU-ny-Eea">
+                                            <connections>
+                                                <action selector="back:" destination="6mc-hK-kBo" id="bwA-lL-hHz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Z8h-uO-b6w" id="KQh-eq-x4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APQ-wD-2vE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043.5" y="364.5"/>
+        </scene>
         <!--Play2 View Controller-->
         <scene sceneID="u7y-aB-1BQ">
             <objects>

@@ -476,9 +476,9 @@ class Kind2ViewController: UIViewController,UITableViewDelegate, UITableViewData
 
     
     
-    
+    //ここ
     @IBAction func post(sender: AnyObject) {
-        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
+        let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH2).child(genre)
         let imageData = UIImageJPEGRepresentation(image, 0.5)
         let hiniti1:NSString = hiniti.text!
         let zikoku1:NSString = zikoku.text!
