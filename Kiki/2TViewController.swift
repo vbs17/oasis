@@ -129,13 +129,13 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
                         print("audioFile2.writeFromBuffer error:", error)
                     }
                     
-                    buffer.frameLength = 1024
-                    let inNumberFrames:vDSP_Length = vDSP_Length(buffer.frameLength)
-                    let samples = buffer.floatChannelData[0]
-                    var avgValue:Float32 = 0
-                    vDSP_meamgv(samples, 1, &avgValue, inNumberFrames);
-                    self.averagePower = (self.LEVEL_LOWPASS_TRIG*((avgValue==0) ? -100.0 : 20.0*log10f(avgValue)))
-                        + ((1-self.LEVEL_LOWPASS_TRIG)*self.averagePower)
+                    //buffer.frameLength = 1024
+                    //let inNumberFrames:vDSP_Length = vDSP_Length(buffer.frameLength)
+                    //let samples = buffer.floatChannelData[0]
+                    //var avgValue:Float32 = 0
+                    //vDSP_meamgv(samples, 1, &avgValue, inNumberFrames);
+                    //self.averagePower = (self.LEVEL_LOWPASS_TRIG*((avgValue==0) ? -100.0 : 20.0*log10f(avgValue)))
+                        //+ ((1-self.LEVEL_LOWPASS_TRIG)*self.averagePower)
                     let dB = self.averagePower
                     let atai = max(0, (dB + 77)) / 77
                     self.nami1.progress = atai
