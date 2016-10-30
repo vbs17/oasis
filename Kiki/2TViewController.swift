@@ -174,7 +174,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             stop()
             nextGamenn()
         }else{
-            timeCount += 1
+             timeCount += 1
         }
     }
     
