@@ -119,7 +119,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B00501BA1DB610D200319866 /* HomeCEll */ = {
+		B00501BA1DB610D200319866 /* 音源表示 */ = {
 			isa = PBXGroup;
 			children = (
 				B00501C31DB6428500319866 /* ItiranCelll */,
@@ -128,7 +128,7 @@
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
 				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 			);
-			name = HomeCEll;
+			name = "音源表示";
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -141,7 +141,7 @@
 			name = ItiranCelll;
 			sourceTree = "<group>";
 		};
-		B042A0201DB98BBE0068D205 /* SyugoCell */ = {
+		B042A0201DB98BBE0068D205 /* 集合場所投稿 */ = {
 			isa = PBXGroup;
 			children = (
 				B042A0211DB991150068D205 /* SyuruViewController.swift */,
@@ -151,7 +151,7 @@
 				B042A01C1DB98BB30068D205 /* SyugoTableViewCell.swift */,
 				B042A01D1DB98BB30068D205 /* SyugoTableViewCell.xib */,
 			);
-			name = SyugoCell;
+			name = "集合場所投稿";
 			sourceTree = "<group>";
 		};
 		B06491911DBAD0F000566A4B /* Login */ = {
@@ -163,14 +163,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		B08690761DB4A1BD006BB6FD /* KindCell */ = {
+		B08690761DB4A1BD006BB6FD /* 音源投稿 */ = {
 			isa = PBXGroup;
 			children = (
 				B0190A201DB20FE400FA066D /* KindViewController.swift */,
 				B0F582A91DB38E5300654519 /* KindTableViewCell.swift */,
 				B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */,
 			);
-			name = KindCell;
+			name = "音源投稿";
 			sourceTree = "<group>";
 		};
 		B0A78FC91DACFF6400AC0513 = {
@@ -198,13 +198,10 @@
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
 				B071D9701DB509FA0017E287 /* TabViewController.swift */,
 				B06491911DBAD0F000566A4B /* Login */,
-				B0B263D21DB7467100C0F2A3 /* Toukou */,
-				B00501BA1DB610D200319866 /* HomeCEll */,
-				B042A0201DB98BBE0068D205 /* SyugoCell */,
-				B06968251DC60F7700274DB1 /* Home1ViewController.swift */,
-				B06968271DC610C200274DB1 /* HomeTableViewCell1.swift */,
-				B06968281DC610C200274DB1 /* HomeTableViewCell1.xib */,
-				B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */,
+				B0B263D21DB7467100C0F2A3 /* 音源投稿 */,
+				B00501BA1DB610D200319866 /* 音源表示 */,
+				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
+				B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */,
 				B071D9651DB4D6140017E287 /* File.swift */,
 				B06968211DC60D6E00274DB1 /* PostData1.swift */,
 				B071D9671DB4E5040017E287 /* PostData.swift */,
@@ -216,7 +213,7 @@
 			path = Kiki;
 			sourceTree = "<group>";
 		};
-		B0B263D21DB7467100C0F2A3 /* Toukou */ = {
+		B0B263D21DB7467100C0F2A3 /* 音源投稿 */ = {
 			isa = PBXGroup;
 			children = (
 				B0A78FD71DACFF6500AC0513 /* ViewController.swift */,
@@ -225,9 +222,20 @@
 				B071309C1DC2352E00B8EEC1 /* Play2ViewController.swift */,
 				B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */,
 				B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */,
-				B08690761DB4A1BD006BB6FD /* KindCell */,
+				B08690761DB4A1BD006BB6FD /* 音源投稿 */,
 			);
-			name = Toukou;
+			name = "音源投稿";
+			sourceTree = "<group>";
+		};
+		B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */ = {
+			isa = PBXGroup;
+			children = (
+				B06968251DC60F7700274DB1 /* Home1ViewController.swift */,
+				B06968271DC610C200274DB1 /* HomeTableViewCell1.swift */,
+				B06968281DC610C200274DB1 /* HomeTableViewCell1.xib */,
+				B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */,
+			);
+			name = "集合場所表示";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
