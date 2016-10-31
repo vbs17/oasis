@@ -19,9 +19,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         let nib = UINib(nibName: "HomeTableViewCell1", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell22")
-        back.layer.cornerRadius = 37
-        back.clipsToBounds = true
-        
+                
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

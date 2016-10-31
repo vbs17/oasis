@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-2377.5" y="351.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller1-->
         <scene sceneID="Kr5-Qj-Pfq">
             <objects>
-                <viewController id="1mQ-44-wRM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home1" id="1mQ-44-wRM" customClass="HomeViewController1" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="he3-sP-CZN"/>
                         <viewControllerLayoutGuide type="bottom" id="4c4-sh-sFO"/>
@@ -184,9 +184,18 @@
                     <view key="view" contentMode="scaleToFill" id="Rbx-sl-8u0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qar-Eg-Nxg">
+                                <rect key="frame" x="0.0" y="36" width="375" height="631"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Qar-Eg-Nxg" id="Ded-1d-k3f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9N-2x-Gzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
