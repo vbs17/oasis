@@ -12,6 +12,10 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     var tableView: UITableView!
     
     
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
                let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
-         cell.pathGo.addTarget(self, action:#selector(handleButton1(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.pathGo.addTarget(self, action:#selector(handleButton1(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
        
         return cell
     }

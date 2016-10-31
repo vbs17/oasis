@@ -42,6 +42,7 @@
 		B0A78FE01DACFF6500AC0513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */; };
 		B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */; };
 		B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */; };
+		B0BD80E01DC735960056E1A5 /* TapliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD80DF1DC735960056E1A5 /* TapliViewController.swift */; };
 		B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F582A91DB38E5300654519 /* KindTableViewCell.swift */; };
 		B0F582AC1DB38E5300654519 /* KindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		B0A78FE11DACFF6500AC0513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewController.swift; sourceTree = "<group>"; };
 		B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		B0BD80DF1DC735960056E1A5 /* TapliViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapliViewController.swift; sourceTree = "<group>"; };
 		B0F582A91DB38E5300654519 /* KindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindTableViewCell.swift; sourceTree = "<group>"; };
 		B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KindTableViewCell.xib; sourceTree = "<group>"; };
 		B8D29CE5422BA1688C21C169 /* Pods-Kiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiki/Pods-Kiki.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				B06968271DC610C200274DB1 /* HomeTableViewCell1.swift */,
 				B06968281DC610C200274DB1 /* HomeTableViewCell1.xib */,
 				B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */,
+				B0BD80DF1DC735960056E1A5 /* TapliViewController.swift */,
 			);
 			name = "集合場所表示";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				B071D9661DB4D6140017E287 /* File.swift in Sources */,
 				B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */,
 				B071D9751DB50E670017E287 /* SetViewController.swift in Sources */,
+				B0BD80E01DC735960056E1A5 /* TapliViewController.swift in Sources */,
 				B071D9731DB50C4E0017E287 /* LoginViewController.swift in Sources */,
 				B06968241DC60E1400274DB1 /* Itiran1ViewController.swift in Sources */,
 				B042A0171DB983620068D205 /* BasyoViewController.swift in Sources */,
