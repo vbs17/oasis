@@ -98,7 +98,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
         let filePath2 = NSURL(fileURLWithPath: documentDir + "/sample.caf")
         songFile = filePath2
-        //ここ何してるんやろ songDataを代入するのは何でやろか
         if let url = songData {
             do {
                 let audioSession = AVAudioSession.sharedInstance()
