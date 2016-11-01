@@ -23,6 +23,7 @@
 		B042A0221DB991150068D205 /* SyuruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042A0211DB991150068D205 /* SyuruViewController.swift */; };
 		B05E343B1DC8A53800C271D3 /* ProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E343A1DC8A53800C271D3 /* ProViewController.swift */; };
 		B05E343D1DC8AF1200C271D3 /* ProIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */; };
+		B05E343F1DC8B57F00C271D3 /* PostData2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E343E1DC8B57F00C271D3 /* PostData2.swift */; };
 		B06968221DC60D6E00274DB1 /* PostData1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06968211DC60D6E00274DB1 /* PostData1.swift */; };
 		B06968241DC60E1400274DB1 /* Itiran1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */; };
 		B06968261DC60F7700274DB1 /* Home1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06968251DC60F7700274DB1 /* Home1ViewController.swift */; };
@@ -67,6 +68,7 @@
 		B042A0211DB991150068D205 /* SyuruViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyuruViewController.swift; sourceTree = "<group>"; };
 		B05E343A1DC8A53800C271D3 /* ProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProViewController.swift; sourceTree = "<group>"; };
 		B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProIViewController.swift; sourceTree = "<group>"; };
+		B05E343E1DC8B57F00C271D3 /* PostData2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData2.swift; sourceTree = "<group>"; };
 		B06968211DC60D6E00274DB1 /* PostData1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData1.swift; sourceTree = "<group>"; };
 		B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Itiran1ViewController.swift; path = ../Itiran1ViewController.swift; sourceTree = "<group>"; };
 		B06968251DC60F7700274DB1 /* Home1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home1ViewController.swift; path = ../Home1ViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,16 @@
 			name = "集合場所投稿";
 			sourceTree = "<group>";
 		};
+		B05E34401DC8B6CF00C271D3 /* PostData */ = {
+			isa = PBXGroup;
+			children = (
+				B071D9671DB4E5040017E287 /* PostData.swift */,
+				B06968211DC60D6E00274DB1 /* PostData1.swift */,
+				B05E343E1DC8B57F00C271D3 /* PostData2.swift */,
+			);
+			name = PostData;
+			sourceTree = "<group>";
+		};
 		B06491911DBAD0F000566A4B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
+				B05E34401DC8B6CF00C271D3 /* PostData */,
 				B05E343A1DC8A53800C271D3 /* ProViewController.swift */,
 				B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */,
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
@@ -211,8 +224,6 @@
 				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
 				B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */,
 				B071D9651DB4D6140017E287 /* File.swift */,
-				B06968211DC60D6E00274DB1 /* PostData1.swift */,
-				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
 				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
@@ -390,6 +401,7 @@
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
 				B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */,
 				B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */,
+				B05E343F1DC8B57F00C271D3 /* PostData2.swift in Sources */,
 				B071D96F1DB4EA9B0017E287 /* HomeViewController.swift in Sources */,
 				B071309B1DC22D8800B8EEC1 /* 2TViewController.swift in Sources */,
 				B071D9661DB4D6140017E287 /* File.swift in Sources */,

@@ -1,5 +1,4 @@
 
-
 import UIKit
 import Firebase
 import FirebaseDatabase
@@ -8,23 +7,26 @@ class PostData2: NSObject{
     var id: String?
     var image: UIImage?
     var imageString: String?
-    var hiniti: String?
-    var zikoku: String?
-    var station: String?
-    var path: String?
+    var name: String?
+    var line: String?
+    var twitter: String?
+    var facebook: String?
+    var den: String?
+    var ta: String?
     
     
-    init(snapshot: FIRDataSnapshot, miId: String){
+    init(snapshot: FIRDataSnapshot, myId: String){
         id = snapshot.key
         let valueDictionary = snapshot.value as! [String: AnyObject]
         
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
-        hiniti = valueDictionary["hiniti"] as? String
-        zikoku = valueDictionary["zikoku"] as? String
-        station = valueDictionary["station"] as? String
-        path = valueDictionary["path"] as? String
-        
-        
+        name = valueDictionary["name"] as? String
+        line = valueDictionary["line"] as? String
+        twitter = valueDictionary["twitter"] as? String
+        facebook = valueDictionary["facebook"] as? String
+        den = valueDictionary["den"] as? String
+        ta = valueDictionary["ta"] as? String
+
     }
 }
