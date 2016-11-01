@@ -3,7 +3,7 @@ import UIKit
 
 class ProViewController: UIViewController {
     
-    
+    var image:UIImage!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var line: UITextField!
@@ -13,12 +13,21 @@ class ProViewController: UIViewController {
     @IBOutlet weak var ta: UITextField!
     
     @IBAction func proI(sender: AnyObject) {
+        let proiviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("ProI") as! ProIViewController
+        self.presentViewController(proiviewcontroller, animated: true, completion: nil)
     }
 
     @IBAction func post(sender: AnyObject) {
+        if( name.text != nil && imageView.image != nil ) {
+            // 保存処理
+        } else {
+            // アラートを出す
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.image = image
 
     }
 
@@ -27,7 +36,8 @@ class ProViewController: UIViewController {
     }
     
     @IBAction func back(sender: AnyObject) {
-         self.dismissViewControllerAnimated(true, completion: nil)
+        let tabviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
+        self.presentViewController(tabviewcontroller, animated: true, completion: nil)
     }
 
    
