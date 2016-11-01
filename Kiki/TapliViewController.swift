@@ -4,6 +4,8 @@ import UIKit
 
 class TapliViewController: UIViewController {
 
+    @IBOutlet weak var path: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
