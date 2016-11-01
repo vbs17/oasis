@@ -12,10 +12,6 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     var tableView: UITableView!
     
     
-    @IBAction func back(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +32,6 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func getIndexPath(event:UIEvent) -> NSIndexPath? {
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        return indexPath
-    }
     
     func handleButton1(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
@@ -52,11 +42,13 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         
         //pathGoボタン押した時次の画面に住所だけ渡す
     }
-
     
-    
-    
-    
+    func getIndexPath(event:UIEvent) -> NSIndexPath? {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        return indexPath
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -100,6 +92,12 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     //無視
+    
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
