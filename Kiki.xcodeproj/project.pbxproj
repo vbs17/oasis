@@ -232,11 +232,11 @@
 		B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */ = {
 			isa = PBXGroup;
 			children = (
+				B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */,
 				B06968251DC60F7700274DB1 /* Home1ViewController.swift */,
+				B0BD80DF1DC735960056E1A5 /* TapliViewController.swift */,
 				B06968271DC610C200274DB1 /* HomeTableViewCell1.swift */,
 				B06968281DC610C200274DB1 /* HomeTableViewCell1.xib */,
-				B06968231DC60E1400274DB1 /* Itiran1ViewController.swift */,
-				B0BD80DF1DC735960056E1A5 /* TapliViewController.swift */,
 			);
 			name = "集合場所表示";
 			sourceTree = "<group>";

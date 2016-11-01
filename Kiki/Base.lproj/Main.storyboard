@@ -267,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwL-d1-RpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1918.5" y="418.5"/>
+            <point key="canvasLocation" x="-1920.5" y="400.5"/>
         </scene>
         <!--Set View Controller-->
         <scene sceneID="UbC-xt-Lux">
@@ -350,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biu-3t-Ihx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1389.5" y="441.5"/>
+            <point key="canvasLocation" x="-1451.5" y="456.5"/>
         </scene>
         <!--Syuru View Controller-->
         <scene sceneID="7HX-c4-ijc">
@@ -468,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9y-0I-byh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-848.5" y="525.5"/>
+            <point key="canvasLocation" x="-868.5" y="541.5"/>
         </scene>
         <!--Basyo View Controller-->
         <scene sceneID="sTM-dt-cqi">
