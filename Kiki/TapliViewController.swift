@@ -1,19 +1,10 @@
 
 
 import UIKit
-extension String {
-    
-    func escapeStr() -> String {
-        var raw: NSString = self
-        var str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,raw,"[].",":/?&=;+!@#$()',*",CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))
-        return str as String
-    }
-}
 
 class TapliViewController: UIViewController {
     
     var path1:String!
-    var encoded =  ""
 
     @IBOutlet weak var path: UITextView!
     @IBAction func map(sender: AnyObject) {
@@ -21,7 +12,9 @@ class TapliViewController: UIViewController {
             }
     
     func schemebtn() {
-        let url = NSURL(string: "http://maps.apple.com/?q=\(encoded)")!
+        let adress =  path.text
+        let encodedString = adress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
         if (UIApplication.sharedApplication().canOpenURL(url)) {
             UIApplication.sharedApplication().openURL(url)
         }
@@ -36,7 +29,6 @@ class TapliViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         path.text = path1
-        var encoded = path1.escapeStr()
     }
 
 
@@ -47,3 +39,4 @@ class TapliViewController: UIViewController {
   
    
 }
+
