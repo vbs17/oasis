@@ -24,7 +24,7 @@
                                         <rect key="frame" x="251" y="1" width="124" height="82"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                         <size key="titleShadowOffset" width="2" height="1"/>
-                                        <state key="normal" title="MEET" backgroundImage="Noel Gallagher Milan centre">
+                                        <state key="normal" title="MEET" backgroundImage="IMG_3213">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -36,7 +36,7 @@
                                         <rect key="frame" x="126" y="0.0" width="122" height="82"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <size key="titleShadowOffset" width="2" height="2.2250738585072014e-308"/>
-                                        <state key="normal" title="REC&amp;PIC" backgroundImage="Noel_Gallagher_recording_2nd_studio_album_2014">
+                                        <state key="normal" title="REC&amp;PIC" backgroundImage="IMG_3217">
                                             <color key="titleColor" red="1" green="0.27777903949999999" blue="0.42538812990000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="82"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                         <size key="titleShadowOffset" width="2" height="1"/>
-                                        <state key="normal" title="MUSIC" backgroundImage="liam-gallagher-of-oasis-september-1997">
+                                        <state key="normal" title="MUSIC" backgroundImage="IMG_3212">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -59,7 +59,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ggghhh" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GW-vmP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_3215" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GW-vmP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="585"/>
                                 <color key="tintColor" red="0.99647290050000004" green="0.63966908040000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -327,37 +327,37 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrn-pz-wCJ">
                                 <rect key="frame" x="246" y="102" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LINE ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13W-r7-w15">
                                 <rect key="frame" x="130" y="194" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TWITTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNB-B7-FGT">
                                 <rect key="frame" x="121" y="261" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FACEBOOK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBm-lK-0ud">
                                 <rect key="frame" x="113" y="335" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="電話番号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-pV-cDL">
                                 <rect key="frame" x="110" y="407" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="その他" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G65-3l-sfD">
                                 <rect key="frame" x="126" y="474" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r8-xe-JKR">
@@ -1563,18 +1563,19 @@
         <image name="IMG_1718" width="3024" height="3024"/>
         <image name="IMG_2846" width="1568" height="1044"/>
         <image name="IMG_3064 2" width="3024" height="4032"/>
+        <image name="IMG_3212" width="3024" height="4032"/>
+        <image name="IMG_3213" width="2667" height="4000"/>
+        <image name="IMG_3215" width="1541" height="2500"/>
+        <image name="IMG_3217" width="2500" height="2812"/>
         <image name="Jake-Bugg-jake-bugg-34373470-588-806" width="588" height="806"/>
         <image name="Jake-Bugg-jake-bugg-34373470-588-807" width="588" height="806"/>
-        <image name="Noel Gallagher Milan centre" width="430" height="450"/>
         <image name="Noel_Gallagher_recording_2nd_studio_album_2014" width="600" height="600"/>
         <image name="Sun_Studios_Memphis" width="638" height="850"/>
         <image name="amer" width="2000" height="2999"/>
         <image name="e71e666325392cd08f47f8e7417d38c2" width="472" height="700"/>
-        <image name="ggghhh" width="936" height="936"/>
         <image name="jake" width="413" height="620"/>
         <image name="jakebuggmain-970-80" width="850" height="478"/>
         <image name="jobs" width="1350" height="898"/>
-        <image name="liam-gallagher-of-oasis-september-1997" width="366" height="488"/>
         <image name="ダウンロード" width="300" height="168"/>
     </resources>
 </document>
