@@ -4,7 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>maps.apple.com</string>
+		<string>https://maps.apple.com/?q</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

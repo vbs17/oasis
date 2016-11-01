@@ -14,7 +14,7 @@ class TapliViewController: UIViewController {
     
     @IBAction func map(sender: AnyObject) {
         func schemebtn(sender: AnyObject) {
-            let url = NSURL(string: "http://maps.apple.com://")!
+            let url = NSURL(string: "http://maps.apple.com/?q")!
             if (UIApplication.sharedApplication().canOpenURL(url)) {
                 UIApplication.sharedApplication().openURL(url)
             }
@@ -37,12 +37,6 @@ class TapliViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func schemebtn(sender: AnyObject) {
-        let url = NSURL(string: "http://maps.apple.com://")!
-        if (UIApplication.sharedApplication().canOpenURL(url)) {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-
+  
    
 }
