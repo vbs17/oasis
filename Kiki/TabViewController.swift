@@ -10,6 +10,7 @@ class TabViewController: UIViewController {
     @IBOutlet weak var music1: UIButton!
     @IBOutlet weak var recpic1: UIButton!
     @IBOutlet weak var set1: UIButton!
+    @IBOutlet weak var pro: UIButton!
     
     
     @IBAction func pro(sender: AnyObject) {
@@ -41,6 +42,9 @@ class TabViewController: UIViewController {
         recpic1.clipsToBounds = true
         set1.layer.cornerRadius = 2
         set1.clipsToBounds = true
+        pro.layer.cornerRadius = 35
+        pro.clipsToBounds = true
+        
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -31,7 +31,7 @@ class ProViewController: UIViewController {
             let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name,"line":line,"twitter":twitter,"facebook":face,"den":den,"ta":ta]
-            postRef.child(uid).setValue(postData)
+           
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
             self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
     } else {
