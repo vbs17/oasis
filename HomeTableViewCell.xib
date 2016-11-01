@@ -132,6 +132,9 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXP-r2-gGF">
+                        <rect key="frame" x="283" y="18" width="88" height="74"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1K3-t4-Uub" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="2JQ-iw-qeI"/>
@@ -172,6 +175,7 @@
                 <outlet property="ImageView" destination="oMh-QU-tFv" id="Acu-YI-wQM"/>
                 <outlet property="backButton" destination="1K3-t4-Uub" id="Mhh-Mp-GgF"/>
                 <outlet property="hyouka" destination="jV3-LJ-RMM" id="lag-k1-dez"/>
+                <outlet property="imageView1" destination="XXP-r2-gGF" id="m5q-Z0-fhh"/>
                 <outlet property="label" destination="aMN-Yt-9yQ" id="UZ8-BQ-RvF"/>
                 <outlet property="label2" destination="X8F-E1-oAD" id="sjd-09-Zgq"/>
                 <outlet property="nami" destination="UNu-8R-nN3" id="ril-GJ-Drk"/>

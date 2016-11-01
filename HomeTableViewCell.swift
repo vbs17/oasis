@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     var tap:NSData?
     weak var playSong: AVAudioPlayer!
 
+    @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!

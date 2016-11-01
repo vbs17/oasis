@@ -61,6 +61,9 @@
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-aS-5uI">
+                        <rect key="frame" x="277" y="15" width="69" height="62"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="oW3-8p-gP1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2a2-NU-d2d"/>
@@ -87,6 +90,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="ImageView" destination="oW3-8p-gP1" id="5B6-Jv-l8c"/>
+                <outlet property="imageView1" destination="DcQ-aS-5uI" id="dcY-ae-ooH"/>
                 <outlet property="label1" destination="RRv-4B-nOU" id="wtu-iB-VPV"/>
                 <outlet property="label2" destination="fX8-oz-MYh" id="NWG-IK-Ycf"/>
                 <outlet property="label3" destination="lIp-vl-die" id="kmn-PG-28h"/>
