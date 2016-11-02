@@ -13,6 +13,7 @@ class PostData2: NSObject{
     var facebook: String?
     var den: String?
     var ta: String?
+    var uid: String?
     
     
     init(snapshot: FIRDataSnapshot, myId: String){
@@ -27,6 +28,7 @@ class PostData2: NSObject{
         facebook = valueDictionary["facebook"] as? String
         den = valueDictionary["den"] as? String
         ta = valueDictionary["ta"] as? String
+        uid = valueDictionary["uid"] as? String
 
     }
 }
