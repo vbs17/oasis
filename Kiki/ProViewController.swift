@@ -44,13 +44,13 @@ class ProViewController: UIViewController {
     @IBAction func post(sender: AnyObject) {
             if( name.text != nil && imageView.image != nil ) {
             let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
-            let ta1 = ta.text
-            let name1 = name.text
-            let den1 = den.text
-            let line1 = line.text
-            let twitter1 = twitter.text
-            let face1 = face.text
-            let uid = FIRAuth.auth()?.currentUser?.uid
+            let ta1:NSString = ta.text!
+            let name1:NSString = name.text!
+            let den1:NSString = den.text!
+            let line1:NSString = line.text!
+            let twitter1:NSString = twitter.text!
+            let face1:NSString = face.text!
+            let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
             postRef.childByAutoId().setValue(postData)
