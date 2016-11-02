@@ -20,10 +20,10 @@ class ProViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
-        FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
+        FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             print("kiki child_count\(snapshot.childrenCount)")
-            if let uid = FIRAuth.auth()?.currentUser?.uid {
-                let postData = PostData2(snapshot: snapshot, myId: uid)
+            if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
+                let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
                 print("kiki postData \(postData.name)")
                 self.imageView.image = postData.image
                 self.name.text = postData.name
@@ -37,26 +37,24 @@ class ProViewController: UIViewController {
                 print("kiki snapshot not loaded")
             }
         })
-    }
-    
-    @IBAction func post(sender: AnyObject) {
-            if( name.text != nil && imageView.image != nil ) {
-            let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
-            let ta1:NSString = ta.text!
-            let name1:NSString = name.text!
-            let den1:NSString = den.text!
-            let line1:NSString = line.text!
-            let twitter1:NSString = twitter.text!
-            let face1:NSString = face.text!
-            let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
-            let imageData = UIImageJPEGRepresentation(image!, 0.5)
-            let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
-              postRef.child(uid as String).setValue(postData)            
-                let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
-            self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
-    } else {
-            // アラートを出す
-        }
+        
+        FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
+            print("kiki child_count\(snapshot.childrenCount)")
+            if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
+                let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
+                print("kiki postData \(postData.name)")
+                self.imageView.image = postData.image
+                self.name.text = postData.name
+                self.line.text = postData.line
+                self.twitter.text = postData.twitter
+                self.face.text = postData.facebook
+                self.den.text = postData.den
+                self.ta.text = postData.ta
+            }
+            else {
+                print("kiki snapshot not loaded")
+            }
+        })
     }
     
     @IBAction func proI(sender: AnyObject) {
