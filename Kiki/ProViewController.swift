@@ -19,7 +19,7 @@ class ProViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRDatabase.database().reference().child(CommonConst.PostPATH).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+        FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
                 self.imageView.image = postData.image
@@ -34,7 +34,7 @@ class ProViewController: UIViewController {
         }
     
     func updateViewInfomation() {
-        FIRDatabase.database().reference().child(CommonConst.PostPATH).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
+        FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
                 self.imageView.image = postData.image
@@ -48,12 +48,6 @@ class ProViewController: UIViewController {
         })
     }
     
-    
-    @IBAction func proI(sender: AnyObject) {
-        let proiviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("ProI") as! ProIViewController
-        self.presentViewController(proiviewcontroller, animated: true, completion: nil)
-    }
-
     @IBAction func post(sender: AnyObject) {
             if( name.text != nil && imageView.image != nil ) {
             let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
@@ -66,7 +60,7 @@ class ProViewController: UIViewController {
             let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
-            postRef.childByAutoId().setValue(postData)
+              postRef.child(uid as String).setValue(postData)
                 updateViewInfomation()
             
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
@@ -75,6 +69,12 @@ class ProViewController: UIViewController {
             // アラートを出す
         }
     }
+    
+    @IBAction func proI(sender: AnyObject) {
+        let proiviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("ProI") as! ProIViewController
+        self.presentViewController(proiviewcontroller, animated: true, completion: nil)
+    }
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
