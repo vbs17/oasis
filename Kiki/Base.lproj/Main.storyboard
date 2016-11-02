@@ -133,6 +133,54 @@
             </objects>
             <point key="canvasLocation" x="-1497.5" y="400.5"/>
         </scene>
+        <!--Log View Controller-->
+        <scene sceneID="OZk-sN-KQC">
+            <objects>
+                <viewController storyboardIdentifier="Log" id="8mg-mA-Hqe" customClass="LogViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="toP-hQ-rVQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="piO-v7-C7n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f3A-q5-xGI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHc-vd-lL4">
+                                <rect key="frame" x="164" y="330" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="loButton:" destination="8mg-mA-Hqe" eventType="touchUpInside" id="q5P-ZY-f58"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-wj-7sp">
+                                <rect key="frame" x="139" y="147" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-s2-d37">
+                                <rect key="frame" x="139" y="220" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzm-20-Q6l">
+                                <rect key="frame" x="139" y="270" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mail" destination="ffd-wj-7sp" id="VT7-vg-LYA"/>
+                        <outlet property="name" destination="hzm-20-Q6l" id="oWq-71-9bt"/>
+                        <outlet property="pass" destination="vlM-s2-d37" id="ZO4-K6-qY9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XuB-04-BN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2148.5" y="358.5"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="o7b-f6-Ien">
             <objects>
@@ -417,18 +465,6 @@
                                     <action selector="back:" destination="KJh-XF-xtE" eventType="touchUpInside" id="sjI-kG-sDD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-Nb-ZPO">
-                                <rect key="frame" x="126" y="375" width="156" height="130"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="集合場所の写真" backgroundImage="IMG_3223">
-                                    <color key="titleColor" red="1" green="0.98722288120000001" blue="0.73309557130000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="basyo:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Os6-cG-aen"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alm-4N-oJ8">
                                 <rect key="frame" x="126" y="186" width="156" height="135"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
@@ -439,6 +475,18 @@
                                 </state>
                                 <connections>
                                     <action selector="rec:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Hoj-fa-Cgh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-Nb-ZPO">
+                                <rect key="frame" x="126" y="375" width="156" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="集合場所の写真" backgroundImage="12">
+                                    <color key="titleColor" red="1" green="0.98722288120000001" blue="0.73309557130000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="basyo:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Os6-cG-aen"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1432,6 +1480,7 @@
     </scenes>
     <resources>
         <image name="11" width="3582" height="2811"/>
+        <image name="12" width="4896" height="3264"/>
         <image name="13" width="3523" height="4404"/>
         <image name="14" width="3818" height="2988"/>
         <image name="15" width="5616" height="3744"/>
@@ -1446,7 +1495,6 @@
         <image name="IMG_3064 2" width="3024" height="4032"/>
         <image name="IMG_3212" width="3024" height="4032"/>
         <image name="IMG_3215" width="1541" height="2500"/>
-        <image name="IMG_3223" width="750" height="1334"/>
         <image name="IMG_3224 2" width="750" height="1334"/>
         <image name="jobs" width="1350" height="898"/>
     </resources>

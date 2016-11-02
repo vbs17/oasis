@@ -11,34 +11,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     
 
-    @IBAction func loButton(sender: AnyObject) {
-        if let address = mail.text, let password = pass.text {
-            
-            if address.characters.isEmpty || password.characters.isEmpty {
-                SVProgressHUD.showErrorWithStatus("必要項目を入力して下さい")
-                return
-            }
-            
-            SVProgressHUD.show()
-            
-            FIRAuth.auth()?.signInWithEmail(address, password: password) { user, error in
-                if error != nil {
-                    SVProgressHUD.showErrorWithStatus("エラー")
-                    
-                    print(error)
-                } else {
-                    if let displayName = user?.displayName {
-                        self.setDisplayName(displayName)
-                    }
-                    
-                    SVProgressHUD.dismiss()
-                    
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-            }
-        }
-    }
-    
+       //作成後画面上にログインしてくださいと表示させる
     @IBAction func akaButton(sender: AnyObject) {
         if let address = mail.text, let password = pass.text,
             let displayName = name.text {

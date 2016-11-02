@@ -45,6 +45,7 @@
 		B0A78FE01DACFF6500AC0513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */; };
 		B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */; };
 		B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */; };
+		B0EE8F611DC9CDE300C7AB8E /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE8F601DC9CDE300C7AB8E /* LogViewController.swift */; };
 		B0F582AB1DB38E5300654519 /* KindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F582A91DB38E5300654519 /* KindTableViewCell.swift */; };
 		B0F582AC1DB38E5300654519 /* KindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		B0A78FE11DACFF6500AC0513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A9A1731DB1FDE00021D1CF /* OkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewController.swift; sourceTree = "<group>"; };
 		B0ABF85B1DB0EE21001987E7 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		B0EE8F601DC9CDE300C7AB8E /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		B0F582A91DB38E5300654519 /* KindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindTableViewCell.swift; sourceTree = "<group>"; };
 		B0F582AA1DB38E5300654519 /* KindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KindTableViewCell.xib; sourceTree = "<group>"; };
 		B8D29CE5422BA1688C21C169 /* Pods-Kiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiki/Pods-Kiki.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,17 +168,21 @@
 				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B06968211DC60D6E00274DB1 /* PostData1.swift */,
 				B05E343E1DC8B57F00C271D3 /* PostData2.swift */,
+				B06491911DBAD0F000566A4B /* ログインとPROFILE */,
 			);
 			name = PostData;
 			sourceTree = "<group>";
 		};
-		B06491911DBAD0F000566A4B /* Login */ = {
+		B06491911DBAD0F000566A4B /* ログインとPROFILE */ = {
 			isa = PBXGroup;
 			children = (
+				B0EE8F601DC9CDE300C7AB8E /* LogViewController.swift */,
 				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
+				B05E343A1DC8A53800C271D3 /* ProViewController.swift */,
+				B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */,
 				B071D9741DB50E670017E287 /* SetViewController.swift */,
 			);
-			name = Login;
+			name = "ログインとPROFILE";
 			sourceTree = "<group>";
 		};
 		B08690761DB4A1BD006BB6FD /* 音源投稿 */ = {
@@ -211,12 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				B0A78FD91DACFF6500AC0513 /* Main.storyboard */,
-				B05E34401DC8B6CF00C271D3 /* PostData */,
-				B05E343A1DC8A53800C271D3 /* ProViewController.swift */,
-				B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */,
 				B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */,
 				B071D9701DB509FA0017E287 /* TabViewController.swift */,
-				B06491911DBAD0F000566A4B /* Login */,
+				B05E34401DC8B6CF00C271D3 /* PostData */,
 				B0B263D21DB7467100C0F2A3 /* 音源投稿 */,
 				B00501BA1DB610D200319866 /* 音源表示 */,
 				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
@@ -404,6 +407,7 @@
 				B071D9661DB4D6140017E287 /* File.swift in Sources */,
 				B0A9A1741DB1FDE00021D1CF /* OkViewController.swift in Sources */,
 				B071D9751DB50E670017E287 /* SetViewController.swift in Sources */,
+				B0EE8F611DC9CDE300C7AB8E /* LogViewController.swift in Sources */,
 				B071D9731DB50C4E0017E287 /* LoginViewController.swift in Sources */,
 				B06968241DC60E1400274DB1 /* Itiran1ViewController.swift in Sources */,
 				B042A0171DB983620068D205 /* BasyoViewController.swift in Sources */,

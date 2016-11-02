@@ -49,12 +49,6 @@ class TabViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if FIRAuth.auth()?.currentUser == nil {
-            dispatch_async(dispatch_get_main_queue()) {
-                let loginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
-                self.presentViewController(loginViewController!, animated: true, completion: nil)
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {

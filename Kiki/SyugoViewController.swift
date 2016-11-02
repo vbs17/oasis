@@ -17,7 +17,7 @@ class SyugoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
-        ok.layer.cornerRadius = 35
+        ok.layer.cornerRadius = 30
         ok.clipsToBounds = true
 
     }
