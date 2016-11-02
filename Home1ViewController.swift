@@ -49,18 +49,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     
-    func handleButton1(sender: UIButton, event:UIEvent){
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        let postData = postArray[indexPath!.row]
-        //pathGoボタン押した時次の画面に住所だけ渡す
-        let tapli = self.storyboard?.instantiateViewControllerWithIdentifier("Tapli") as! TapliViewController
-        tapli.path1 = postData.path
-        self.presentViewController(tapli, animated: true, completion: nil)
-
-    }
-    
+       
     func getIndexPath(event:UIEvent) -> NSIndexPath? {
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)

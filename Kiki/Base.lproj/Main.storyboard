@@ -417,28 +417,28 @@
                                     <action selector="back:" destination="KJh-XF-xtE" eventType="touchUpInside" id="sjI-kG-sDD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alm-4N-oJ8">
-                                <rect key="frame" x="94" y="247" width="188" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <size key="titleShadowOffset" width="2" height="1"/>
-                                <state key="normal" title="REC" backgroundImage="12">
-                                    <color key="titleColor" red="1" green="0.27777903949999999" blue="0.42538812990000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="rec:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Hoj-fa-Cgh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-Nb-ZPO">
-                                <rect key="frame" x="94" y="354" width="188" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="126" y="375" width="156" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="集合場所の写真" backgroundImage="2">
+                                <state key="normal" title="集合場所の写真" backgroundImage="IMG_3223">
                                     <color key="titleColor" red="1" green="0.98722288120000001" blue="0.73309557130000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="basyo:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Os6-cG-aen"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alm-4N-oJ8">
+                                <rect key="frame" x="126" y="186" width="156" height="135"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <size key="titleShadowOffset" width="2" height="1"/>
+                                <state key="normal" title="REC" backgroundImage="8">
+                                    <color key="titleColor" red="1" green="0.27777903949999999" blue="0.42538812990000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rec:" destination="KJh-XF-xtE" eventType="touchUpInside" id="Hoj-fa-Cgh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -531,7 +531,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_3216" translatesAutoresizingMaskIntoConstraints="NO" id="5vx-x4-QbZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16" translatesAutoresizingMaskIntoConstraints="NO" id="5vx-x4-QbZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XJ-uI-LtX">
@@ -588,6 +588,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_3224 2" translatesAutoresizingMaskIntoConstraints="NO" id="D1s-2A-xxy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xV-y8-WiY">
                                 <rect key="frame" x="34" y="28" width="307" height="232"/>
                             </imageView>
@@ -613,7 +616,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K90-Av-Z4z">
-                                <rect key="frame" x="137" y="564" width="102" height="59"/>
+                                <rect key="frame" x="151" y="559" width="88" height="88"/>
+                                <color key="backgroundColor" red="1" green="0.07029228354" blue="0.004821727992" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -628,6 +633,7 @@
                     <connections>
                         <outlet property="hiniti" destination="poR-D0-BnS" id="b0h-4a-g1d"/>
                         <outlet property="imageView" destination="1xV-y8-WiY" id="wR6-6q-vn6"/>
+                        <outlet property="ok" destination="K90-Av-Z4z" id="ayP-Ac-vDh"/>
                         <outlet property="path" destination="GQd-9F-cUj" id="RvH-MP-Ztd"/>
                         <outlet property="station" destination="ghU-IE-len" id="DTa-AK-ieY"/>
                         <outlet property="zikoku" destination="w4Z-8X-b65" id="WvL-il-urV"/>
@@ -1426,12 +1432,11 @@
     </scenes>
     <resources>
         <image name="11" width="3582" height="2811"/>
-        <image name="12" width="4896" height="3264"/>
         <image name="13" width="3523" height="4404"/>
         <image name="14" width="3818" height="2988"/>
         <image name="15" width="5616" height="3744"/>
+        <image name="16" width="3744" height="5616"/>
         <image name="19" width="2640" height="3960"/>
-        <image name="2" width="5063" height="3375"/>
         <image name="20" width="1919" height="1919"/>
         <image name="22" width="5248" height="2952"/>
         <image name="5" width="4807" height="3112"/>
@@ -1441,7 +1446,8 @@
         <image name="IMG_3064 2" width="3024" height="4032"/>
         <image name="IMG_3212" width="3024" height="4032"/>
         <image name="IMG_3215" width="1541" height="2500"/>
-        <image name="IMG_3216" width="3566" height="6240"/>
+        <image name="IMG_3223" width="750" height="1334"/>
+        <image name="IMG_3224 2" width="750" height="1334"/>
         <image name="jobs" width="1350" height="898"/>
     </resources>
 </document>

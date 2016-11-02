@@ -12,10 +12,13 @@ class SyugoViewController: UIViewController {
     @IBOutlet weak var station: UITextField!
     @IBOutlet weak var path: UITextView!
     
+    @IBOutlet weak var ok: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
+        ok.layer.cornerRadius = 35
+        ok.clipsToBounds = true
 
     }
     @IBAction func Ok(sender: AnyObject) {
