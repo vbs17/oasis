@@ -171,7 +171,6 @@
                                 <rect key="frame" x="155" y="325" width="46" height="30"/>
                                 <state key="normal" title="aca"/>
                                 <connections>
-                                    <action selector="akaButton:" destination="iYl-qb-ojX" eventType="touchUpInside" id="8q5-tj-yXV"/>
                                     <action selector="handleCreateAcountButton:" destination="iYl-qb-ojX" eventType="touchUpInside" id="Gk0-M0-bCD"/>
                                 </connections>
                             </button>
@@ -181,51 +180,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="displayNameTextField" destination="Bru-6W-0uk" id="iYi-Tv-EyU"/>
-                        <outlet property="mail" destination="G6b-55-OtY" id="DuN-AE-CWd"/>
                         <outlet property="mailAddressTextField" destination="G6b-55-OtY" id="rFX-pO-61X"/>
-                        <outlet property="name" destination="Bru-6W-0uk" id="gNA-AP-mZP"/>
-                        <outlet property="pass" destination="06J-Q2-5Sa" id="Vw8-Ef-V8H"/>
                         <outlet property="passwordTextField" destination="06J-Q2-5Sa" id="GDy-m3-H1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwL-d1-RpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2037.5" y="351.5"/>
-        </scene>
-        <!--Log Aca View Controller-->
-        <scene sceneID="l7X-Jx-Tf8">
-            <objects>
-                <viewController storyboardIdentifier="La" id="KHL-hm-HCn" customClass="LogAcaViewController" customModule="Kiki" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Z9-Oh-8mF"/>
-                        <viewControllerLayoutGuide type="bottom" id="cvo-gV-oQM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GUT-eX-8Ut">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxO-rK-dln">
-                                <rect key="frame" x="164" y="354" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="aca:" destination="KHL-hm-HCn" eventType="touchUpInside" id="Vb1-pp-vE3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-7o-eng">
-                                <rect key="frame" x="164" y="212" width="46" height="42"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="log:" destination="KHL-hm-HCn" eventType="touchUpInside" id="ZaV-zp-0K3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UEl-Wh-hDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3338.5" y="351.5"/>
         </scene>
         <!--Pro View Controller-->
         <scene sceneID="m20-Nw-aa4">

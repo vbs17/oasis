@@ -21,6 +21,7 @@ class ProViewController: UIViewController {
         super.viewDidLoad()
         print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
         FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
+            print("kiki child_count\(snapshot.childrenCount)")
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
                 print("kiki postData \(postData.name)")
