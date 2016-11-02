@@ -67,7 +67,6 @@ class ProViewController: UIViewController {
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
             postRef.childByAutoId().setValue(postData)
-                self.imageView.image = image
                 updateViewInfomation()
             
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
@@ -75,6 +74,11 @@ class ProViewController: UIViewController {
     } else {
             // アラートを出す
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.imageView.image = image
     }
     
     
