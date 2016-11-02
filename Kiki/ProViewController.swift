@@ -23,6 +23,7 @@ class ProViewController: UIViewController {
         FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
+                print("kiki postData \(postData.name)")
                 self.imageView.image = postData.image
                 self.name.text = postData.name
                 self.line.text = postData.line
