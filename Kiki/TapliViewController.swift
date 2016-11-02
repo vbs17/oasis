@@ -4,9 +4,10 @@ import UIKit
 
 class TapliViewController: UIViewController {
     
-    var path1:String!
+   
 
     @IBOutlet weak var path: UITextView!
+     var path1:String!
     @IBAction func map(sender: AnyObject) {
         schemebtn()
             }
@@ -29,6 +30,8 @@ class TapliViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         path.text = path1
+        path.layer.cornerRadius = 15
+        path.clipsToBounds = true
     }
 
 

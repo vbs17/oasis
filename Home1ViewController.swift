@@ -10,6 +10,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     var genre: String!
     var back: UIButton!
     var tableView: UITableView!
+
     
     
     
@@ -19,15 +20,30 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         let nib = UINib(nibName: "HomeTableViewCell1", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell22")
-                
+        
     }
+    
+    
+    func schemebtn(sender: UIButton, event:UIEvent) {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray[indexPath!.row]
+        let adress =  postData.path
+        let encodedString = adress!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
+        if (UIApplication.sharedApplication().canOpenURL(url)) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
                let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
-        cell.pathGo.addTarget(self, action:#selector(handleButton1(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
        
         return cell
     }

@@ -57,7 +57,7 @@
                             <constraint firstAttribute="width" constant="69" id="Amo-ae-GOB"/>
                             <constraint firstAttribute="height" constant="57" id="NPm-ce-G2x"/>
                         </constraints>
-                        <state key="normal" title="住所">
+                        <state key="normal" title="住所" backgroundImage="1">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -99,4 +99,7 @@
             <point key="canvasLocation" x="296.5" y="301.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1" width="6000" height="3375"/>
+    </resources>
 </document>

@@ -29,6 +29,8 @@ class HomeTableViewCell1: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        pathGo.layer.cornerRadius = 30
+        pathGo.clipsToBounds = true
     }
     
     
