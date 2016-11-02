@@ -34,7 +34,7 @@ class ProViewController: UIViewController {
         }
     
     func updateViewInfomation() {
-        FIRDatabase.database().reference().child(CommonConst.PostPATH).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+        FIRDatabase.database().reference().child(CommonConst.PostPATH).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
                 self.imageView.image = postData.image
@@ -67,6 +67,7 @@ class ProViewController: UIViewController {
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
             postRef.childByAutoId().setValue(postData)
+                self.imageView.image = image
                 updateViewInfomation()
             
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
