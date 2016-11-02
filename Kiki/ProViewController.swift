@@ -31,9 +31,22 @@ class ProViewController: UIViewController {
                 self.ta.text = postData.ta
             }
         })
-            
         }
     
+    func updateViewInfomation() {
+        FIRDatabase.database().reference().child(CommonConst.PostPATH).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let uid = FIRAuth.auth()?.currentUser?.uid {
+                let postData = PostData2(snapshot: snapshot, myId: uid)
+                self.imageView.image = postData.image
+                self.name.text = postData.name
+                self.line.text = postData.line
+                self.twitter.text = postData.twitter
+                self.face.text = postData.facebook
+                self.den.text = postData.den
+                self.ta.text = postData.ta
+            }
+        })
+    }
     
     
     @IBAction func proI(sender: AnyObject) {
@@ -54,7 +67,8 @@ class ProViewController: UIViewController {
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
             postRef.childByAutoId().setValue(postData)
-           
+                updateViewInfomation()
+            
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
             self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
     } else {
