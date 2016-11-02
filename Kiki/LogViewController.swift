@@ -18,6 +18,9 @@ class LogViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBAction func back(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func loButton(sender: AnyObject) {
         if let address = mail.text, let password = pass.text {

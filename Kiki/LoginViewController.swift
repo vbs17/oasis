@@ -10,6 +10,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var name: UITextField!
     
+    @IBAction func back(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
        //作成後画面上にログインしてくださいと表示させる
     @IBAction func akaButton(sender: AnyObject) {
