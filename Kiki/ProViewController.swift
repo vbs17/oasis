@@ -19,21 +19,7 @@ class ProViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let uid = FIRAuth.auth()?.currentUser?.uid {
-                let postData = PostData2(snapshot: snapshot, myId: uid)
-                self.imageView.image = postData.image
-                self.name.text = postData.name
-                self.line.text = postData.line
-                self.twitter.text = postData.twitter
-                self.face.text = postData.facebook
-                self.den.text = postData.den
-                self.ta.text = postData.ta
-            }
-        })
-        }
-    
-    func updateViewInfomation() {
+        print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
         FIRDatabase.database().reference().child(CommonConst.Profile).child("uid").queryEqualToValue(FIRAuth.auth()?.currentUser?.uid).observeEventType(.ChildChanged, withBlock: { snapshot in
             if let uid = FIRAuth.auth()?.currentUser?.uid {
                 let postData = PostData2(snapshot: snapshot, myId: uid)
@@ -44,6 +30,9 @@ class ProViewController: UIViewController {
                 self.face.text = postData.facebook
                 self.den.text = postData.den
                 self.ta.text = postData.ta
+            }
+            else {
+                print("kiki snapshot not loaded")
             }
         })
     }
@@ -60,9 +49,7 @@ class ProViewController: UIViewController {
             let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
             let imageData = UIImageJPEGRepresentation(image!, 0.5)
             let postData = ["image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),"name": name1,"line":line1,"twitter":twitter1,"facebook":face1,"den":den1,"ta":ta1,"uid":uid]
-              postRef.child(uid as String).setValue(postData)
-                updateViewInfomation()
-            
+              postRef.child(uid as String).setValue(postData)            
                 let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
             self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
     } else {
