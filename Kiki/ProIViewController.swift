@@ -2,6 +2,7 @@ import UIKit
 
 class ProIViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    @IBOutlet weak var back: UIButton!
     @IBAction func camera(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             let pickerController = UIImagePickerController()
@@ -26,6 +27,8 @@ class ProIViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
         
     }
     

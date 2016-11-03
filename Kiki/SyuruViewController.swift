@@ -11,6 +11,8 @@ import UIKit
 class SyuruViewController: UIViewController {
     @IBOutlet weak var rec: UIButton!
     @IBOutlet weak var syu: UIButton!
+    @IBOutlet weak var back: UIButton!
+    
     @IBAction func rec(sender: AnyObject) {
         let recviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top") as! ViewController
         self.presentViewController(recviewcontroller, animated: true, completion: nil)
@@ -32,6 +34,8 @@ class SyuruViewController: UIViewController {
         rec.clipsToBounds = true
         syu.layer.cornerRadius = 8
         syu.clipsToBounds = true
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

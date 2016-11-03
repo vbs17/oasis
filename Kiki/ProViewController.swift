@@ -16,6 +16,7 @@ class ProViewController: UIViewController {
     @IBOutlet weak var face: UITextField!
     @IBOutlet weak var den: UITextField!
     @IBOutlet weak var ta: UITextField!
+    @IBOutlet weak var back: UIButton!
     
     
     @IBAction func post(sender: AnyObject) {
@@ -68,6 +69,8 @@ class ProViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
         self.imageView.image = image
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             

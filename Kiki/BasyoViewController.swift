@@ -4,6 +4,7 @@ import UIKit
 
 class BasyoViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    @IBOutlet weak var back: UIButton!
     @IBAction func camera(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             let pickerController = UIImagePickerController()
@@ -28,6 +29,8 @@ class BasyoViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
 
     }
 

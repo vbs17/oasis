@@ -8,9 +8,9 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     var postArray: [PostData1] = []
     var observing = false
     var genre: String!
-    var back: UIButton!
     var tableView: UITableView!
 
+    @IBOutlet weak var back: UIButton!
     
     
     
@@ -20,6 +20,8 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         let nib = UINib(nibName: "HomeTableViewCell1", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Cell22")
+        back.layer.cornerRadius = 37
+        back.clipsToBounds = true
         
     }
     
@@ -49,7 +51,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     
-       
+    
     func getIndexPath(event:UIEvent) -> NSIndexPath? {
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)

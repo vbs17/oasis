@@ -23,6 +23,7 @@ class OkViewController: UIViewController {
         back.layer.cornerRadius = 25
         back.clipsToBounds = true
         imageView.image = image
+        
     
 
     }
