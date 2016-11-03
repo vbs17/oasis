@@ -54,7 +54,6 @@ class ProViewController: UIViewController {
         super.viewDidLoad()
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             
-            let p = PostData2(snapshot: snapshot, myId: snapshot.key)
             let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
             
             if ( postData.uid == FIRAuth.auth()?.currentUser?.uid ) {
