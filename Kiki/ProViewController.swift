@@ -21,7 +21,7 @@ class ProViewController: UIViewController {
     @IBAction func post(sender: AnyObject) {
         if (self.imageView.image != nil){
             let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
-            let imageData = UIImageJPEGRepresentation(image ?? image!, 0.5)
+            let imageData = UIImageJPEGRepresentation(image ?? imageView.image!, 0.5)
             let name1:NSString = name.text ?? name.text!
             let line1:NSString = line.text ?? line.text!
             let twitter1:NSString = twitter.text ?? twitter.text!
