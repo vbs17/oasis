@@ -166,6 +166,7 @@
 				B071D9671DB4E5040017E287 /* PostData.swift */,
 				B06968211DC60D6E00274DB1 /* PostData1.swift */,
 				B05E343E1DC8B57F00C271D3 /* PostData2.swift */,
+				B071D9651DB4D6140017E287 /* File.swift */,
 				B06491911DBAD0F000566A4B /* ログインとPROFILE */,
 			);
 			name = PostData;
@@ -221,7 +222,6 @@
 				B00501BA1DB610D200319866 /* 音源表示 */,
 				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
 				B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */,
-				B071D9651DB4D6140017E287 /* File.swift */,
 				B0A78FDC1DACFF6500AC0513 /* Assets.xcassets */,
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
 				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
