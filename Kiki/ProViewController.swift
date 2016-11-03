@@ -19,6 +19,7 @@ class ProViewController: UIViewController {
     
     
     @IBAction func post(sender: AnyObject) {
+        if (image != nil && name.text != nil){
         let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let name1:NSString = name.text!
@@ -32,25 +33,19 @@ class ProViewController: UIViewController {
          postRef.child(uid as String).setValue(postData)
         let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
         self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
+        }
         
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.image = image
-        
-        print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
-            print("kiki child_count\(snapshot.childrenCount)")
-            print(snapshot.key + " --------------- " + (FIRAuth.auth()?.currentUser?.uid)!)
             
             let p = PostData2(snapshot: snapshot, myId: snapshot.key)
-            print(p.name)
             let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
             
             if ( postData.uid == FIRAuth.auth()?.currentUser?.uid ) {
                 
-                print("kiki postData \(postData.name)")
                 self.imageView.image = postData.image
                 self.name.text = postData.name
                 self.line.text = postData.line
@@ -60,15 +55,12 @@ class ProViewController: UIViewController {
                 self.ta.text = postData.ta
             }
             else {
-                print("kiki snapshot not loaded")
             }
         })
         
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
-            print("kiki child_count\(snapshot.childrenCount)")
             if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
                 let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
-                print("kiki postData \(postData.name)")
                 self.imageView.image = postData.image
                 self.name.text = postData.name
                 self.line.text = postData.line
@@ -78,7 +70,6 @@ class ProViewController: UIViewController {
                 self.ta.text = postData.ta
             }
             else {
-                print("kiki snapshot not loaded")
             }
         })
     }
