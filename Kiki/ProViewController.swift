@@ -68,6 +68,7 @@ class ProViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imageView.image = image
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             
             let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
