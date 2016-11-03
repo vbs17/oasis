@@ -33,6 +33,19 @@ class ProViewController: UIViewController {
          postRef.child(uid as String).setValue(postData)
         let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
         self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
+        }else{
+            let alert: UIAlertController = UIAlertController(title: "MUST", message: "画像とNAMEは必須項目です", preferredStyle:  UIAlertControllerStyle.Alert)
+            
+           
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{
+                (action: UIAlertAction!) -> Void in
+                print("OK")
+            })
+           
+            
+            alert.addAction(defaultAction)
+            
+            presentViewController(alert, animated: true, completion: nil)
         }
         
     }
