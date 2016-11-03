@@ -37,6 +37,7 @@ class ProViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imageView.image = image
         
         print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
