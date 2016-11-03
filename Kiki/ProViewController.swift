@@ -75,7 +75,9 @@ class ProViewController: UIViewController {
             
             if ( postData.uid == FIRAuth.auth()?.currentUser?.uid ) {
                 
-                self.imageView.image = postData.image
+                if self.image == nil {
+                    self.imageView.image = postData.image
+                }
                 self.name.text = postData.name
                 self.line.text = postData.line
                 self.twitter.text = postData.twitter
@@ -90,7 +92,9 @@ class ProViewController: UIViewController {
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
             if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
                 let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
-                self.imageView.image = postData.image
+                if self.image == nil {
+                    self.imageView.image = postData.image
+                }
                 self.name.text = postData.name
                 self.line.text = postData.line
                 self.twitter.text = postData.twitter

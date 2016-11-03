@@ -43,7 +43,6 @@ class ProIViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 
                 let proviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Pro") as! ProViewController
                 proviewcontroller.image = image
-                proviewcontroller.imageView.image = image
                 self.presentViewController(proviewcontroller, animated: true, completion:  nil)
             }
         }
