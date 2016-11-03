@@ -19,6 +19,21 @@ class ProViewController: UIViewController {
     
     
     @IBAction func post(sender: AnyObject) {
+        if (self.imageView.image != nil){
+            let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
+            let imageData = UIImageJPEGRepresentation(image ?? image!, 0.5)
+            let name1:NSString = name.text ?? name.text!
+            let line1:NSString = line.text ?? line.text!
+            let twitter1:NSString = twitter.text ?? twitter.text!
+            let facebook1: NSString = face.text ?? face.text!
+            let den1: NSString = den.text ?? den.text!
+            let ta1: NSString = ta.text ?? ta.text!
+            let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
+           let postData = ["name": name1, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "line": line1, "facebook": facebook1, "twitter":twitter1,"den":den1,"ta":ta1,"uid":uid]
+            postRef.child(uid as String).setValue(postData)
+            let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
+            self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
+        } else{
         if (image != nil && name.text != nil){
         let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
@@ -47,8 +62,9 @@ class ProViewController: UIViewController {
             
             presentViewController(alert, animated: true, completion: nil)
         }
-        
     }
+        
+}
 
     override func viewDidLoad() {
         super.viewDidLoad()
