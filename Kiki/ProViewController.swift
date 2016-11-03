@@ -37,14 +37,8 @@ class ProViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imageView.image = image
         
-       
-        let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
-        let postData = [
-            "uid": (FIRAuth.auth()?.currentUser?.uid)!,
-            "name": "AAAAAAAAAAA"
-        ]
-        postRef.childByAutoId().setValue(postData)
         print("kiki current_user_uid \(FIRAuth.auth()?.currentUser?.uid)")
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             print("kiki child_count\(snapshot.childrenCount)")
@@ -57,38 +51,37 @@ class ProViewController: UIViewController {
             if ( postData.uid == FIRAuth.auth()?.currentUser?.uid ) {
                 
                 print("kiki postData \(postData.name)")
-                                self.imageView.image = postData.image
+                self.imageView.image = postData.image
                 self.name.text = postData.name
-                                self.line.text = postData.line
-                                self.twitter.text = postData.twitter
-                           self.face.text = postData.facebook
-                                self.den.text = postData.den
-                                self.ta.text = postData.ta
+                self.line.text = postData.line
+                self.twitter.text = postData.twitter
+                self.face.text = postData.facebook
+                self.den.text = postData.den
+                self.ta.text = postData.ta
             }
             else {
                 print("kiki snapshot not loaded")
             }
         })
         
-                FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
-                    print("kiki child_count\(snapshot.childrenCount)")
-                    if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
-                        let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
-                        print("kiki postData \(postData.name)")
-                        self.imageView.image = postData.image
-                        self.name.text = postData.name
-                        self.line.text = postData.line
-                        self.twitter.text = postData.twitter
-                        self.face.text = postData.facebook
-                        self.den.text = postData.den
-                        self.ta.text = postData.ta
-                    }
-                    else {
-                        print("kiki snapshot not loaded")
-                    }
-                })
+        FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
+            print("kiki child_count\(snapshot.childrenCount)")
+            if ( snapshot.key == FIRAuth.auth()?.currentUser?.uid ) {
+                let postData = PostData2(snapshot: snapshot, myId: snapshot.key)
+                print("kiki postData \(postData.name)")
+                self.imageView.image = postData.image
+                self.name.text = postData.name
+                self.line.text = postData.line
+                self.twitter.text = postData.twitter
+                self.face.text = postData.facebook
+                self.den.text = postData.den
+                self.ta.text = postData.ta
+            }
+            else {
+                print("kiki snapshot not loaded")
+            }
+        })
     }
-    
     
     @IBAction func proI(sender: AnyObject) {
         let proiviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("ProI") as! ProIViewController
@@ -96,10 +89,6 @@ class ProViewController: UIViewController {
     }
 
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.imageView.image = image
-    }
     
     
     
