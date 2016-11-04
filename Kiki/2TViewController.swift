@@ -13,14 +13,9 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
-    let fileManager = NSFileManager()
-    let fileName = "sister1.m4a"
     var songData:NSURL!
-    var sound:NSURL!
     var audioEngine: AVAudioEngine!
     var player: AVAudioPlayerNode!
-    let engine = AVAudioEngine()
-    let LEVEL_LOWPASS_TRIG:Float32 = 0.7
     var averagePower:Float32 = 0
     var songFile:NSURL!
     

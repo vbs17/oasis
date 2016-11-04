@@ -73,6 +73,7 @@ class PlayViewController: UIViewController {
         play.enabled = true
         back.enabled = false
         playSong.stop()
+        timer.invalidate()
         playSong.prepareToPlay()
         playSong.currentTime = 0
     }
