@@ -37,7 +37,6 @@ class Play2ViewController: UIViewController {
         play.enabled = false
         back.enabled = true
     }
-    //二つとも再生
     @IBAction func backGo(sender: AnyObject) {
         onbyou.text = "0:00"
         play.enabled = true
