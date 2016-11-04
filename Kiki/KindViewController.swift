@@ -460,7 +460,7 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
     private let mySections: NSArray = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","number"]
     
     var buttonImage:UIImage = UIImage(named: "104937")!
-    var buttonImage2:UIImage = UIImage(named: "59774115_220x220")!
+    var buttonImage2:UIImage = UIImage(named: "104937")!
     //写真　曲名　秒数　音源
     //filenameをsongDataに渡す
     var songData:NSURL!

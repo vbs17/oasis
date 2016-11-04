@@ -96,7 +96,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func play() {
         
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
-        let filePath2 = NSURL(fileURLWithPath: documentDir + "/sample.caf")
+        let filePath2 = NSURL(fileURLWithPath: documentDir + "/sister.m4a")
         songFile = filePath2
         if let url = songData {
             do {
@@ -121,7 +121,12 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
                     print("complete")
                 }
                 
-                let audioFile2 = try AVAudioFile(forWriting: filePath2, settings: mixer.outputFormatForBus(0).settings)
+                let recordSetting : [String : AnyObject] = [
+                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                    AVNumberOfChannelsKey: 2 ,
+                    AVSampleRateKey: 44100
+                ]
+                let audioFile2 = try AVAudioFile(forWriting: filePath2, settings: recordSetting)
                 mixer.installTapOnBus(0, bufferSize: 4096, format: mixer.outputFormatForBus(0)) { (buffer, when) in
                     do {
                         try audioFile2.writeFromBuffer(buffer)
