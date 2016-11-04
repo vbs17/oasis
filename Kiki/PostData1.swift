@@ -7,13 +7,12 @@ import FirebaseDatabase
 class PostData1: NSObject{
     var id: String?
     var image: UIImage?
-    
     var imageString: String?
     var hiniti: String?
     var zikoku: String?
     var station: String?
-    
     var path: String?
+    var uid: String?
     
     
     init(snapshot: FIRDataSnapshot, myId: String){
@@ -26,6 +25,7 @@ class PostData1: NSObject{
         zikoku = valueDictionary["zikoku"] as? String
         station = valueDictionary["station"] as? String
         path = valueDictionary["path"] as? String
+        uid = valueDictionary["uid"] as? String
         
         
     }

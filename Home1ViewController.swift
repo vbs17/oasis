@@ -25,40 +25,18 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         
     }
     
+   
     
-    func schemebtn(sender: UIButton, event:UIEvent) {
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        let postData = postArray[indexPath!.row]
-        let adress =  postData.path
-        let encodedString = adress!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
-        if (UIApplication.sharedApplication().canOpenURL(url)) {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-
-    
-    
+    //ここかなsetPostData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
-               let uid = FIRAuth.auth()?.currentUser?.uid
+        let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
         cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-       
+        
         return cell
     }
-    
-    
-    
-    func getIndexPath(event:UIEvent) -> NSIndexPath? {
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        return indexPath
-    }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
@@ -99,6 +77,32 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
             }
         }
     }
+
+    
+    func schemebtn(sender: UIButton, event:UIEvent) {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray[indexPath!.row]
+        let adress =  postData.path
+        let encodedString = adress!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
+        if (UIApplication.sharedApplication().canOpenURL(url)) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+
+    
+    
+    
+    
+    func getIndexPath(event:UIEvent) -> NSIndexPath? {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        return indexPath
+    }
+    
     
     //無視
     

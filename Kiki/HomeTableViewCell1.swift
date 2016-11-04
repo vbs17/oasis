@@ -18,13 +18,15 @@ class HomeTableViewCell1: UITableViewCell {
     @IBOutlet weak var label3: UILabel!
     
     @IBOutlet weak var pathGo: UIButton!
-    
+    //参考
     func setPostData(postData: PostData1, myid: String) {
         ImageView.image = postData.image
         label1.text = postData.hiniti
         label2.text = postData.zikoku
         label3.text = postData.station
     }
+    
+    
     
     
     override func awakeFromNib() {

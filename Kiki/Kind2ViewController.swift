@@ -3,6 +3,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
+
 
 class Kind2ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, SyugoTableViewCellDelegate  {
     
@@ -484,7 +486,8 @@ class Kind2ViewController: UIViewController,UITableViewDelegate, UITableViewData
         let zikoku1:NSString = zikoku.text!
         let path1:NSString = path.text!
         let station1:NSString = station.text!
-        let postData = ["hiniti": hiniti1, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "zikoku": zikoku1, "station": station1, "path":path1]
+         let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
+        let postData = ["hiniti": hiniti1, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "zikoku": zikoku1, "station": station1, "path":path1,"uid":uid]
         postRef.childByAutoId().setValue(postData)
         let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
         self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
