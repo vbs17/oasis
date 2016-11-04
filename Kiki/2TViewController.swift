@@ -96,7 +96,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func play() {
         
         let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
-        let filePath2 = NSURL(fileURLWithPath: documentDir + "/sister.m4a")
+        let filePath2 = NSURL(fileURLWithPath: documentDir + "/sample.m4a")
         songFile = filePath2
         if let url = songData {
             do {
