@@ -20,7 +20,7 @@ class ProViewController: UIViewController {
     
     
     @IBAction func post(sender: AnyObject) {
-        if (self.imageView.image != nil){
+        if (self.imageView.image != nil && name.text!.characters.count > 0){
             let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
             let imageData = UIImageJPEGRepresentation(image ?? imageView.image!, 0.5)
             let name1:NSString = name.text ?? name.text!
@@ -35,7 +35,7 @@ class ProViewController: UIViewController {
             let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
             self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)
         } else{
-        if (image != nil && name.text != nil){
+        if (image != nil && name.text!.characters.count > 0){
         let postRef = FIRDatabase.database().reference().child(CommonConst.Profile)
         let imageData = UIImageJPEGRepresentation(image!, 0.5)
         let name1:NSString = name.text!

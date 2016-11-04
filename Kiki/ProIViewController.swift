@@ -1,7 +1,6 @@
 import UIKit
 
 class ProIViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-    
     @IBOutlet weak var back: UIButton!
     @IBAction func camera(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
