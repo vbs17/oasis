@@ -41,6 +41,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             imageView.image = image
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
         }else if count == 5{
+            self.timeCountTimer.invalidate()
+            self.timer.invalidate()
             audioEngine.mainMixerNode.removeTapOnBus(0)
             audioEngine.stop()
             nextGamenn()
@@ -163,6 +165,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         }
         if timeCount == 360{
             self.timeCountTimer.invalidate()
+            self.timer.invalidate()
             stop()
             nextGamenn()
         }else{
@@ -174,6 +177,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     @IBAction func back(sender: AnyObject) {
         playSong.stop()
         timer.invalidate()
+        self.timeCountTimer.invalidate()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

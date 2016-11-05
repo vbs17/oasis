@@ -67,6 +67,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.nextPage), userInfo: nil, repeats: true )
         }else if count == 5{
             self.timeCountTimer.invalidate()
+            self.timer.invalidate()
             audioRecorder.stop()
             nextGamenn()
         }
@@ -94,12 +95,12 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         }else if count == 5{
             image = UIImage(named: photos[5])
             imageView.image = image
+            sender.invalidate()
             audioRecorder?.prepareToRecord()
             audioRecorder?.record()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             audioRecorder.meteringEnabled = true
-            sender.invalidate()
             recordImage!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
             recordImage!.layer.cornerRadius = 37
             recordImage!.clipsToBounds = true
@@ -149,6 +150,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         }
         if timeCount == 360{
             self.timeCountTimer.invalidate()
+            self.timer.invalidate()
             audioRecorder.stop()
             nextGamenn()
         }else{

@@ -114,7 +114,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <size key="titleShadowOffset" width="1" height="2.2250738585072014e-308"/>
                                         <state key="normal" title="BACK" backgroundImage="5">
-                                            <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.14362053969999999" green="0.17933351710000001" blue="0.3351807919" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -220,7 +220,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IMAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO4-PY-ad2">
                                 <rect key="frame" x="54" y="93" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jobs" translatesAutoresizingMaskIntoConstraints="NO" id="y4n-sk-Lye">
@@ -324,7 +324,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="1" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttg-Dq-yim">
@@ -511,7 +511,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <size key="titleShadowOffset" width="1" height="2"/>
                                 <state key="normal" title="集合場所の写真" backgroundImage="37">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -569,7 +569,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <size key="titleShadowOffset" width="2" height="1"/>
                                         <state key="normal" title="邦楽" backgroundImage="22">
-                                            <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.14362053969999999" green="0.17933351710000001" blue="0.3351807919" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -581,7 +581,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <size key="titleShadowOffset" width="2" height="1"/>
                                         <state key="normal" title="洋楽" backgroundImage="15">
-                                            <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.14362053969999999" green="0.17933351710000001" blue="0.3351807919" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
