@@ -77,6 +77,33 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
                         self.tableView.reloadData()
                     }
                 })
+                
+                FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData2(snapshot: snapshot, myId: uid)
+                        self.postArray2.insert(postData, atIndex: 0)
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData2(snapshot: snapshot, myId: uid)
+                        
+                        var index: Int = 0
+                        for post in self.postArray2 {
+                            if post.id == postData.id {
+                                index = self.postArray2.indexOf(post)!
+                                break
+                            }
+                        }
+                        self.postArray2.removeAtIndex(index)
+                        self.postArray2.insert(postData, atIndex: index)
+                        self.tableView.reloadData()
+                    }
+                })
+
                 observing = true
             }
         } else {
@@ -88,6 +115,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
             }
         }
     }
+    
 
     
     func schemebtn(sender: UIButton, event:UIEvent) {
