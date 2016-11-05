@@ -81,7 +81,7 @@
                                     <constraint firstItem="LDJ-wC-UCP" firstAttribute="leading" secondItem="CPG-3u-7H7" secondAttribute="leading" id="zjd-T2-G9s"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IMG_3215" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GW-vmP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_3215" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GW-vmP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="585"/>
                                 <color key="tintColor" red="0.99647290050000004" green="0.63966908040000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -104,11 +104,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CPG-3u-7H7" firstAttribute="leading" secondItem="ag9-GW-vmP" secondAttribute="leading" id="8xx-Th-J1S"/>
                             <constraint firstAttribute="trailing" secondItem="CPG-3u-7H7" secondAttribute="trailing" id="I1h-9u-t7U"/>
-                            <constraint firstItem="CPG-3u-7H7" firstAttribute="top" secondItem="ag9-GW-vmP" secondAttribute="bottom" id="ROP-zC-vJV"/>
                             <constraint firstItem="mAG-Ih-VpW" firstAttribute="top" secondItem="JpE-vq-bxS" secondAttribute="bottom" constant="259" id="VBE-Zf-p4e"/>
-                            <constraint firstItem="CPG-3u-7H7" firstAttribute="trailing" secondItem="ag9-GW-vmP" secondAttribute="trailing" id="Wea-Go-Khs"/>
                             <constraint firstItem="CPG-3u-7H7" firstAttribute="leading" secondItem="sx5-dV-ikd" secondAttribute="leading" id="eXh-Pc-yY4"/>
                             <constraint firstItem="CPG-3u-7H7" firstAttribute="centerX" secondItem="mAG-Ih-VpW" secondAttribute="centerX" id="jQs-ZK-5eO"/>
                             <constraint firstItem="CPG-3u-7H7" firstAttribute="bottom" secondItem="7LG-om-QHz" secondAttribute="top" id="uGG-L3-pf7"/>
@@ -124,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqD-rh-6D3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2858.5" y="351.5"/>
+            <point key="canvasLocation" x="-2773.5" y="351.5"/>
         </scene>
         <!--Home View Controller1-->
         <scene sceneID="Kr5-Qj-Pfq">

@@ -35,7 +35,7 @@ class HomeTableViewCell1: UITableViewCell {
         super.awakeFromNib()
         pathGo.layer.cornerRadius = 35
         pathGo.clipsToBounds = true
-        imageView1.layer.cornerRadius = 27
+        imageView1.layer.cornerRadius = 22.2
         imageView1.clipsToBounds = true
     }
     
