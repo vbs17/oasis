@@ -15,6 +15,19 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     
     
     
+    //ここかなsetPostData
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        cell.setPostData(postArray[indexPath.row], myid: uid!)
+        cell.setPostData1(postArray2[indexPath.row], myid: uid!)
+        cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        return cell
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -26,18 +39,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         
     }
     
-   
-    
-    //ここかなsetPostData
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
-        let uid = FIRAuth.auth()?.currentUser?.uid
-        cell.setPostData(postArray[indexPath.row], myid: uid!)
-        cell.setPostData1(postArray2[indexPath.row], myid: uid!)
-        cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
-        return cell
-    }
+
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
