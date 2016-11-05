@@ -12,6 +12,7 @@ class HomeTableViewCell1: UITableViewCell {
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var label1: UILabel!
     
+    @IBOutlet weak var pro: UIButton!
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var label2: UILabel!
     

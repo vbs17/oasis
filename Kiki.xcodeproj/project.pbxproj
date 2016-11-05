@@ -37,6 +37,7 @@
 		B071D9711DB509FA0017E287 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9701DB509FA0017E287 /* TabViewController.swift */; };
 		B071D9731DB50C4E0017E287 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9721DB50C4E0017E287 /* LoginViewController.swift */; };
 		B071D9751DB50E670017E287 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071D9741DB50E670017E287 /* SetViewController.swift */; };
+		B07E94E71DCDC766009537A7 /* ProIdouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E94E61DCDC766009537A7 /* ProIdouViewController.swift */; };
 		B08690781DB4A311006BB6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08690771DB4A311006BB6FD /* GoogleService-Info.plist */; };
 		B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */; };
 		B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A78FD71DACFF6500AC0513 /* ViewController.swift */; };
@@ -81,6 +82,7 @@
 		B071D9701DB509FA0017E287 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B071D9721DB50C4E0017E287 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B071D9741DB50E670017E287 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		B07E94E61DCDC766009537A7 /* ProIdouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProIdouViewController.swift; sourceTree = "<group>"; };
 		B08690771DB4A311006BB6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0A78FD21DACFF6400AC0513 /* Kiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A78FD51DACFF6500AC0513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,7 +170,6 @@
 				B05E343E1DC8B57F00C271D3 /* PostData2.swift */,
 				B071D9651DB4D6140017E287 /* File.swift */,
 				B06491911DBAD0F000566A4B /* ログインとPROFILE */,
-				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
 				B0BD80DE1DC71B0D0056E1A5 /* 集合場所表示 */,
 			);
 			name = PostData;
@@ -179,6 +180,7 @@
 			children = (
 				B071D9721DB50C4E0017E287 /* LoginViewController.swift */,
 				B05E343A1DC8A53800C271D3 /* ProViewController.swift */,
+				B07E94E61DCDC766009537A7 /* ProIdouViewController.swift */,
 				B05E343C1DC8AF1200C271D3 /* ProIViewController.swift */,
 				B071D9741DB50E670017E287 /* SetViewController.swift */,
 			);
@@ -251,6 +253,7 @@
 				B06968251DC60F7700274DB1 /* Home1ViewController.swift */,
 				B06968271DC610C200274DB1 /* HomeTableViewCell1.swift */,
 				B06968281DC610C200274DB1 /* HomeTableViewCell1.xib */,
+				B042A0201DB98BBE0068D205 /* 集合場所投稿 */,
 			);
 			name = "集合場所表示";
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				B0A78FD61DACFF6500AC0513 /* AppDelegate.swift in Sources */,
 				B042A0221DB991150068D205 /* SyuruViewController.swift in Sources */,
 				B06968291DC610C200274DB1 /* HomeTableViewCell1.swift in Sources */,
+				B07E94E71DCDC766009537A7 /* ProIdouViewController.swift in Sources */,
 				B042A01B1DB98A840068D205 /* Kind2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

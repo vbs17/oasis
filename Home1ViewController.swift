@@ -13,6 +13,32 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var back: UIButton!
     
+    func schemebtn(sender: UIButton, event:UIEvent) {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray[indexPath!.row]
+        let adress =  postData.path
+        let encodedString = adress!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
+        if (UIApplication.sharedApplication().canOpenURL(url)) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    
+    func pro(sender: UIButton, event:UIEvent) {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray2[indexPath!.row]
+        let pro = self.storyboard?.instantiateViewControllerWithIdentifier("Pi") as! ProIdouViewController
+        pro.uid = postData.uid
+        self.presentViewController(pro, animated: true, completion: nil)
+        
+    }
+
+    
     
     
     //ここかなsetPostData
@@ -29,7 +55,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         }
         cell.imageView1.image = image
         cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
+        cell.pro.addTarget(self, action:#selector(pro(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     
@@ -118,19 +144,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
     
 
     
-    func schemebtn(sender: UIButton, event:UIEvent) {
-        let touch = event.allTouches()?.first
-        let point = touch!.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)
-        let postData = postArray[indexPath!.row]
-        let adress =  postData.path
-        let encodedString = adress!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let url = NSURL(string: "http://maps.apple.com/?q=\(encodedString)")!
-        if (UIApplication.sharedApplication().canOpenURL(url)) {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-
+    
     
     
     

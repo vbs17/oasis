@@ -72,6 +72,10 @@
                             <color key="titleShadowColor" red="0.14156763950000001" green="0.25016361259999997" blue="0.056587610849999997" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-38-kdn">
+                        <rect key="frame" x="23" y="19" width="48" height="47"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-aS-5uI">
                         <rect key="frame" x="21" y="19" width="50" height="47"/>
                         <constraints>
@@ -118,6 +122,7 @@
                 <outlet property="label2" destination="fX8-oz-MYh" id="NWG-IK-Ycf"/>
                 <outlet property="label3" destination="lIp-vl-die" id="kmn-PG-28h"/>
                 <outlet property="pathGo" destination="h6W-ej-fNd" id="vax-Ox-Xdr"/>
+                <outlet property="pro" destination="yeD-38-kdn" id="v6f-Ff-5cy"/>
             </connections>
             <point key="canvasLocation" x="296.5" y="301.5"/>
         </tableViewCell>
