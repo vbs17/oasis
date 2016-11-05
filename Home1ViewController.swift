@@ -31,7 +31,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
-        let postData = postArray2[indexPath!.row]
+        let postData = postArray[indexPath!.row]
         let pro = self.storyboard?.instantiateViewControllerWithIdentifier("Pi") as! ProIdouViewController
         pro.uid = postData.uid
         self.presentViewController(pro, animated: true, completion: nil)

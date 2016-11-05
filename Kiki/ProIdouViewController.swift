@@ -61,6 +61,6 @@ class ProIdouViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
 
     }
-
+    
     
 }

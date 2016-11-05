@@ -2,6 +2,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import AVFoundation
 
 @UIApplicationMain
@@ -14,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
+        let postPathRef = FIRDatabase.database().referenceWithPath(CommonConst.PostPATH)
+        postPathRef.keepSynced(true)
+        let postPath2Ref = FIRDatabase.database().referenceWithPath(CommonConst.PostPATH2)
+        postPath2Ref.keepSynced(true)
+        let ProfileRef = FIRDatabase.database().referenceWithPath(CommonConst.Profile)
+        ProfileRef.keepSynced(true)
         return true
     }
 

@@ -116,6 +116,10 @@ class ProViewController: UIViewController {
     }
 
     
+    @IBAction func logout(sender: AnyObject) {
+        let HomeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Set")
+        self.presentViewController(HomeViewController!, animated: true, completion: nil)
+    }
     
     
     
