@@ -6,6 +6,7 @@ import AVFoundation
 
 class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDelegate,AVAudioPlayerDelegate{
     var postArray: [PostData1] = []
+    var postArray2:[PostData2] = []
     var observing = false
     var genre: String!
     var tableView: UITableView!
@@ -32,6 +33,7 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
         let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
+        cell.setPostData1(postArray2[indexPath.row], myid: uid!)
         cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell
