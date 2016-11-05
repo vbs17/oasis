@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-3u-7H7">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-3u-7H7">
                                 <rect key="frame" x="0.0" y="585" width="375" height="82"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxZ-E7-MVy">
@@ -32,18 +32,6 @@
                                             <action selector="path:" destination="xtg-j0-lo1" eventType="touchUpInside" id="yx5-vq-Qon"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDJ-wC-UCP">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="82"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <size key="titleShadowOffset" width="2" height="2.2250738585072014e-308"/>
-                                        <state key="normal" title="MUSIC" backgroundImage="9">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="music:" destination="xtg-j0-lo1" eventType="touchUpInside" id="YJ3-yh-2Uv"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcT-JV-gPt">
                                         <rect key="frame" x="126" y="0.0" width="123" height="82"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
@@ -56,8 +44,28 @@
                                             <action selector="recpic:" destination="xtg-j0-lo1" eventType="touchUpInside" id="PBN-0B-eVE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDJ-wC-UCP">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="124" id="dcQ-4f-DGC"/>
+                                            <constraint firstAttribute="height" constant="82" id="gDg-PN-txu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <size key="titleShadowOffset" width="2" height="2.2250738585072014e-308"/>
+                                        <state key="normal" title="MUSIC" backgroundImage="9">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.1074934555" green="0.09623322829" blue="0.042639232169999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="music:" destination="xtg-j0-lo1" eventType="touchUpInside" id="YJ3-yh-2Uv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LDJ-wC-UCP" firstAttribute="leading" secondItem="CPG-3u-7H7" secondAttribute="leading" id="QCn-a0-JJl"/>
+                                    <constraint firstAttribute="bottom" secondItem="LDJ-wC-UCP" secondAttribute="bottom" id="stc-Vb-TE2"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_3215" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GW-vmP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="585"/>
