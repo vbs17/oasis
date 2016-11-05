@@ -26,10 +26,7 @@ class HomeTableViewCell1: UITableViewCell {
         label3.text = postData.station
     }
     
-    func setPostData1(postData: PostData2, myid: String) {
-        imageView1.image = postData.image
-    }
-    
+       
     
     
     

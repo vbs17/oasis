@@ -20,7 +20,14 @@ class HomeViewController1: UIViewController,UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell22", forIndexPath: indexPath) as! HomeTableViewCell1
         let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
-        cell.setPostData1(postArray2[indexPath.row], myid: uid!)
+        let postData1 = postArray[indexPath.row]
+        var image:UIImage? = nil
+        for id in postArray2{
+            if postData1.uid == id.uid{
+                image = id.image
+            }
+        }
+        cell.imageView1.image = image
         cell.pathGo.addTarget(self, action:#selector(schemebtn(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell
