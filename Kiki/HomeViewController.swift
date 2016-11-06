@@ -91,7 +91,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
-        cell?.hyouka.tintColor = UIColor.blackColor()
+        cell!.hyouka.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
         if cell!.edittingFlag == false{
         cell!.edittingFlag = true
         cell!.star1.userInteractionEnabled = true
@@ -105,7 +105,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell?.star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         } else if cell!.edittingFlag == true{
-            cell?.hyouka.tintColor = UIColor.redColor()
+            cell!.hyouka.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             cell!.edittingFlag = false
             cell?.setPostData1(self.postArray[indexPath!.row])
             cell!.star1.userInteractionEnabled = false
