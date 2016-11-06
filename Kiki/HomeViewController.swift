@@ -92,8 +92,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
     }
     
-    
-       //更新して星を保存 勘違いするなよこれは池内慶だけの評価やから削除して更新してるわけよ池内慶を１００人作らんために
+     //ここでprofie画像消さないようにするには
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -153,11 +152,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let byou = postData.byou
         let realsong = postData.realsong
         let star = postData.star //97行目
-        
+        let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
-        let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star]
+        let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star,"uid":uid]
         postRef.child(postData.id!).setValue(postData2)
-        self.tableView.reloadData()
     }
     
     
@@ -235,7 +233,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func handleButton(sender: UIButton, event:UIEvent){
-        //indexPathは今選択中のセル
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
