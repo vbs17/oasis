@@ -14,6 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="379" height="446"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-QU-tFv">
+                        <rect key="frame" x="0.0" y="0.0" width="379" height="300"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="300" id="hqn-jH-mV3"/>
+                            <constraint firstAttribute="width" constant="379" id="wm2-ze-vg9"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diB-Ai-OmM">
                         <rect key="frame" x="85" y="0.0" width="294" height="300"/>
                         <constraints>
@@ -130,13 +137,6 @@
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXP-r2-gGF">
                         <rect key="frame" x="14" y="8" width="46" height="46"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-QU-tFv">
-                        <rect key="frame" x="0.0" y="0.0" width="379" height="300"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="300" id="hqn-jH-mV3"/>
-                            <constraint firstAttribute="width" constant="379" id="wm2-ze-vg9"/>
-                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
