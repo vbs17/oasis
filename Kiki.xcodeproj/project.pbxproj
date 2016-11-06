@@ -136,6 +136,7 @@
 			children = (
 				B00501C31DB6428500319866 /* ItiranCelll */,
 				B00501BD1DB6420800319866 /* ItiranViewController.swift */,
+				B00501C21DB6428500319866 /* ItiranTableViewCell.xib */,
 				B071D96E1DB4EA9B0017E287 /* HomeViewController.swift */,
 				B00501B91DB610D200319866 /* HomeTableViewCell.xib */,
 				B00501B81DB610D200319866 /* HomeTableViewCell.swift */,
@@ -148,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				B00501C11DB6428500319866 /* ItiranTableViewCell.swift */,
-				B00501C21DB6428500319866 /* ItiranTableViewCell.xib */,
 			);
 			name = ItiranCelll;
 			sourceTree = "<group>";

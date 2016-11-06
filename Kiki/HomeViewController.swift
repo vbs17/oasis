@@ -27,6 +27,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
+       
         
     }
     
@@ -85,6 +86,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
+        cell!.star1.userInteractionEnabled = true
+        cell!.star2.userInteractionEnabled = true
+        cell!.star3.userInteractionEnabled = true
+        cell!.star4.userInteractionEnabled = true
+        cell!.star5.userInteractionEnabled = true
         cell?.star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)

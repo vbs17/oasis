@@ -127,6 +127,11 @@ class HomeTableViewCell: UITableViewCell {
         backButton.enabled = false
         imageView1.layer.cornerRadius = 22.2
         imageView1.clipsToBounds = true
+        star1.userInteractionEnabled = false
+        star1.userInteractionEnabled = false
+        star1.userInteractionEnabled = false
+        star1.userInteractionEnabled = false
+        star1.userInteractionEnabled = false
 
         
     }
