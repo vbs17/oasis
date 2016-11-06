@@ -13,6 +13,7 @@
 		B00501BE1DB6420800319866 /* ItiranViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00501BD1DB6420800319866 /* ItiranViewController.swift */; };
 		B00501C41DB6428500319866 /* ItiranTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00501C11DB6428500319866 /* ItiranTableViewCell.swift */; };
 		B00501C51DB6428500319866 /* ItiranTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00501C21DB6428500319866 /* ItiranTableViewCell.xib */; };
+		B00D7CF51DCEB5190042D04F /* MixerMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = B00D7CF41DCEB5190042D04F /* MixerMeter.m */; };
 		B0190A211DB20FE400FA066D /* KindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0190A201DB20FE400FA066D /* KindViewController.swift */; };
 		B03151761DAE6A06007EE64C /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03151751DAE6A06007EE64C /* PlayViewController.swift */; };
 		B042A0171DB983620068D205 /* BasyoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042A0161DB983620068D205 /* BasyoViewController.swift */; };
@@ -58,6 +59,9 @@
 		B00501BD1DB6420800319866 /* ItiranViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItiranViewController.swift; path = Kiki/ItiranViewController.swift; sourceTree = "<group>"; };
 		B00501C11DB6428500319866 /* ItiranTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItiranTableViewCell.swift; sourceTree = "<group>"; };
 		B00501C21DB6428500319866 /* ItiranTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItiranTableViewCell.xib; sourceTree = "<group>"; };
+		B00D7CF21DCEB5180042D04F /* Kiki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kiki-Bridging-Header.h"; sourceTree = "<group>"; };
+		B00D7CF31DCEB5190042D04F /* MixerMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixerMeter.h; sourceTree = "<group>"; };
+		B00D7CF41DCEB5190042D04F /* MixerMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixerMeter.m; sourceTree = "<group>"; };
 		B0190A201DB20FE400FA066D /* KindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindViewController.swift; sourceTree = "<group>"; };
 		B03151751DAE6A06007EE64C /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		B042A0161DB983620068D205 /* BasyoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasyoViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +232,9 @@
 				B0A78FE11DACFF6500AC0513 /* Info.plist */,
 				B08690771DB4A311006BB6FD /* GoogleService-Info.plist */,
 				B0A78FDE1DACFF6500AC0513 /* LaunchScreen.storyboard */,
+				B00D7CF31DCEB5190042D04F /* MixerMeter.h */,
+				B00D7CF41DCEB5190042D04F /* MixerMeter.m */,
+				B00D7CF21DCEB5180042D04F /* Kiki-Bridging-Header.h */,
 			);
 			path = Kiki;
 			sourceTree = "<group>";
@@ -396,6 +403,7 @@
 				B06968261DC60F7700274DB1 /* Home1ViewController.swift in Sources */,
 				B071D9681DB4E5040017E287 /* PostData.swift in Sources */,
 				B0ABF85C1DB0EE21001987E7 /* SendViewController.swift in Sources */,
+				B00D7CF51DCEB5190042D04F /* MixerMeter.m in Sources */,
 				B071309D1DC2352E00B8EEC1 /* Play2ViewController.swift in Sources */,
 				B05E343D1DC8AF1200C271D3 /* ProIViewController.swift in Sources */,
 				B0A78FD81DACFF6500AC0513 /* ViewController.swift in Sources */,
@@ -530,10 +538,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8D29CE5422BA1688C21C169 /* Pods-Kiki.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Kiki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.Kiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kiki/Kiki-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -541,10 +552,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E6B0D253A1C1620CEF05707 /* Pods-Kiki.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Kiki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.Kiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kiki/Kiki-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -18,6 +18,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     var player: AVAudioPlayerNode!
     var averagePower:Float32 = 0
     var songFile:NSURL!
+    let mixerMeter = MixerMeter()
     
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -78,6 +79,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             image = UIImage(named: photos[5])
             imageView.image = image
             play()
+            self.timer.invalidate()
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(ViewController.levelTimerCallback), userInfo: nil, repeats: true)
             self.timeCountTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.recordLimits), userInfo: nil, repeats: true)
             sender.invalidate()
             recButton!.setImage(UIImage(named: "Kiki28"), forState: UIControlState.Normal)
@@ -105,6 +108,8 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
                 
                 
                 audioEngine = AVAudioEngine()
+                mixerMeter.mixer = audioEngine.mainMixerNode
+                mixerMeter.setMeteringEnabled(true)
                 player = AVAudioPlayerNode()
                 audioEngine.attachNode(player)
                 let mixer = audioEngine.mainMixerNode
@@ -130,11 +135,6 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
                     } catch let error {
                         print("audioFile2.writeFromBuffer error:", error)
                     }
-                    let dB = self.averagePower
-                    let atai = max(0, (dB + 77)) / 77
-                    self.nami1.progress = atai
-                    self.nami2.progress = atai
-                    self.nami3.progress = atai
                 }
                 try audioEngine.start()
                 player.play()
@@ -147,6 +147,14 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         
     }
     
+    func levelTimerCallback() {
+        mixerMeter.updateMeters()
+        let dB = mixerMeter.averagePowerForChannel0
+        let atai = max(0, (dB + 77)) / 77
+        nami1.progress = atai
+        nami2.progress = atai
+        nami3.progress = atai
+    }
     
     
     
