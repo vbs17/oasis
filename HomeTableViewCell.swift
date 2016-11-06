@@ -27,6 +27,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var star3: UIButton!
     @IBOutlet weak var star4: UIButton!
     @IBOutlet weak var star5: UIButton!
+    @IBOutlet weak var go: UIButton!
     
     //星の色　ここはシンプル 黄色
     func updateStar(ratingStr:Int) {
@@ -124,6 +125,9 @@ class HomeTableViewCell: UITableViewCell {
         hyouka.layer.cornerRadius = 20
         hyouka.clipsToBounds = true
         backButton.enabled = false
+        imageView1.layer.cornerRadius = 22.2
+        imageView1.clipsToBounds = true
+
         
     }
     

@@ -490,7 +490,8 @@ class KindViewController: UIViewController, UITableViewDelegate, UITableViewData
         let ongen:NSString = songData.path!
         let realSongdata = NSData(contentsOfFile: songData.path!)
         let realsong = realSongdata!.base64EncodedStringWithOptions([])
-        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "realsong":realsong]
+        let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
+        let postData = ["byou": kazu, "image": imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "songname": songName, "ongen": ongen, "realsong":realsong,"uid":uid]
          postRef.childByAutoId().setValue(postData)
         let tabvarviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Tab") as! TabViewController
         self.presentViewController(tabvarviewcontroller, animated: true, completion: nil)

@@ -8,6 +8,7 @@ import AVFoundation
 
 class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,AVAudioPlayerDelegate{
     var postArray: [PostData] = []
+    var postArray2:[PostData2] = []
     var observing = false
     var genre: String!
     var playSong:AVAudioPlayer!
@@ -40,6 +41,16 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
         let uid = FIRAuth.auth()?.currentUser?.uid
         cell.setPostData(postArray[indexPath.row], myid: uid!)
+        let postData1 = postArray[indexPath.row]
+        var image:UIImage? = nil
+        for id in postArray2{
+            if postData1.uid == id.uid{
+                image = id.image
+            }
+        }
+        cell.imageView1.image = image
+
+        cell.go.addTarget(self, action: #selector(pro(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.playButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.backButton.addTarget(self, action:#selector(back(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.star1.addTarget(self, action: #selector(hoshi(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -50,6 +61,18 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell.hyouka.addTarget(self, action: #selector(hyoukaGo), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
+    
+    func pro(sender: UIButton, event:UIEvent) {
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        let postData = postArray[indexPath!.row]
+        let pro = self.storyboard?.instantiateViewControllerWithIdentifier("Pi") as! ProIdouViewController
+        pro.uid = postData.uid
+        self.presentViewController(pro, animated: true, completion: nil)
+        
+    }
+
     
     func getIndexPath(event:UIEvent) -> NSIndexPath? {
         let touch = event.allTouches()?.first
@@ -168,6 +191,33 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         self.tableView.reloadData()
                     }
                 })
+                
+                FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData2(snapshot: snapshot, myId: uid)
+                        self.postArray2.insert(postData, atIndex: 0)
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildChanged, withBlock: { snapshot in
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        let postData = PostData2(snapshot: snapshot, myId: uid)
+                        
+                        var index: Int = 0
+                        for post in self.postArray2 {
+                            if post.id == postData.id {
+                                index = self.postArray2.indexOf(post)!
+                                break
+                            }
+                        }
+                        self.postArray2.removeAtIndex(index)
+                        self.postArray2.insert(postData, atIndex: index)
+                        self.tableView.reloadData()
+                    }
+                })
+
                 observing = true
             }
         } else {
