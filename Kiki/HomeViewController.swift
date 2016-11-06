@@ -33,6 +33,11 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CEll", forIndexPath: indexPath) as! HomeTableViewCell
+        cell.star1.userInteractionEnabled = false
+        cell.star2.userInteractionEnabled = false
+        cell.star3.userInteractionEnabled = false
+        cell.star4.userInteractionEnabled = false
+        cell.star5.userInteractionEnabled = false
         if (playingIndexPath != nil) && (indexPath == playingIndexPath) {
             cell.backButton.enabled = true
         } else {//それ以外のセル
@@ -40,8 +45,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell.onlabel2.text = "0:00"
             cell.backButton.enabled = false
         }
-        let uid = FIRAuth.auth()?.currentUser?.uid
-        cell.setPostData(postArray[indexPath.row], myid: uid!)
+        cell.setPostData(postArray[indexPath.row])
         let postData1 = postArray[indexPath.row]
         var image:UIImage? = nil
         for id in postArray2{
@@ -86,11 +90,28 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
+        if cell!.edittingFlag == false{
+        cell!.edittingFlag = true
+        cell!.star1.userInteractionEnabled = true
+        cell!.star2.userInteractionEnabled = true
+        cell!.star3.userInteractionEnabled = true
+        cell!.star4.userInteractionEnabled = true
+        cell!.star5.userInteractionEnabled = true
         cell?.star1.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+        } else if cell!.edittingFlag == true{
+            cell!.edittingFlag = false
+            cell?.setPostData1(self.postArray[indexPath!.row])
+            cell!.star1.userInteractionEnabled = false
+            cell!.star2.userInteractionEnabled = false
+            cell!.star3.userInteractionEnabled = false
+            cell!.star4.userInteractionEnabled = false
+            cell!.star5.userInteractionEnabled = false
+            
+        }
     }
     
      //ここでprofie画像消さないようにするには

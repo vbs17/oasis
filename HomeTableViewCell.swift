@@ -11,6 +11,9 @@ class HomeTableViewCell: UITableViewCell {
     
     var tap:NSData?
     weak var playSong: AVAudioPlayer!
+    var edittingFlag : Bool = false
+    
+
 
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var ImageView: UIImageView!
@@ -81,7 +84,7 @@ class HomeTableViewCell: UITableViewCell {
     //starDic[0] => "bbb"
     //starDic[1] => “3"ってこと？//はいそうです。
     //平均値を取得して反映させる  あれよ大事なあれこれでみんなにデータが配られるわけよこれが原点よ
-    func setPostData(postData: PostData, myid: String) {
+    func setPostData(postData: PostData) {
         let stars = postData.star
         
         var average: Int = 0
@@ -111,7 +114,35 @@ class HomeTableViewCell: UITableViewCell {
         label2.text = postData.byou
         tap = NSData(base64EncodedString: postData.realsong!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
     }
+    
+    func setPostData1(postData: PostData) {
+        let stars = postData.star
         
+        var average: Int = 0
+        
+        if stars.count > 0 {
+            // 評価の合計
+            var sum = 0              //["UID" : "星の数"]
+            for data in stars as Array<[String: String]> {
+                let starDic = Array(data.keys)
+                //starDic[0]はuidで[1]は星の数
+                let uid = starDic[0]
+                let ratingStr = data[uid]! as String
+                if let rating = Int(ratingStr) {
+                    sum += rating
+                }
+                
+                
+            }
+            average = Int(ceil(Double(sum) / Double(stars.count)))
+            print("合計:\(sum), 投票数:\(stars.count), 平均値:\(average)")
+        }
+        
+        updateStar(average)
+        
+    }
+
+    
     //見た目しかやってない
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -127,11 +158,6 @@ class HomeTableViewCell: UITableViewCell {
         backButton.enabled = false
         imageView1.layer.cornerRadius = 22.2
         imageView1.clipsToBounds = true
-        star1.userInteractionEnabled = false
-        star1.userInteractionEnabled = false
-        star1.userInteractionEnabled = false
-        star1.userInteractionEnabled = false
-        star1.userInteractionEnabled = false
 
         
     }
