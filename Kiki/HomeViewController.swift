@@ -152,7 +152,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let byou = postData.byou
         let realsong = postData.realsong
         let star = postData.star //97行目
-        let uid:NSString = (FIRAuth.auth()?.currentUser?.uid)!
+        let uid:NSString = postData.uid!
         let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH).child(genre)
         let postData2 = ["image":imageString!,"songname":name!,"ongen":song!,"byou":byou!,"realsong":realsong!,"star":star,"uid":uid]
         postRef.child(postData.id!).setValue(postData2)
