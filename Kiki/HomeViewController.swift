@@ -194,6 +194,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         self.postArray.insert(postData, atIndex: 0)
+                        
                         self.tableView.reloadData()
                     }
                 })
@@ -211,6 +212,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         }
                         self.postArray.removeAtIndex(index)
                         self.postArray.insert(postData, atIndex: index)
+                        
                         self.tableView.reloadData()
                     }
                 })
@@ -220,6 +222,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData2(snapshot: snapshot, myId: uid)
                         self.postArray2.insert(postData, atIndex: 0)
+                        
                         self.tableView.reloadData()
                     }
                 })
@@ -237,6 +240,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         }
                         self.postArray2.removeAtIndex(index)
                         self.postArray2.insert(postData, atIndex: index)
+                        
                         self.tableView.reloadData()
                     }
                 })
@@ -246,6 +250,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         } else {
             if observing == true {
                 postArray = []
+                
                 tableView.reloadData()
                 FIRDatabase.database().reference().removeAllObservers()
                 observing = false

@@ -14,32 +14,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="379" height="468"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-QU-tFv">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-QU-tFv">
                         <rect key="frame" x="0.0" y="0.0" width="379" height="300"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="300" id="hqn-jH-mV3"/>
-                            <constraint firstAttribute="width" constant="379" id="wm2-ze-vg9"/>
-                        </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diB-Ai-OmM">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diB-Ai-OmM">
                         <rect key="frame" x="85" y="0.0" width="294" height="300"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="294" id="XW5-93-4Ql"/>
-                            <constraint firstAttribute="height" constant="300" id="lSQ-jX-5rb"/>
-                        </constraints>
                         <state key="normal">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                    </button>
-                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGr-oM-cqs">
-                        <rect key="frame" x="123" y="356" width="59" height="64"/>
-                        <state key="normal" title="Button"/>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-Uk-188">
                         <rect key="frame" x="64" y="356" width="59" height="64"/>
                         <state key="normal" title="Button"/>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGr-oM-cqs">
+                        <rect key="frame" x="123" y="356" width="59" height="64"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
+                        <rect key="frame" x="181" y="356" width="59" height="64"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
+                        <rect key="frame" x="236" y="356" width="60" height="64"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
+                        <rect key="frame" x="295" y="356" width="59" height="64"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbk-Ed-PD0">
                         <rect key="frame" x="14" y="303" width="349" height="35"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-8R-nN3">
@@ -47,10 +51,6 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </progressView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="35" id="74u-K3-nEu"/>
-                            <constraint firstAttribute="width" constant="349" id="Lk5-jy-waD"/>
-                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMN-Yt-9yQ">
                         <rect key="frame" x="4" y="242" width="363" height="25"/>
@@ -72,10 +72,6 @@
                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q75-k2-nJp">
-                        <rect key="frame" x="236" y="356" width="60" height="64"/>
-                        <state key="normal" title="Button"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV3-LJ-RMM">
                         <rect key="frame" x="4" y="362" width="56" height="58"/>
                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -89,41 +85,19 @@
                         <color key="textColor" red="1" green="0.98722288120000001" blue="0.73309557130000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評価する" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJV-fp-bbK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="評価する" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJV-fp-bbK">
                         <rect key="frame" x="14" y="418" width="36" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-1H-FS5">
-                        <rect key="frame" x="181" y="356" width="59" height="64"/>
-                        <state key="normal" title="Button"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEn-ah-eNy">
                         <rect key="frame" x="4" y="0.0" width="67" height="64"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXP-r2-gGF">
                         <rect key="frame" x="14" y="8" width="46" height="46"/>
                     </imageView>
-                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-S1-qm3">
-                        <rect key="frame" x="295" y="356" width="59" height="64"/>
-                        <state key="normal" title="Button"/>
-                    </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="oMh-QU-tFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2QG-AI-A28"/>
-                    <constraint firstAttribute="trailing" secondItem="diB-Ai-OmM" secondAttribute="trailing" id="5Ru-62-zNY"/>
-                    <constraint firstAttribute="bottom" secondItem="YJV-fp-bbK" secondAttribute="bottom" constant="30" id="JQy-zD-Yag"/>
-                    <constraint firstItem="oMh-QU-tFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MER-oe-gTv"/>
-                    <constraint firstItem="Gbk-Ed-PD0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-1" id="TKJ-33-ULU"/>
-                    <constraint firstAttribute="trailing" secondItem="YJV-fp-bbK" secondAttribute="trailing" constant="329" id="c8d-CR-1oF"/>
-                    <constraint firstItem="YJV-fp-bbK" firstAttribute="top" secondItem="Gbk-Ed-PD0" secondAttribute="bottom" constant="80" id="ezt-NW-cJP"/>
-                    <constraint firstItem="YJV-fp-bbK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="kRY-ie-d57"/>
-                    <constraint firstItem="diB-Ai-OmM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lr4-QC-1vv"/>
-                    <constraint firstItem="diB-Ai-OmM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="oyW-ZI-31T"/>
-                    <constraint firstAttribute="trailing" secondItem="oMh-QU-tFv" secondAttribute="trailing" id="sRr-SK-3Bn"/>
-                    <constraint firstItem="Gbk-Ed-PD0" firstAttribute="top" secondItem="oMh-QU-tFv" secondAttribute="bottom" constant="3" id="sqI-Xc-lGI"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="ImageView" destination="oMh-QU-tFv" id="Acu-YI-wQM"/>
@@ -143,7 +117,7 @@
                 <outlet property="star5" destination="FcN-S1-qm3" id="ERe-1e-yXv"/>
                 <outlet property="view" destination="Gbk-Ed-PD0" id="SSC-wM-iPQ"/>
             </connections>
-            <point key="canvasLocation" x="-119.5" y="232.5"/>
+            <point key="canvasLocation" x="-30.5" y="232.5"/>
         </tableViewCell>
     </objects>
 </document>
