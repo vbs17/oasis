@@ -20,6 +20,8 @@ class ProIdouViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.layer.cornerRadius = 75
+        imageView.clipsToBounds = true
         FIRDatabase.database().reference().child(CommonConst.Profile).observeEventType(.ChildAdded, withBlock: { snapshot in
             
             let postData = PostData2(snapshot: snapshot, myId: snapshot.key)

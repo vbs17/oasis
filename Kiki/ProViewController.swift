@@ -17,6 +17,7 @@ class ProViewController: UIViewController {
     @IBOutlet weak var den: UITextField!
     @IBOutlet weak var ta: UITextField!
     @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var imageView1: UIImageView!
     
     
     @IBAction func post(sender: AnyObject) {
@@ -69,6 +70,10 @@ class ProViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.layer.cornerRadius = 75
+        imageView.clipsToBounds = true
+        imageView1.layer.cornerRadius = 75
+        imageView1.clipsToBounds = true
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
         self.imageView.image = image
