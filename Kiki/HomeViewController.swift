@@ -254,6 +254,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if postArray.count < 1 {
+            print("nodata")
+        }
         return postArray.count
     }
     
