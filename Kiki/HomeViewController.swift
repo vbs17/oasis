@@ -185,6 +185,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     
     
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
