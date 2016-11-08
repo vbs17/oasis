@@ -17,8 +17,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     var tableView: UITableView!
     var playingIndexPath:NSIndexPath!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -27,8 +25,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.registerNib(nib, forCellReuseIdentifier: "CEll")
         back.layer.cornerRadius = 37
         back.clipsToBounds = true
-       
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -79,15 +75,13 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
 
-    
     func getIndexPath(event:UIEvent) -> NSIndexPath? {
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
         return indexPath
     }
-
-    //色を無色星にする
+     //ここが怪しい
     func hyoukaGo(sender:UIButton, event:UIEvent){
         let indexPath = getIndexPath(event)
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
@@ -116,7 +110,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             
         }
     }
-    
+    //ここが怪しいhoshiした後に文字が赤なのはおかしい
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -124,6 +118,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let postData = postArray[indexPath!.row]
         let cell = tableView.cellForRowAtIndexPath(indexPath!) as! HomeTableViewCell?
         //どのセルかわかった
+        cell!.hyouka.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+
         if let uid = FIRAuth.auth()?.currentUser?.uid {
             var index = -1 //0からpostData.star.count(postData.star.countは含まない)
             for var i in (0 ..< postData.star.count) {
@@ -182,10 +178,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         postRef.child(postData.id!).setValue(postData2)
     }
     
-    
-    
-    
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
@@ -213,8 +205,8 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         }
                         self.postArray.removeAtIndex(index)
                         self.postArray.insert(postData, atIndex: index)
-                        
                         self.tableView.reloadData()
+
                     }
                 })
                 
@@ -241,7 +233,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                         }
                         self.postArray2.removeAtIndex(index)
                         self.postArray2.insert(postData, atIndex: index)
-                        
                         self.tableView.reloadData()
                     }
                 })
@@ -306,7 +297,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
-    //巻き戻し
     func back(sender: UIButton, event:UIEvent) {
         
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
@@ -319,7 +309,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(HomeViewController.updatePlayingTime), userInfo: nil, repeats: true)
         }
     
-    //tesita
     func formatTimeString(d: Double) -> String {
         let s: Int = Int(d % 60)
         let m: Int = Int((d - Double(s)) / 60 % 60)
@@ -335,7 +324,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return UITableViewAutomaticDimension
     }
     
-    // セルをタップされたら何もせずに選択状態を解除する
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -344,7 +332,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    //波と秒数
     func updatePlayingTime() {
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         if (cell != nil) && (playSong.currentTime >= 0.1) {
@@ -353,7 +340,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
-    //厄介者　再生が完了した時の作業
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         let cell = tableView.cellForRowAtIndexPath(playingIndexPath) as! HomeTableViewCell?
         timer.invalidate()
@@ -362,7 +348,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             cell!.nami.progress = 0
         }
     }
-    //違う画面になった時停止してタイマー止める
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if playSong != nil {
