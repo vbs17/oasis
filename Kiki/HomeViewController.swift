@@ -117,7 +117,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         }
     }
     
-     //ここでprofie画像消さないようにするには
     func hoshi(sender: UIButton, event:UIEvent){
         let touch = event.allTouches()?.first
         let point = touch!.locationInView(self.tableView)
@@ -147,18 +146,30 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         switch sender.tag {
         case 1:
             cell?.star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            cell?.star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+
         case 2:
             cell?.star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
-            cell?.star2.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            cell?.star3.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         case 3:
             cell?.star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star3.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            cell?.star4.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+            cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
         case 4:
             cell?.star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star3.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star4.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
+            cell?.star5.setImage(UIImage(named:"IMG_2728 2"), forState: UIControlState.Normal)
+
         case 5:
             cell?.star1.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
             cell?.star2.setImage(UIImage(named:"IMG_2727 2"), forState: UIControlState.Normal)
