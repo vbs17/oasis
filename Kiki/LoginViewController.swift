@@ -9,6 +9,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     
+   
     @IBAction func handleLoginButton(sender: AnyObject) {
         if let address = mailAddressTextField.text, let password = passwordTextField.text {
             

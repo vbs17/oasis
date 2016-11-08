@@ -5,6 +5,7 @@
 import UIKit
 import AVFoundation
 
+
 //録音できたものを次の画面に移す　録音中にマイクの音を拾って波をつける
 
 class ViewController: UIViewController,AVAudioRecorderDelegate {
@@ -18,6 +19,8 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    
+   
     
     
     func levelTimerCallback() {
@@ -37,6 +40,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         
         
     }
+    
 
 
     

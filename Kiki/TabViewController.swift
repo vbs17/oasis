@@ -58,7 +58,9 @@ class TabViewController: UIViewController {
             
         }
     }
-    override func didReceiveMemoryWarning() {
+
+    
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
