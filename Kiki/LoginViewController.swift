@@ -12,6 +12,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -100,17 +102,13 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
    
     
-    //ログアウトボタンが押された時の処理
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        println("User Logged Out")
-    }
     
     override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
-            println("User Already Logged In")
+            print("User Already Logged In")
             //後で既にログインしていた場合の処理（メイン画面へ遷移）を書く
         } else {
-            println("User not Logged In")
+            print("User not Logged In")
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
             self.view.addSubview(loginView)
             loginView.center = self.view.center
@@ -125,7 +123,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         
         func loginButton(loginButton: FBSDKLoginButton!,didCompleteWithResult
             result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-            println("User Logged In")
+            print("User Logged In")
             
             if ((error) != nil)
             {
