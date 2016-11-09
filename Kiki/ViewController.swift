@@ -19,6 +19,8 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     let photos = ["Kiki17", "Kiki18", "Kiki19","Kiki20","Kiki21","08531cedbc172968acd38e7fa2bfd2e0"]
     var count = 1
     var timeCount = 1
+    let ApplicationDidEnterBackgroundNotification = "ApplicationDidEnterBackgroundNotification"
+
     
    
     
@@ -61,7 +63,20 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         self.setupAudioRecorder()
         recordImage!.layer.cornerRadius = 37
         recordImage!.clipsToBounds = true
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "applicationDidEnterBackground:",
+            name: ApplicationDidEnterBackgroundNotification,
+            object: nil
+        )
     }
+    
+    // Notification Method（通知受信時のメソッド）
+    func applicationDidEnterBackground(notification: NSNotification) {
+        print("applicationDidEnterBackground!")
+    }
+
+    
     
     @IBAction func recordStart(sender: UIButton) {
         if count == 1{
@@ -162,6 +177,37 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         }
     }
    
+   
+    
+
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
   }
 

@@ -11,6 +11,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    let ApplicationDidEnterBackgroundNotification = "ApplicationDidEnterBackgroundNotification"
+    
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        let ns = NSNotificationCenter.defaultCenter()
+        ns.postNotificationName(ApplicationDidEnterBackgroundNotification, object: nil)
+    }
+    
     
 
 
@@ -30,9 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-      
-    }
+    
+    
 
     func applicationWillEnterForeground(application: UIApplication) {
     }
