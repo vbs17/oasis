@@ -65,18 +65,21 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         recordImage!.clipsToBounds = true
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "applicationDidEnterBackground:",
-            name: ApplicationDidEnterBackgroundNotification,
+            selector: "applicationWillResignActive:",
+            name:UIApplicationWillResignActiveNotification,
             object: nil
         )
     }
     
-    // Notification Method（通知受信時のメソッド）
-    func applicationDidEnterBackground(notification: NSNotification) {
-        print("applicationDidEnterBackground!")
+    func applicationWillResignActive(notification: NSNotification) {
+        print("applicationWillResignActive!")
+        if ( audioRecorder.recording ) {
+            self.timeCountTimer.invalidate()
+            self.timer.invalidate()
+            audioRecorder.stop()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
-
-    
     
     @IBAction func recordStart(sender: UIButton) {
         if count == 1{

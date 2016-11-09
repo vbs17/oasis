@@ -32,7 +32,27 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
         super.viewDidLoad()
         recImage!.layer.cornerRadius = 37
         recImage!.clipsToBounds = true
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:"applicationWillResignActive:",
+            name:UIApplicationWillResignActiveNotification,
+            object: nil
+        )
     }
+    
+    func applicationWillResignActive(notification: NSNotification) {
+        print("applicationWillResignActive!")
+        if ( audioEngine.running ) {
+            self.timeCountTimer.invalidate()
+            self.timer.invalidate()
+            audioEngine.mainMixerNode.removeTapOnBus(0)
+            audioEngine.stop()
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+        
+    
     
     
     @IBAction func rec(sender: AnyObject) {
