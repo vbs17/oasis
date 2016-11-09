@@ -39,7 +39,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
             object: nil
         )
     }
-    
+    //音源消す
     func applicationWillResignActive(notification: NSNotification) {
         print("applicationWillResignActive!")
         if ( audioEngine.running ) {
@@ -73,6 +73,7 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     func nextGamenn(){
         let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Play2") as! Play2ViewController
         playviewcontroller.songData2 = songFile
+        playviewcontroller.songData = self.songData
         self.presentViewController(playviewcontroller, animated: true, completion: nil)
     }
     
@@ -203,9 +204,10 @@ class _TViewController: UIViewController,AVAudioRecorderDelegate {
     
     
     @IBAction func back(sender: AnyObject) {
-        playSong.stop()
-        timer.invalidate()
-        self.timeCountTimer.invalidate()
+        timer?.invalidate()
+        timeCountTimer?.invalidate()
+        audioEngine?.mainMixerNode.removeTapOnBus(0)
+        audioEngine?.stop()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

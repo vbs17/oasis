@@ -46,9 +46,6 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
 
 
     
-    @IBAction func back(sender: AnyObject) {
-         self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var viewImage: UIView!
@@ -70,7 +67,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
             object: nil
         )
     }
-    
+    //音源消す
     func applicationWillResignActive(notification: NSNotification) {
         print("applicationWillResignActive!")
         if ( audioRecorder.recording ) {
@@ -180,6 +177,15 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
         }
     }
    
+    @IBAction func back(sender: AnyObject) {
+        self.timeCountTimer?.invalidate()
+        self.timer?.invalidate()
+        audioRecorder?.stop()
+        let playviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Syuru") as! SyuruViewController
+        self.presentViewController(playviewcontroller, animated: true, completion: nil)
+        
+    }
+
    
     
 

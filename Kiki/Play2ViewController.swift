@@ -6,6 +6,7 @@ import MediaPlayer
 
 class Play2ViewController: UIViewController {
     var songData2:NSURL!
+    var songData:NSURL!
     var playSong:AVAudioPlayer!
     var timer = NSTimer()
     let recordSetting : [String : AnyObject] = [
@@ -62,6 +63,7 @@ class Play2ViewController: UIViewController {
         let deleteSong = try!AVAudioRecorder(URL: songData2,settings:recordSetting)
         deleteSong.deleteRecording()
         let viewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("Top2") as! _TViewController
+        viewcontroller.songData = self.songData
         self.presentViewController(viewcontroller, animated: true, completion: nil)
         let manager = NSFileManager()
         if manager.fileExistsAtPath(songData2.absoluteString){

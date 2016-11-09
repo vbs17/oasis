@@ -10,6 +10,8 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var mailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
+    var timer: NSTimer!
+
     
     
     
@@ -27,6 +29,8 @@ class LoginViewController: UIViewController{
             
             if address.characters.isEmpty || password.characters.isEmpty {
                 SVProgressHUD.showErrorWithStatus("必要項目を入力して下さい")
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(LoginViewController.kesu), userInfo: nil, repeats: false )
+
                 return
             }
             
@@ -35,6 +39,8 @@ class LoginViewController: UIViewController{
             FIRAuth.auth()?.signInWithEmail(address, password: password) { user, error in
                 if error != nil {
                     SVProgressHUD.showErrorWithStatus("エラー")
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LoginViewController.kesu), userInfo: nil, repeats: false )
+
                     
                     print(error)
                 } else {
@@ -56,6 +62,8 @@ class LoginViewController: UIViewController{
             if address.characters.isEmpty || password.characters.isEmpty
                 || displayName.characters.isEmpty {
                 SVProgressHUD.showErrorWithStatus("必要項目を入力して下さい")
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(LoginViewController.kesu), userInfo: nil, repeats: false )
+
                 return
             }
             
@@ -64,11 +72,14 @@ class LoginViewController: UIViewController{
             FIRAuth.auth()?.createUserWithEmail(address, password: password) { user, error in
                 if error != nil {
                     SVProgressHUD.showErrorWithStatus("エラー")
+                     self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LoginViewController.kesu), userInfo: nil, repeats: false )
                     print(error)
                 } else {
                     FIRAuth.auth()?.signInWithEmail(address, password: password) { user, error in
                         if error != nil {
                             SVProgressHUD.showErrorWithStatus("エラー")
+                            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LoginViewController.kesu), userInfo: nil, repeats: false )
+
                             print(error)
                         } else {
                             if let user = user {
@@ -99,6 +110,10 @@ class LoginViewController: UIViewController{
         ud.synchronize()
     }
     
+    func kesu(){
+        SVProgressHUD.dismiss()
+        timer.invalidate()
+    }
    
     
     
