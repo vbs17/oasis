@@ -44,7 +44,10 @@ class TabViewController: UIViewController {
         set1.clipsToBounds = true
         pro.layer.cornerRadius = 35
         pro.clipsToBounds = true
-        
+        recpic1.titleLabel?.adjustsFontSizeToFitWidth = true
+        set1.titleLabel?.adjustsFontSizeToFitWidth = true
+        music1.titleLabel?.adjustsFontSizeToFitWidth = true
+        pro.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     override func viewDidAppear(animated: Bool) {
