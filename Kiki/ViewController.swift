@@ -58,7 +58,7 @@ class ViewController: UIViewController,AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAudioRecorder()
-        recordImage!.layer.cornerRadius = 37
+        recordImage!.layer.cornerRadius = recordImage!.frame.size.width / 2
         recordImage!.clipsToBounds = true
         NSNotificationCenter.defaultCenter().addObserver(
             self,
